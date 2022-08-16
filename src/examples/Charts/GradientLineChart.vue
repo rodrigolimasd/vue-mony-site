@@ -48,19 +48,20 @@ export default {
     new Chart(ctx1, {
       type: "line",
       data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: ["Jan", "Feb", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov"],
         datasets: [
           {
-            label: "Mobile apps",
-            tension: 0.4,
+            label: "$",
+            tension: 0.0,
             borderWidth: 0,
             pointRadius: 0,
             borderColor: "#4BB543 ",
             backgroundColor: gradientStroke1,
             // eslint-disable-next-line no-dupe-keys
-            borderWidth: 3,
+            borderWidth: 2,
             fill: true,
-            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+            //data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+            data: [67400, 86600, 97230, 125700, 143800, 164800, 187300, 115600, 136600],
             maxBarThickness: 6,
           },
         ],
