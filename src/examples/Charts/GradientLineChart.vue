@@ -58,7 +58,7 @@ export default {
             borderColor: "#4BB543 ",
             backgroundColor: gradientStroke1,
             // eslint-disable-next-line no-dupe-keys
-            borderWidth: 2,
+            borderWidth: 3,
             fill: true,
             //data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
             data: [67400, 86600, 97230, 125700, 143800, 164800, 187300, 115600, 136600],
