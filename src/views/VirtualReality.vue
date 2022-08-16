@@ -95,9 +95,9 @@
 </template>
 
 <script>
-import Sidenav from "@/examples/Sidenav";
-import AppFooter from "@/examples/Footer.vue";
-import Navbar from "@/examples/Navbars/Navbar.vue";
+import Sidenav from "@/components/layout/Sidenav";
+import AppFooter from "@/components/layout/Footer.vue";
+import Navbar from "@/components/layout/Navbars/Navbar.vue";
 import CardCalendar from "./components/CardCalendar.vue";
 import CardEmail from "./components/CardEmail.vue";
 import CardToDo from "./components/CardToDo.vue";

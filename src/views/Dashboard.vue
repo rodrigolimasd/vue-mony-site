@@ -50,22 +50,17 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-7 mb-lg">
+          <div class="col-lg-6 mb-lg">
             <!-- line chart -->
             <div class="card z-index-2">
               <gradient-line-chart />
             </div>
           </div>
-          <div class="col-lg-5">
-            <carousel />
-          </div>
-        </div>
-        <div class="row mt-4">
-          <div class="col-lg-7 mb-lg-0 mb-4">
+          <div class="col-lg-6 mb-lg-0 mb-4">
             <div class="card">
               <div class="p-3 pb-0 card-header">
                 <div class="d-flex justify-content-between">
-                  <h6 class="mb-2">Transactions</h6>
+                  <h6 class="mb-2">Last Transactions</h6>
                 </div>
               </div>
               <div class="table-responsive">
@@ -103,6 +98,11 @@
                 </table>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-7">
+            <carousel />
           </div>
           <div class="col-lg-5">
             <categories-card />

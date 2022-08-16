@@ -39,11 +39,6 @@
           </template>
         </sidenav-item>
       </li>
-      <li class="mt-3 nav-item">
-        <h6 class="text-xs ps-4 text-uppercase font-weight-bolder opacity-6 ms-2">
-          ACCOUNT
-        </h6>
-      </li>
       <li class="nav-item">
         <sidenav-item
           url="/profile"

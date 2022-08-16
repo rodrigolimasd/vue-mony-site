@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import img from "../../assets/img/illustrations/icon-documentation.svg";
+import img from "../../../assets/img/illustrations/icon-documentation.svg";
 
 export default {
   name: "sidenav-card",
