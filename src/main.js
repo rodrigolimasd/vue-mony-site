@@ -10,7 +10,7 @@ import filters from './helpers/filters'
 
 const appInstance = createApp(App);
 appInstance.config.globalProperties.$filters = filters
-appInstance.use(store);
 appInstance.use(router);
 appInstance.use(ArgonDashboard);
+appInstance.use(store);
 appInstance.mount("#app");

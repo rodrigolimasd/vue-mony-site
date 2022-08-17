@@ -2,6 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-10">
+        
         <!-- PlanCard -->
         <div class="card h-100 mb-4">
           <div class="card-header pb-0 px-3">
@@ -46,9 +47,9 @@
                <div class="col-1">
                   <argon-button color="success" variant="outline" size="xs" 
                         class="btn mb-2">
-                    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+                    <i class="fas fa-arrow-up" @click="addBeforeSchedule(e)" aria-hidden="true"></i>
                   </argon-button>
-                   <argon-button color="success" variant="outline" size="xs"
+                   <argon-button color="success" @click="addAfterSchdule(e)" variant="outline" size="xs"
                         class="btn mb-2">
                     <i class="fas fa-arrow-down" aria-hidden="true"></i>
                   </argon-button>
@@ -56,8 +57,12 @@
                <hr>
             </div>
 
+            <!-- PlanItem END -->
+
           </div>
         </div>
+        <!-- PlanCard END -->
+
       </div>
     </div>
   </div>
@@ -65,6 +70,7 @@
 
 <script>
 import ArgonButton from "@/components/ArgonButton.vue";
+import { mapMutations } from 'vuex'
 
 export default {
   components: {
@@ -72,44 +78,33 @@ export default {
   },
   data() {
     return {
-      schedules: [
-        {
-          date: new Date(2022, 4, 12),
-          income: 103430.0,
-          expense: 16800.0,
-          balanceValue: 150230.0,
-          note: "House Rent/Sales",
-        },
-        {
-          date: new Date(2022, 4, 15),
-          income: 0.0,
-          expense: 20200.0,
-          balanceValue: 113230.0,
-          note: "Credit Card",
-        },
-        {
-          date: new Date(2022, 4, 20),
-          income: 0.0,
-          expense: 8274.4,
-          balanceValue: 104955.6,
-          note: "Taxes",
-        },
-        {
-          date: new Date(2022, 4, 30),
-          income: 0.0,
-          expense: 7725.6,
-          balanceValue: 97230.0,
-          note: "Others",
-        },
-      ],
+      
     };
   },
+  computed: {
+    schedules() {
+      return this.$store.state.plan.schedules
+    }
+  },
   methods: {
+    ...mapMutations(['addBeforeSchedule','addAfterSchdule']),
     getDateFormated: (date) => {
         return date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
     },
     getDay: (date) => {
         return date.getDate()
+    },
+    addBefore: (next) => {
+        console.log(next)
+        // let schedulesWithBefore = [...next]
+        // this.schedules = [schedulesWithBefore, ...this.schedules]
+    },
+    addAfter(last) {
+       console.log(last)
+       console.log(this.schedules)
+    //    let schedulesNew = [...this.schedules]
+    //    schedulesNew.push(last)
+    //    console.log(schedulesNew)
     }
   }
 };

@@ -1,4 +1,24 @@
 import { createStore } from "vuex";
+import plan from './modules/plan'
+
+const moduleA = {
+  state: () => ({
+    count: 0
+  }),
+  mutations: {
+    increment (state) {
+      // `state` is the local module state
+      state.count++
+    }
+  },
+  getters: {
+    doubleCount (state) {
+      return state.count * 2
+    }
+  }
+}
+
+
 
 export default createStore({
   state: {
@@ -51,5 +71,9 @@ export default createStore({
       commit("sidebarType", payload);
     }
   },
-  getters: {}
+  //getters: {},
+  modules: {
+    moduleA,
+    plan
+  }
 });
