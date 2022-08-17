@@ -70,6 +70,10 @@ export default {
             newSchedule.expense = 0.00
             newSchedule.balanceValue = 0.00
             state.schedules.splice(indexSchdule+1,0,newSchedule)
+        },
+        removeSchedule(state, payload){
+            const indexSchdule = state.schedules.indexOf(payload)
+            state.schedules.splice(indexSchdule, 1)
         }
     }
 }

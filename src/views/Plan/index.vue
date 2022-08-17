@@ -29,6 +29,7 @@
                   <!-- PlanItem -->
 
                     <div class="row" v-for="e in m.schedules" :key="e.note">
+                        
                       <div class="col-1">
                             <h5 class="">{{getDay(e.date)}}</h5>
                       </div>
@@ -42,26 +43,39 @@
                             <h6 class="mb-1 text-md text-end text-success">{{$filters.money(e.income)}}</h6>
                           </div>
                       </div>
-                      <div class="col-2">
+                      <div class="col-3">
                           <div class="d-flex flex-column">
                             <h6 class="mb-1 text-md text-success text-end">{{$filters.money(e.balanceValue)}}</h6>
                           </div>
                       </div>
-                      <div class="col-2">
+                      <div class="col-3">
                           <div class="d-flex flex-column">
                             <h6 class="mb-1 text-md text-primary text-end">{{e.note}}</h6>
                           </div>
                       </div>
-                      <div class="col-2">
-                          <argon-button color="success" variant="outline" size="xs" 
-                                class="btn m-1 mb-2">
-                            <i class="fas fa-arrow-up" @click="addBeforeSchedule(e)" aria-hidden="true"></i>
-                          </argon-button>
-                          <argon-button color="success" @click="addAfterSchdule(e)" variant="outline" size="xs"
-                                class="btn m-1 mb-2">
-                            <i class="fas fa-arrow-down" aria-hidden="true"></i>
-                          </argon-button>
+                      <div class="col-1">
+                        <div class="dropdown">
+                          <button class="btn btn-outline-info btn-xs dropdown-toggle" type="button" 
+                                  id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                            <!-- <i class="fa fa-cog"></i> -->
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <li>
+                              <button class="dropdown-item" type="button" @click="addBeforeSchedule(e)">
+                                  <i class="fa fa-arrow-up"></i> <span> New Line Above </span>
+                              </button>
+                            </li>
+                            <li>
+                              <button class="dropdown-item" type="button" @click="addAfterSchdule(e)">
+                                <i class="fa fa-arrow-down"></i> <span> New Line Below </span>
+                                </button>
+                            </li>
+                            <li><button class="dropdown-item" type="button" @click="removeSchedule(e)">
+                              <i class="fa fa-trash"></i> <span> Remove</span> </button></li>
+                          </ul>
+                        </div>
                       </div>
+                    
                       <hr>
                     </div>
 
@@ -82,12 +96,12 @@
 </template>
 
 <script>
-import ArgonButton from "@/components/ArgonButton.vue";
+//import ArgonButton from "@/components/ArgonButton.vue";
 import { mapMutations } from 'vuex'
 
 export default {
   components: {
-    ArgonButton,
+   // ArgonButton,
   },
   data() {
     return {
@@ -103,7 +117,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['addBeforeSchedule','addAfterSchdule']),
+    ...mapMutations(['addBeforeSchedule','addAfterSchdule','removeSchedule']),
     getDateFormated: (date) => {
         return date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
     },
@@ -167,4 +181,7 @@ export default {
 </script>
 
 <style scoped>
+/* .dropdown-toggle::after {
+    display: none;
+} */
 </style>
