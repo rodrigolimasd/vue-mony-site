@@ -3,7 +3,7 @@ export default {
     state: {
         schedules: [
               {
-                date: new Date(2021, 4, 12),
+                date: new Date(2021, 1, 12),
                 income: 103430.0,
                 expense: 16800.0,
                 balanceValue: 150230.0,

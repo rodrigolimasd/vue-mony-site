@@ -12,73 +12,56 @@
               </div>
             </div>
           </div>
-          <div class="card-body pt-4 p3">
+          <div class="card-body pt-1 p1">
 
 
               <slot v-for="y in schedulesByYear" :key="y.year">
                 <slot v-for="m in y.months" :key="y.year+'-'+m.month">
-                    <!-- <h6 class="text-uppercase text-body text-sm 
-                        font-weight-bolder mb-3">
-                      <span>
-                         {{ y.year }} {{ getMonthName(m.month) }}
-                      </span>
-                    </h6> -->
-                    <h6 class="card-title text-uppercase">
+
+                    <h6 class="card-title text-uppercase p-0 text-secondary">
                       <strong>{{ y.year }}</strong> {{ getMonthName(m.month) }}
                     </h6>
-                  <!-- PlanItem -->
 
+                    <!-- PlanItem -->
                     <div class="row" v-for="e in m.schedules" :key="e.note">
-                        
-                      <div class="col-1">
-                            <h5 class="">{{getDay(e.date)}}</h5>
+                      <div class="col-2 col-sm-1">
+                         <h4 class="text-nowrap text-secondary">{{getDay(e.date)}}</h4>
                       </div>
-                      <div class="col-2">
-                        <div class="d-flex flex-column">
-                            <h6 class="mb-1 text-md text-danger text-end">{{$filters.money(e.expense)}}</h6>
-                          </div>
+                      <div class="col-5 col-sm-2 p-1">
+                          <h6 class="mb-1 text-md text-danger text-end text-nowrap">-{{$filters.money(e.expense)}}</h6>
                       </div>
-                      <div class="col-2">
-                          <div class="d-flex flex-column ">
-                            <h6 class="mb-1 text-md text-end text-success">{{$filters.money(e.income)}}</h6>
-                          </div>
+                      <div class="col-4 col-sm-2 p-1">
+                          <h6 class="mb-1 text-end text-success text-nowrap">+{{$filters.money(e.income)}}</h6>
                       </div>
-                      <div class="col-3">
-                          <div class="d-flex flex-column">
-                            <h6 class="mb-1 text-md text-success text-end">{{$filters.money(e.balanceValue)}}</h6>
-                          </div>
+                      <div class="col-12 col-sm-2 p-1">
+                        <h6 class="mb-1 text-md text-end text-nowrap">= {{$filters.money(e.balanceValue)}}</h6>
                       </div>
-                      <div class="col-3">
-                          <div class="d-flex flex-column">
-                            <h6 class="mb-1 text-md text-primary text-end">{{e.note}}</h6>
-                          </div>
+                      <div class="col-10 col-sm-4">
+                                <h6 class="mb-1 text-md text-primary text-end text-nowrap">{{e.note}}</h6>
                       </div>
-                      <div class="col-1">
-                        <div class="dropdown">
-                          <button class="btn btn-outline-info btn-xs dropdown-toggle" type="button" 
-                                  id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                            <!-- <i class="fa fa-cog"></i> -->
-                          </button>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <li>
-                              <button class="dropdown-item" type="button" @click="addBeforeSchedule(e)">
-                                  <i class="fa fa-arrow-up"></i> <span> New Line Above </span>
+                      <div class="col-2 col-sm-1 p-1">
+                          <div class="dropdown float-end">
+                              <button class="btn btn-outline-info btn-xs dropdown-toggle" type="button" 
+                                      id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                               </button>
-                            </li>
-                            <li>
-                              <button class="dropdown-item" type="button" @click="addAfterSchdule(e)">
-                                <i class="fa fa-arrow-down"></i> <span> New Line Below </span>
-                                </button>
-                            </li>
-                            <li><button class="dropdown-item" type="button" @click="removeSchedule(e)">
-                              <i class="fa fa-trash"></i> <span> Remove</span> </button></li>
-                          </ul>
-                        </div>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <li>
+                                  <button class="dropdown-item" type="button" @click="addBeforeSchedule(e)">
+                                      <i class="fa fa-arrow-up"></i> <span> New Line Above </span>
+                                  </button>
+                                </li>
+                                <li>
+                                  <button class="dropdown-item" type="button" @click="addAfterSchdule(e)">
+                                    <i class="fa fa-arrow-down"></i> <span> New Line Below </span>
+                                    </button>
+                                </li>
+                                <li><button class="dropdown-item" type="button" @click="removeSchedule(e)">
+                                  <i class="fa fa-trash"></i> <span> Remove</span> </button></li>
+                              </ul>
+                          </div>
                       </div>
-                    
                       <hr>
                     </div>
-
                     <!-- PlanItem END -->
 
                 </slot>
