@@ -2,7 +2,14 @@ export default {
     //namespaced: false,
     state: {
         schedules: [
-            {
+              {
+                date: new Date(2021, 4, 12),
+                income: 103430.0,
+                expense: 16800.0,
+                balanceValue: 150230.0,
+                note: "House Rent/Sales",
+              },
+              {
                 date: new Date(2022, 4, 12),
                 income: 103430.0,
                 expense: 16800.0,
@@ -29,6 +36,13 @@ export default {
                 expense: 7725.6,
                 balanceValue: 97230.0,
                 note: "Others",
+              },
+              {
+                date: new Date(2022, 5, 12),
+                income: 0.0,
+                expense: 7725.6,
+                balanceValue: 97230.0,
+                note: "Teste month 5",
               },
         ]
     },
