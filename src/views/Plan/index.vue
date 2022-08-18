@@ -19,25 +19,29 @@
                 <slot v-for="m in y.months" :key="y.year+'-'+m.month">
 
                     <h6 class="card-title text-uppercase p-0 text-secondary">
-                      <strong>{{ y.year }}</strong> {{ getMonthName(m.month) }}
+                      <strong>{{ y.year }}</strong> - {{ getMonthName(m.month) }}
                     </h6>
 
                     <!-- PlanItem -->
                     <div class="row" v-for="e in m.schedules" :key="e.note">
                       <div class="col-2 col-sm-1">
-                         <h4 class="text-nowrap text-secondary">{{getDay(e.date)}}</h4>
+                         <h4 class="text-nowrap text-md text-secondary">{{getDay(e.date)}}</h4>
                       </div>
-                      <div class="col-5 col-sm-2 p-1">
-                          <h6 class="mb-1 text-md text-danger text-end text-nowrap">-{{$filters.money(e.expense)}}</h6>
+                      <div class="col-3 col-sm-2 p-1">
+                          <input class="form-control form-control-sm text-end text-danger" type="text" 
+                              placeholder=".form-control-sm" v-model="e.expense">
+                      </div>
+                      <div class="col-3 col-sm-2 p-1">
+                           <input class="form-control form-control-sm text-end text-success" type="text" 
+                              placeholder=".form-control-sm" v-model="e.income">
                       </div>
                       <div class="col-4 col-sm-2 p-1">
-                          <h6 class="mb-1 text-end text-success text-nowrap">+{{$filters.money(e.income)}}</h6>
+                        <input class="form-control form-control-sm text-end" type="text" 
+                              placeholder=".form-control-sm" v-model="e.balanceValue">
                       </div>
-                      <div class="col-12 col-sm-2 p-1">
-                        <h6 class="mb-1 text-md text-end text-nowrap">= {{$filters.money(e.balanceValue)}}</h6>
-                      </div>
-                      <div class="col-10 col-sm-4">
-                                <h6 class="mb-1 text-md text-primary text-end text-nowrap">{{e.note}}</h6>
+                      <div class="col-10 col-sm-4 p-1">
+                                 <input class="form-control text-primary text-md form-control-sm text-end" type="text" 
+                              placeholder=".form-control-sm" v-model="e.note">
                       </div>
                       <div class="col-2 col-sm-1 p-1">
                           <div class="dropdown float-end">
