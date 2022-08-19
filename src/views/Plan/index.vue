@@ -97,8 +97,7 @@ export default {
     return {
       currencyOptions: {
           currency: 'USD', 
-          autoDecimalDigits: true,
-          //currencyDisplay: 'hidden'
+          autoDecimalDigits: true
       }
     };
   },
@@ -112,9 +111,6 @@ export default {
   },
   methods: {
     ...mapMutations(['addBeforeSchedule','addAfterSchdule','removeSchedule']),
-    getDateFormated: (date) => {
-        return date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
-    },
     getDay: (date) => {
         return date.getDate()
     },
@@ -123,18 +119,6 @@ export default {
           "July", "August", "September", "October", "November", "December"
         ];
         return monthNames[month]
-    },
-    addBefore: (next) => {
-        console.log(next)
-        // let schedulesWithBefore = [...next]
-        // this.schedules = [schedulesWithBefore, ...this.schedules]
-    },
-    addAfter(last) {
-       console.log(last)
-       console.log(this.schedules)
-    //    let schedulesNew = [...this.schedules]
-    //    schedulesNew.push(last)
-    //    console.log(schedulesNew)
     },
     groupSchedules(schedules) {
         let groupsByYear = schedules.reduce((g, sc) => {
@@ -175,9 +159,6 @@ export default {
 </script>
 
 <style scoped>
-/* .dropdown-toggle::after {
-    display: none;
-} */
 .currency-input {
   padding-left: 3px
 }
