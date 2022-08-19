@@ -1,0 +1,14 @@
+.vuejs3-datepicker__value {
+    min-width: 20px !important;
+    border: none !important;
+    padding: 2px !important;
+  }
+
+.vuejs3-datepicker__content {
+  margin-left: 5px !important;
+  font-size: 16pt;
+}
+
+.vuejs3-datepicker__icon {
+  padding-top: 3px;
+}

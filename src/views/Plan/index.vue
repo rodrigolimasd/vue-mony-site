@@ -24,7 +24,7 @@
                     <!-- PlanItem -->
                     <div class="row" v-for="e in m.schedules" :key="e.note">
                       <div class="col-2 col-sm-1">
-                         <h4 class="text-nowrap text-md text-secondary">{{getDay(e.date)}}</h4>
+                         <datepicker v-model="e.date" format="dd" :hideInput="true"></datepicker>
                       </div>
                       <div class="col-3 col-sm-2 p-1">
                           <CurrencyInput class="form-control form-control-sm text-danger text-bold currency-input"
@@ -84,10 +84,12 @@
 <script>
 import CurrencyInput from '../../components/CurrencyInput.vue'
 import { mapMutations } from 'vuex'
+import Datepicker from 'vuejs3-datepicker';
 
 export default {
   components: {
-    CurrencyInput
+    CurrencyInput,
+    Datepicker
   },
   data() {
     return {
@@ -177,4 +179,11 @@ export default {
 .currency-input {
   padding-left: 3px
 }
+
+.vue-datepicker {
+   min-width: 20px !important;
+   border: none !important;
+   padding: 2px !important;
+}
+
 </style>

@@ -19,6 +19,7 @@
     "vue-currency-input": "^3.0.0",
     "vue-flatpickr-component": "9.0.5",
     "vue-router": "4.0.14",
+    "vuejs3-datepicker": "^1.0.7",
     "vuex": "4.0.2"
   },
   "devDependencies": {
