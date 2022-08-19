@@ -13,8 +13,7 @@
             </div>
           </div>
           <div class="card-body pt-1 p1">
-
-
+            
               <slot v-for="y in schedulesByYear" :key="y.year">
                 <slot v-for="m in y.months" :key="y.year+'-'+m.month">
 
@@ -28,21 +27,20 @@
                          <h4 class="text-nowrap text-md text-secondary">{{getDay(e.date)}}</h4>
                       </div>
                       <div class="col-3 col-sm-2 p-1">
-                        <!-- <576px -->
-                          <CurrencyInput class="form-control form-control-sm text-danger currency-input"
+                          <CurrencyInput class="form-control form-control-sm text-danger text-bold currency-input"
                               v-model="e.expense" placeholder="Expense" :options="currencyOptions" />
                       </div>
                       <div class="col-3 col-sm-2 p-1">
-                          <CurrencyInput class="form-control form-control-sm text-success currency-input" 
+                          <CurrencyInput class="form-control form-control-sm text-success text-bold currency-input" 
                             v-model="e.income" placeholder="Income" :options="currencyOptions" />
                       </div>
                       <div class="col-4 col-sm-2 p-1">
-                          <CurrencyInput class="form-control form-control-sm currency-input" 
+                          <CurrencyInput class="form-control form-control-sm currency-input text-bold" 
                             v-model="e.balanceValue" placeholder="Balance Value" :options="currencyOptions" />
                       </div>
                       <div class="col-10 col-sm-4 p-1">
-                                 <input class="form-control text-primary text-md form-control-sm text-end" type="text" 
-                              placeholder="Note" v-model="e.note">
+                                 <input class="form-control text-primary text-md form-control-sm text-end text-bold" type="text" 
+                              placeholder="Note" v-model.lazy="e.note">
                       </div>
                       <div class="col-2 col-sm-1 p-1">
                           <div class="dropdown float-end">
@@ -95,7 +93,8 @@ export default {
     return {
       currencyOptions: {
           currency: 'USD', 
-          autoDecimalDigits: true
+          autoDecimalDigits: true,
+          //currencyDisplay: 'hidden'
       }
     };
   },
