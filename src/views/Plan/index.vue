@@ -28,20 +28,21 @@
                          <h4 class="text-nowrap text-md text-secondary">{{getDay(e.date)}}</h4>
                       </div>
                       <div class="col-3 col-sm-2 p-1">
-                          <input class="form-control form-control-sm text-end text-danger" type="text" 
-                              placeholder=".form-control-sm" v-model="e.expense">
+                        <!-- <576px -->
+                          <CurrencyInput class="form-control form-control-sm text-danger currency-input"
+                              v-model="e.expense" placeholder="Expense" :options="currencyOptions" />
                       </div>
                       <div class="col-3 col-sm-2 p-1">
-                           <input class="form-control form-control-sm text-end text-success" type="text" 
-                              placeholder=".form-control-sm" v-model="e.income">
+                          <CurrencyInput class="form-control form-control-sm text-success currency-input" 
+                            v-model="e.income" placeholder="Income" :options="currencyOptions" />
                       </div>
                       <div class="col-4 col-sm-2 p-1">
-                        <input class="form-control form-control-sm text-end" type="text" 
-                              placeholder=".form-control-sm" v-model="e.balanceValue">
+                          <CurrencyInput class="form-control form-control-sm currency-input" 
+                            v-model="e.balanceValue" placeholder="Balance Value" :options="currencyOptions" />
                       </div>
                       <div class="col-10 col-sm-4 p-1">
                                  <input class="form-control text-primary text-md form-control-sm text-end" type="text" 
-                              placeholder=".form-control-sm" v-model="e.note">
+                              placeholder="Note" v-model="e.note">
                       </div>
                       <div class="col-2 col-sm-1 p-1">
                           <div class="dropdown float-end">
@@ -83,16 +84,19 @@
 </template>
 
 <script>
-//import ArgonButton from "@/components/ArgonButton.vue";
+import CurrencyInput from '../../components/CurrencyInput.vue'
 import { mapMutations } from 'vuex'
 
 export default {
   components: {
-   // ArgonButton,
+    CurrencyInput
   },
   data() {
     return {
-      
+      currencyOptions: {
+          currency: 'USD', 
+          autoDecimalDigits: true
+      }
     };
   },
   computed: {
@@ -171,4 +175,7 @@ export default {
 /* .dropdown-toggle::after {
     display: none;
 } */
+.currency-input {
+  padding-left: 3px
+}
 </style>

@@ -7,14 +7,14 @@ export default {
                 income: 103430.0,
                 expense: 16800.0,
                 balanceValue: 150230.0,
-                note: "House Rent/Sales",
+                note: "Rent/Sales",
               },
               {
                 date: new Date(2022, 4, 12),
                 income: 103430.0,
                 expense: 16800.0,
                 balanceValue: 150230.0,
-                note: "House Rent/Sales",
+                note: "Rent/Sales",
               },
               {
                 date: new Date(2022, 4, 15),
@@ -42,7 +42,7 @@ export default {
                 income: 0.0,
                 expense: 7725.6,
                 balanceValue: 97230.0,
-                note: "Teste month 5",
+                note: "Test month 5",
               },
         ]
     },
@@ -53,10 +53,10 @@ export default {
             let newDateBefore = new Date(newSchedule.date)
             newDateBefore.setDate(newDateBefore.getDate()-1)
             newSchedule.date = newDateBefore
-            newSchedule.note = "NEW "+newDateBefore.getDate()
-            newSchedule.income = 0.00
-            newSchedule.expense = 0.00
-            newSchedule.balanceValue = 0.00
+            newSchedule.note = ""
+            newSchedule.income = null
+            newSchedule.expense = null
+            newSchedule.balanceValue = null
             state.schedules.splice(indexSchdule,0,newSchedule)
         },
         addAfterSchdule(state, payload){
@@ -65,10 +65,10 @@ export default {
             let newDateBefore = new Date(newSchedule.date)
             newDateBefore.setDate(newDateBefore.getDate()+1)
             newSchedule.date = newDateBefore
-            newSchedule.note = "NEW "+newDateBefore.getDate()
-            newSchedule.income = 0.00
-            newSchedule.expense = 0.00
-            newSchedule.balanceValue = 0.00
+            newSchedule.note = ""
+            newSchedule.income = null
+            newSchedule.expense = null
+            newSchedule.balanceValue = null
             state.schedules.splice(indexSchdule+1,0,newSchedule)
         },
         removeSchedule(state, payload){
