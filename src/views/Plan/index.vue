@@ -24,7 +24,9 @@
                     <!-- PlanItem -->
                     <div class="row" v-for="e in m.schedules" :key="e.note">
                       <div class="col-2 col-sm-1">
-                         <datepicker v-model="e.date" format="dd" :hideInput="true"></datepicker>
+                         <datepicker v-model="e.date" :value="e.date" format="" ></datepicker>
+
+                         <span class="text-nowrap text-bold text-secondary text-flex">{{getDay(e.date)}}</span>
                       </div>
                       <div class="col-3 col-sm-2 p-1">
                           <CurrencyInput class="form-control form-control-sm text-danger text-bold currency-input"
