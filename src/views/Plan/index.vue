@@ -12,7 +12,10 @@
               </div>
             </div>
           </div>
-          <div class="card-body pt-1 p1">
+          <div v-if="schedules.length === 0" class="card-body pt1 p1">
+              <button class="btn btn-primary" @click="addSchedule">Add Schedule</button>
+          </div>
+          <div v-else class="card-body pt-1 p1">
             
               <slot v-for="y in schedulesByYear" :key="y.year">
                 <slot v-for="m in y.months" :key="y.year+'-'+m.month">
@@ -29,16 +32,16 @@
                          <span class="text-nowrap text-bold text-secondary text-flex">{{getDay(e.date)}}</span>
                       </div>
                       <div class="col-3 col-sm-2 p-1">
-                          <CurrencyInput class="form-control form-control-sm text-danger text-bold currency-input"
-                              v-model="e.expense" placeholder="Expense" :options="currencyOptions" />
-                      </div>
-                      <div class="col-3 col-sm-2 p-1">
                           <CurrencyInput class="form-control form-control-sm text-success text-bold currency-input" 
                             v-model="e.income" placeholder="Income" :options="currencyOptions" />
                       </div>
+                      <div class="col-3 col-sm-2 p-1">
+                          <CurrencyInput class="form-control form-control-sm text-danger text-bold currency-input"
+                              v-model.lazy="e.expense" placeholder="Expense" :options="currencyOptions" v-on:blur="updateSchedule(e)" />
+                      </div>
                       <div class="col-4 col-sm-2 p-1">
                           <CurrencyInput class="form-control form-control-sm currency-input text-bold" 
-                            v-model="e.balanceValue" placeholder="Balance Value" :options="currencyOptions" />
+                            v-model.lazy="e.balanceValue" placeholder="Balance Value" :options="currencyOptions" />
                       </div>
                       <div class="col-10 col-sm-4 p-1">
                                  <input class="form-control text-primary text-md form-control-sm text-end text-bold" type="text" 
@@ -110,7 +113,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['addBeforeSchedule','addAfterSchdule','removeSchedule']),
+    ...mapMutations(['addSchedule','addBeforeSchedule','addAfterSchdule','removeSchedule','updateSchedule']),
     getDay: (date) => {
         return date.getDate()
     },
