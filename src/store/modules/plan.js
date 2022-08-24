@@ -10,10 +10,28 @@ const calcBalance = (state, payload) => {
   payload.balanceValue = Number(payload.balanceValue).toFixed(2)
 }
 
+const saveStorageJson = (state) => {
+  state.schedules.forEach(i=> {
+    i._date = JSON.stringify(i.date.toISOString())
+  })
+  localStorage.setItem('mony-schedules', JSON.stringify(state.schedules))
+}
+
+const recoveryStorageJson = () => {
+  let array = JSON.parse(localStorage.getItem('mony-schedules'));
+  if(Array.isArray(array)){
+    array.forEach(i=> {
+      i.date = new Date(JSON.parse(i._date))
+    })
+    return array
+  }
+  return []
+}
+
 export default {
     //namespaced: false,
     state: {
-        schedules: [],
+        schedules: recoveryStorageJson(),
     },
     mutations: {
         addSchedule(state, payload) {
@@ -60,6 +78,10 @@ export default {
         removeSchedule(state, payload){
             const indexSchdule = state.schedules.indexOf(payload)
             state.schedules.splice(indexSchdule, 1)
+
+            state.schedules.slice(indexSchdule, state.schedules.length).forEach(i => {
+              calcBalance(state, i)
+            })
         },
         updateSchedule(state, payload) {
 
@@ -71,6 +93,10 @@ export default {
             calcBalance(state, i)
           })
           
+        },
+        saveStorage(state) {
+          saveStorageJson(state)
+          alert('Saved successfully!!!')
         }
     }
 }

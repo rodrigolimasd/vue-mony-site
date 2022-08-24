@@ -10,6 +10,9 @@
               <div class="col-md-6">
                 <h6 class="mb-0">Schedule</h6>
               </div>
+              <div class="col-md-6">
+                <button class="btn btn-outline-success float-end" @click="saveStorage">Save</button>
+              </div>
             </div>
           </div>
           <div v-if="schedules.length === 0" class="card-body pt1 p1">
@@ -89,7 +92,7 @@
 <script>
 import CurrencyInput from '../../components/CurrencyInput.vue'
 import { mapMutations } from 'vuex'
-import Datepicker from 'vuejs3-datepicker';
+import Datepicker from 'vuejs3-datepicker'
 
 export default {
   components: {
@@ -102,7 +105,7 @@ export default {
           currency: 'USD', 
           autoDecimalDigits: true
       }
-    };
+    }
   },
   computed: {
     schedules() {
@@ -113,14 +116,14 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['addSchedule','addBeforeSchedule','addAfterSchdule','removeSchedule','updateSchedule']),
+    ...mapMutations(['addSchedule','addBeforeSchedule','addAfterSchdule','removeSchedule','updateSchedule','saveStorage']),
     getDay: (date) => {
         return date.getDate()
     },
     getMonthName: (month) => {
         const monthNames = ["January", "February", "March", "April", "May", "June",
           "July", "August", "September", "October", "November", "December"
-        ];
+        ]
         return monthNames[month]
     },
     groupSchedules(schedules) {
@@ -158,7 +161,7 @@ export default {
       })
     }
   }
-};
+}
 </script>
 
 <style scoped>
