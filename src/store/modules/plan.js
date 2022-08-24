@@ -1,7 +1,7 @@
 export default {
     //namespaced: false,
     state: {
-        schedules: JSON.parse(window.localStorage.getItem('mony-store') || '[]')
+        schedules: [],
     },
     mutations: {
         addSchedule(state, payload) {
@@ -36,7 +36,16 @@ export default {
             state.schedules.splice(indexSchdule, 1)
         },
         updateSchedule(state, payload) {
-          console.log(payload)
+          
+          let index = state.schedules.indexOf(payload)
+          let lastBalance = 0
+          let lastSchedule = state.schedules[index-1]
+          if(lastSchedule) {
+            lastBalance = lastSchedule.balanceValue
+          }
+
+          payload.balanceValue = (Number(lastBalance) + payload.income) - payload.expense
+          payload.balanceValue = Number(payload.balanceValue).toFixed(2)
         }
     }
 }
