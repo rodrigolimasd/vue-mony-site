@@ -36,7 +36,15 @@ export default {
             state.schedules.splice(indexSchdule, 1)
         },
         updateSchedule(state, payload) {
-          payload.balanceValue = payload.income - payload.expense
+          
+          let index = state.schedules.indexOf(payload)
+          let lastBalance = 0
+          let lastSchedule = state.schedules[index-1]
+          if(lastSchedule) {
+            lastBalance = lastSchedule.balanceValue
+          }
+
+          payload.balanceValue = (Number(lastBalance) + payload.income) - payload.expense
           payload.balanceValue = Number(payload.balanceValue).toFixed(2)
         }
     }
