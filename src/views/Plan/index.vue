@@ -33,11 +33,11 @@
                       </div>
                       <div class="col-3 col-sm-2 p-1">
                           <CurrencyInput class="form-control form-control-sm text-success text-bold currency-input" 
-                            v-model="e.income" placeholder="Income" :options="currencyOptions" />
+                            v-model="e.income" placeholder="Income" :options="currencyOptions" @change="updateBalance(e)" />
                       </div>
                       <div class="col-3 col-sm-2 p-1">
                           <CurrencyInput class="form-control form-control-sm text-danger text-bold currency-input"
-                              v-model.lazy="e.expense" placeholder="Expense" :options="currencyOptions" v-on:blur="updateSchedule(e)" />
+                              v-model.lazy="e.expense" placeholder="Expense" :options="currencyOptions" />
                       </div>
                       <div class="col-4 col-sm-2 p-1">
                           <CurrencyInput class="form-control form-control-sm currency-input text-bold" 
@@ -156,6 +156,9 @@ export default {
           schedules: groups[month]
         }
       })
+    },
+    updateBalance(item){
+       item.balanceValue = item.income - item.expense
     }
   }
 };

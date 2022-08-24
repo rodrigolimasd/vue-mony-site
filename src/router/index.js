@@ -7,6 +7,7 @@ import VirtualReality from "../views/VirtualReality.vue";
 import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
 import Signin from "../views/Signin.vue";
+import Item from "../views/Plan/Item.vue"
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     name: "Signup",
     component: Signup,
   },
+  {
+    path: "/item",
+    name: "Item",
+    component: Item
+  }
   
 ];
 
