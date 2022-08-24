@@ -33,18 +33,18 @@
                       </div>
                       <div class="col-3 col-sm-2 p-1">
                           <CurrencyInput class="form-control form-control-sm text-success text-bold currency-input" 
-                            v-model="e.income" placeholder="Income" :options="currencyOptions" @change="updateBalance(e)" />
+                            v-model="e.income" placeholder="Income" :options="currencyOptions" @change="updateSchedule(e)" />
                       </div>
                       <div class="col-3 col-sm-2 p-1">
                           <CurrencyInput class="form-control form-control-sm text-danger text-bold currency-input"
-                              v-model.lazy="e.expense" placeholder="Expense" :options="currencyOptions" />
+                              v-model.lazy="e.expense" placeholder="Expense" :options="currencyOptions" @change="updateSchedule(e)" />
                       </div>
                       <div class="col-4 col-sm-2 p-1">
-                          <CurrencyInput class="form-control form-control-sm currency-input text-bold" 
-                            v-model.lazy="e.balanceValue" placeholder="Balance Value" :options="currencyOptions" />
+                            <input type="text" class="form-control form-control-sm currency-input text-bold"
+                                :value="e.balanceValue" disabled placeholder="Balance Value"> 
                       </div>
                       <div class="col-10 col-sm-4 p-1">
-                                 <input class="form-control text-primary text-md form-control-sm text-end text-bold" type="text" 
+                          <input class="form-control text-primary text-md form-control-sm text-end text-bold" type="text" 
                               placeholder="Note" v-model.lazy="e.note">
                       </div>
                       <div class="col-2 col-sm-1 p-1">
@@ -156,9 +156,6 @@ export default {
           schedules: groups[month]
         }
       })
-    },
-    updateBalance(item){
-       item.balanceValue = item.income - item.expense
     }
   }
 };
