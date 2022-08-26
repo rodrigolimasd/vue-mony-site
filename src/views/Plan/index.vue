@@ -23,9 +23,28 @@
               <slot v-for="y in schedulesByYear" :key="y.year">
                 <slot v-for="m in y.months" :key="y.year+'-'+m.month">
 
-                    <h6 class="card-title text-uppercase p-0 text-secondary">
-                      <strong>{{ y.year }}</strong> - {{ getMonthName(m.month) }}
-                    </h6>
+                    <div class="row">
+                      <span class="card-title text-uppercase p-0 text-secondary">
+                        <strong>{{ y.year }}</strong> - {{ getMonthName(m.month) }}
+
+                       <div class="dropdown d-inline">
+                          <button class="btn btn-outline-info btn-xs dropdown-toggle mb-0 ms-2" 
+                                  style="padding: 0.275rem 1rem"
+                                  type="button" 
+                                  :id="y.year+getMonthName(m.month)+'_drpOpt'" data-bs-toggle="dropdown" aria-expanded="false">
+                          </button>
+                          <ul class="dropdown-menu" :aria-labelledby="y.year+getMonthName(m.month)+'_drpOpt'">
+                            <li>
+                              <button class="dropdown-item" type="button" @click="addAfterSchdule(e)">
+                                <i class="fa fa-arrow-down"></i> <span> Copy Month Below </span>
+                                </button>
+                            </li>
+                            <li><button class="dropdown-item" type="button" @click="removeSchedule(e)">
+                              <i class="fa fa-trash"></i> <span> Remove</span> </button></li>
+                          </ul>
+                      </div>
+                      </span>
+                    </div>
 
                     <!-- PlanItem -->
                     <div class="row" v-for="(e, index) in m.schedules" :key="index">
@@ -35,32 +54,32 @@
                          <span class="text-nowrap text-bold text-secondary text-flex">{{getDay(e.date)}}</span>
                       </div>
                       <div class="col-3 col-sm-2 p-1">
-                          <input class="form-control form-control-sm text-success text-md text-bold currency-input" 
+                          <input class="form-control form-control-md text-success text-md text-bold currency-input" 
                             v-model="e.income" placeholder="Income" v-decimal @change="updateSchedule(e)" 
                             :id="index+'inc'"
                             :name="index+'inc'" />
                       </div>
                       <div class="col-3 col-sm-2 p-1">
-                          <input class="form-control form-control-sm text-danger text-md text-bold currency-input"
+                          <input class="form-control form-control-md text-danger text-md text-bold currency-input"
                               v-model="e.expense" placeholder="Expense" v-decimal @change="updateSchedule(e)"
                               :id="index+'exp'"
                               :name="index+'exp'" />
                       </div>
                       <div class="col-4 col-sm-2 p-1">
-                            <input type="text" class="form-control form-control-sm text-md currency-input text-bold"
+                            <input type="text" class="form-control form-control-md text-md currency-input text-bold"
                                 :value="e.balanceValue" disabled placeholder="Balance Value"
                                 :id="index+'bal'"
                                 :name="index+'bal'"> 
                       </div>
                       <div class="col-10 col-sm-4 p-1">
-                              <input type="text" class="form-control text-primary text-md form-control-sm text-end text-bold"
+                              <input type="text" class="form-control text-primary text-md form-control-md text-end text-bold"
                               placeholder="Note" v-model.lazy="e.note"
                               :id="index+'not'"
                               :name="index+'not'">
                       </div>
                       <div class="col-2 col-sm-1 p-1">
                           <div class="dropdown float-end">
-                              <button class="btn btn-outline-info btn-xs dropdown-toggle" type="button" 
+                              <button class="btn btn-outline-info btn-xs dropdown-toggle mb-0" type="button" 
                                       :id="index+'_drpOpt'" data-bs-toggle="dropdown" aria-expanded="false">
                               </button>
                               <ul class="dropdown-menu" :aria-labelledby="index+'_drpOpt'">
