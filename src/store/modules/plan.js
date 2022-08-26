@@ -5,9 +5,12 @@ const calcBalance = (state, payload) => {
   if(lastSchedule) {
     lastBalance = lastSchedule.balanceValue
   }
+  lastBalance = isNaN(Number(lastBalance)) ? 0 : Number(lastBalance)
+  let income = isNaN(Number(payload.income)) ? 0 : Number(payload.income)
+  let expense = isNaN(Number(payload.expense)) ? 0 : Number(payload.expense)
+  let balance = (lastBalance + income) - expense
 
-  payload.balanceValue = (Number(lastBalance) + payload.income) - payload.expense
-  payload.balanceValue = Number(payload.balanceValue).toFixed(2)
+  payload.balanceValue = balance.toFixed(2)
 }
 
 const saveStorageJson = (state) => {

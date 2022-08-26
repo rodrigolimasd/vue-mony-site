@@ -28,7 +28,7 @@
                     </h6>
 
                     <!-- PlanItem -->
-                    <div class="row" v-for="e in m.schedules" :key="e.note">
+                    <div class="row" v-for="(e, index) in m.schedules" :key="index">
                       <div class="col-2 col-sm-1">
                          <datepicker v-model="e.date" :value="e.date" format="" ></datepicker>
 
@@ -36,26 +36,34 @@
                       </div>
                       <div class="col-3 col-sm-2 p-1">
                           <input class="form-control form-control-sm text-success text-md text-bold currency-input" 
-                            v-model="e.income" placeholder="Income" v-decimal @change="updateSchedule(e)" />
+                            v-model="e.income" placeholder="Income" v-decimal @change="updateSchedule(e)" 
+                            :id="index+'inc'"
+                            :name="index+'inc'" />
                       </div>
                       <div class="col-3 col-sm-2 p-1">
                           <input class="form-control form-control-sm text-danger text-md text-bold currency-input"
-                              v-model="e.expense" placeholder="Expense" v-decimal @change="updateSchedule(e)" />
+                              v-model="e.expense" placeholder="Expense" v-decimal @change="updateSchedule(e)"
+                              :id="index+'exp'"
+                              :name="index+'exp'" />
                       </div>
                       <div class="col-4 col-sm-2 p-1">
                             <input type="text" class="form-control form-control-sm text-md currency-input text-bold"
-                                :value="e.balanceValue" disabled placeholder="Balance Value"> 
+                                :value="e.balanceValue" disabled placeholder="Balance Value"
+                                :id="index+'bal'"
+                                :name="index+'bal'"> 
                       </div>
                       <div class="col-10 col-sm-4 p-1">
                               <input type="text" class="form-control text-primary text-md form-control-sm text-end text-bold"
-                              placeholder="Note" v-model.lazy="e.note">
+                              placeholder="Note" v-model.lazy="e.note"
+                              :id="index+'not'"
+                              :name="index+'not'">
                       </div>
                       <div class="col-2 col-sm-1 p-1">
                           <div class="dropdown float-end">
                               <button class="btn btn-outline-info btn-xs dropdown-toggle" type="button" 
-                                      id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                      :id="index+'_drpOpt'" data-bs-toggle="dropdown" aria-expanded="false">
                               </button>
-                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                              <ul class="dropdown-menu" :aria-labelledby="index+'_drpOpt'">
                                 <li>
                                   <button class="dropdown-item" type="button" @click="addBeforeSchedule(e)">
                                       <i class="fa fa-arrow-up"></i> <span> New Line Above </span>
