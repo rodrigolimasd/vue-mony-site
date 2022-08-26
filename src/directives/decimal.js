@@ -43,8 +43,6 @@ const number = {
         el = el instanceof HTMLInputElement ? el : el.querySelector('input')
 
         el.onkeydown = (e) => {
-            console.log('code',e.keyCode)
-            console.log('key',e.key)
             //let isN = 
             if(!keyPermited.includes(e.key)){
                 e.preventDefault()

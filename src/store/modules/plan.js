@@ -86,6 +86,17 @@ export default {
               calcBalance(state, i)
             })
         },
+        addAfterMonth(state, item) {
+          //TODO
+          console.log(item)
+
+        },
+        deleteMonth(state, item) {
+          //TODO
+          const {year, month} = item
+          state.schedules = state.schedules.filter(i=> !(i.date.getFullYear() === Number(year) 
+                && i.date.getMonth() === Number(month)))
+        },
         updateSchedule(state, payload) {
 
 

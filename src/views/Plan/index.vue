@@ -27,7 +27,7 @@
                       <span class="card-title text-uppercase p-0 text-secondary">
                         <strong>{{ y.year }}</strong> - {{ getMonthName(m.month) }}
 
-                       <div class="dropdown d-inline">
+                       <div class="dropdown d-inline" v-if="isFirstOrLast({year: y.year, month: m.month})">
                           <button class="btn btn-outline-info btn-xs dropdown-toggle mb-0 ms-2" 
                                   style="padding: 0.275rem 1rem"
                                   type="button" 
@@ -35,14 +35,14 @@
                           </button>
                           <ul class="dropdown-menu" :aria-labelledby="y.year+getMonthName(m.month)+'_drpOpt'">
                             <li>
-                              <button class="dropdown-item" type="button" @click="addAfterSchdule(e)">
+                              <button class="dropdown-item" type="button" @click="addAfterMonth({year: y.year, month: m.month})">
                                 <i class="fa fa-arrow-down"></i> <span> Copy Month Below </span>
                                 </button>
                             </li>
-                            <li><button class="dropdown-item" type="button" @click="removeSchedule(e)">
+                            <li><button class="dropdown-item" type="button" @click="deleteMonth({year: y.year, month: m.month})">
                               <i class="fa fa-trash"></i> <span> Remove</span> </button></li>
                           </ul>
-                      </div>
+                        </div>
                       </span>
                     </div>
 
@@ -141,7 +141,16 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['addSchedule','addBeforeSchedule','addAfterSchdule','removeSchedule','updateSchedule','saveStorage']),
+    ...mapMutations([
+        'addSchedule',
+        'addBeforeSchedule',
+        'addAfterSchdule',
+        'removeSchedule',
+        'updateSchedule',
+        'saveStorage',
+        'addAfterMonth',
+        'deleteMonth'
+      ]),
     getDay: (date) => {
         return date.getDate()
     },
@@ -184,6 +193,18 @@ export default {
           schedules: groups[month]
         }
       })
+    },
+    isFirstOrLast(item) {
+      const {year, month} = item
+      const size = this.$store.state.plan.schedules.length
+      if(size > 0 ) {
+        let first = this.$store.state.plan.schedules[0]
+        let last = this.$store.state.plan.schedules[size-1]
+        return first.date.getFullYear() === Number(year) && first.date.getMonth() === Number(month) ||
+               last.date.getFullYear() === Number(year) && last.date.getMonth() === Number(month)
+      } else {
+        return false
+      }
     }
   }
 }
