@@ -35,19 +35,19 @@
                          <span class="text-nowrap text-bold text-secondary text-flex">{{getDay(e.date)}}</span>
                       </div>
                       <div class="col-3 col-sm-2 p-1">
-                          <CurrencyInput class="form-control form-control-sm text-success text-bold currency-input" 
-                            v-model="e.income" placeholder="Income" :options="currencyOptions" @change="updateSchedule(e)" />
+                          <input class="form-control form-control-sm text-success text-md text-bold currency-input" 
+                            v-model="e.income" placeholder="Income" v-decimal @change="updateSchedule(e)" />
                       </div>
                       <div class="col-3 col-sm-2 p-1">
-                          <CurrencyInput class="form-control form-control-sm text-danger text-bold currency-input"
-                              v-model.lazy="e.expense" placeholder="Expense" :options="currencyOptions" @change="updateSchedule(e)" />
+                          <input class="form-control form-control-sm text-danger text-md text-bold currency-input"
+                              v-model="e.expense" placeholder="Expense" v-decimal @change="updateSchedule(e)" />
                       </div>
                       <div class="col-4 col-sm-2 p-1">
-                            <input type="text" class="form-control form-control-sm currency-input text-bold"
+                            <input type="text" class="form-control form-control-sm text-md currency-input text-bold"
                                 :value="e.balanceValue" disabled placeholder="Balance Value"> 
                       </div>
                       <div class="col-10 col-sm-4 p-1">
-                          <input class="form-control text-primary text-md form-control-sm text-end text-bold" type="text" 
+                              <input type="text" class="form-control text-primary text-md form-control-sm text-end text-bold"
                               placeholder="Note" v-model.lazy="e.note">
                       </div>
                       <div class="col-2 col-sm-1 p-1">
@@ -90,13 +90,11 @@
 </template>
 
 <script>
-import CurrencyInput from '../../components/CurrencyInput.vue'
 import { mapMutations } from 'vuex'
 import Datepicker from 'vuejs3-datepicker'
 
 export default {
   components: {
-    CurrencyInput,
     Datepicker
   },
   data() {

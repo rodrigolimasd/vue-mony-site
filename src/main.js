@@ -8,10 +8,12 @@ import "./assets/css/general.css";
 import ArgonDashboard from "./argon-dashboard";
 
 import filters from './helpers/filters'
+import decimal from './directives/decimal'
 
 const appInstance = createApp(App);
 appInstance.config.globalProperties.$filters = filters
 appInstance.use(router);
 appInstance.use(ArgonDashboard);
 appInstance.use(store);
+appInstance.directive('decimal', decimal)
 appInstance.mount("#app");
