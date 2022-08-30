@@ -162,7 +162,7 @@ export default {
   },
   computed: {
     schedules() {
-      return this.$store.state.plan.schedules
+      return (this.$store.state.plan.schedules).slice(1).slice(-5)
     }
   },
   components: {
