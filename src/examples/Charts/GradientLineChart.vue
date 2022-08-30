@@ -2,11 +2,11 @@
   <div class="card">
     <div class="pb-0 card-header mb-0">
       <h6>{{ title }}</h6>
-      <p class="text-sm">
+      <!-- <p class="text-sm">
         <i class="fa fa-arrow-up text-success"></i>
         <span class="font-weight-bold">{{detail1}}</span>
         {{detail2}}
-      </p>
+      </p> -->
     </div>
     <div class="p-3 card-body">
       <div class="chart">
@@ -27,14 +27,14 @@ export default {
       type: String,
       default: "Statistics",
     },
-    detail1: {
-      type: String,
-      default: "4% more",
-    },
-    detail2: {
-      type: String,
-      default: "in 2021",
-    },
+    // detail1: {
+    //   type: String,
+    //   default: "4% more",
+    // },
+    // detail2: {
+    //   type: String,
+    //   default: "in 2021",
+    // },
   },
 
   mounted() {
@@ -48,7 +48,7 @@ export default {
     new Chart(ctx1, {
       type: "line",
       data: {
-        labels: ["Jan", "Feb", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov"],
+        labels: ["Jan", "Feb","Mar", "Apr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov","Dec"],
         datasets: [
           {
             label: "$",
@@ -60,8 +60,7 @@ export default {
             // eslint-disable-next-line no-dupe-keys
             borderWidth: 3,
             fill: true,
-            //data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-            data: [67400, 86600, 97230, 125700, 143800, 164800, 187300, 115600, 136600],
+            data: this.totalBalanceByMonth,
             maxBarThickness: 6,
           },
         ],
@@ -123,5 +122,45 @@ export default {
       },
     });
   },
+
+  computed: {
+    schedules() {
+      return this.$store.state.plan.schedules
+    },
+    totalBalanceByMonth() {
+      return this.scheduleBalanceByMonth(this.$store.state.plan.schedules)
+    }
+  },
+  methods: {
+    scheduleBalanceByMonth(list) {
+      let listByMonth = this.groupByMonth(list)
+      let months = [0,1,2,3,4,5,6,7,8,9,10,11]
+      return months.map( m => {
+        let list = listByMonth.find(lm => Number(lm.month) === m)
+        if(list) {
+          return list.schedules[list.schedules.length-1].balanceValue
+        } else {
+          return 0
+        }
+      })
+    },
+    groupByMonth(list) {
+      let groups = list.reduce((g, sc) => {
+      const _month = sc.date.getMonth()
+        if(!g[_month]) {
+          g[_month] = []
+        }
+        g[_month].push(sc)
+        return g
+      }, {})
+
+      return Object.keys(groups).map((month) => {
+        return {
+          month,
+          schedules: groups[month]
+        }
+      })
+    }
+  }
 };
 </script>
