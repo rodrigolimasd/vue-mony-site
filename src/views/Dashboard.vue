@@ -66,19 +66,19 @@
               <div class="table-responsive">
                 <table class="table align-items-center">
                   <tbody>
-                    <tr v-for="t in transactions" :key="t.description">
+                    <tr v-for="t in schedules" :key="t.description">
                       <td class="w-30">
                         <div class="px-2 py-1 d-flex align-items-center">
                           <div class="ms-4">
-                            <p class="mb-0 text-xs font-weight-bold text-warning">Description:</p>
-                            <h6 class="mb-0 text-sm text-warning">{{ t.description }}</h6>
+                            <p class="mb-0 text-xs font-weight-bold text-warning">Note:</p>
+                            <h6 class="mb-0 text-sm text-warning">{{ t.note }}</h6>
                           </div>
                         </div>
                       </td>
                       <td>
                         <div class="text-center">
                           <p class="mb-0 text-xs font-weight-bold text-primary">Date:</p>
-                          <h6 class="mb-0 text-sm text-primary">{{ t.date }}</h6>
+                          <h6 class="mb-0 text-sm text-primary">{{ t.date.toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) }}</h6>
                         </div>
                       </td>
                       <td>
@@ -158,34 +158,12 @@ export default {
           detail: "than last month",
         },
       },
-
-      transactions: [
-        {
-          description: 'House Rent/Sales',
-          date: 'Mar 12, 2022',
-          income: '$103,430',
-          expense: '-$16,800'
-        },
-        {
-          description: 'Credit Card',
-          date: 'Mar 15, 2022',
-          income: '$0',
-          expense: '-$20,200'
-        },
-        {
-          description: 'Taxes',
-          date: 'Mar 20, 2022',
-          income: '$0',
-          expense: '-$8,274.4'
-        },
-        {
-          description: 'Others',
-          date: 'Mar 30, 2022',
-          income: '$0',
-          expense: '-$7725,6'
-        }
-      ]
     };
+  },
+  computed: {
+    schedules() {
+      return this.$store.state.plan.schedules
+    }
   },
   components: {
     Card,
