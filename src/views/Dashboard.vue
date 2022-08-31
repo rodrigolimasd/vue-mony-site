@@ -126,35 +126,35 @@ export default {
         money: {
           title: "Expenses",
           value: "$"+ this.expenseCurrentMonth(),
-          percentage: "+55%",
-          iconClass: "ni ni-money-coins",
-          detail: "since yesterday",
-          iconBackground: "bg-gradient-primary",
+          //percentage: "+55%",
+          iconClass: "ni ni-cart",
+          detail: "current month",
+          iconBackground: "bg-gradient-danger",
         },
         users: {
           title: "Accumulated Balance",
-          value: "$97,230",
-          percentage: "+55%",
+          value: "$"+ this.accumulatedBalanceUtilCurrentMonth(),
+          //percentage: "+55%",
           iconClass: "fas fa-landmark",
           //iconBackground: "bg-gradient-danger",
-          iconBackground: "bg-gradient-warning",
-          detail: "since last month",
+          iconBackground: "bg-gradient-primary",
+          detail: "current month",
         },
         clients: {
           title: "Initial",
-          value: "$46,800",
-          percentage: "+35%",
+          value: "$" + this.initialBalanceUtilCurrentMonth(),
+         // percentage: "+35%",
           iconClass: "fas fa-landmark",
           // percentageColor: "text-danger",
-          iconBackground: "bg-gradient-success",
-          detail: "since last quarter",
+          iconBackground: "bg-gradient-warning",
+          detail: "current month",
         },
         sales: {
           title: "Incomes",
           value: "$103,430",
           percentage: "+5%",
-          iconClass: "ni ni-cart",
-          iconBackground: "bg-gradient-danger",
+          iconClass: "ni ni-money-coins",
+          iconBackground: "bg-gradient-success",
           detail: "than last month",
         },
       },
@@ -167,14 +167,31 @@ export default {
   },
   methods: {
     expenseCurrentMonth(){
-      let expensesByMonth = this.$store.state.plan.schedules
-          .filter(a=> a.date.getMonth() === (new Date()).getMonth())
-          .map(a=> a.expense);
+      let expensesByMonth = this.getSchedulesByCurrentMonth()
+      .map(a=> a.expense);
       let total = 0
       if(expensesByMonth.length > 0 ) {
         total = expensesByMonth.reduce((a, b) => Number(a) + Number(b))
       }
       return total
+    },
+    accumulatedBalanceUtilCurrentMonth(){
+      let balancesByMonth = this.getSchedulesByCurrentMonth()
+            .map(a=> a.balanceValue);
+        return balancesByMonth.length > 0 ? 
+            balancesByMonth[balancesByMonth.length - 1] : 0
+
+    },
+    initialBalanceUtilCurrentMonth(){
+      let balancesByMonth = this.getSchedulesByCurrentMonth()
+            .map(a=> a.balanceValue);
+        return balancesByMonth.length > 0 ? 
+            balancesByMonth[0] : 0
+
+    },
+    getSchedulesByCurrentMonth(){
+      return this.$store.state.plan.schedules
+          .filter(a=> a.date.getMonth() === (new Date()).getMonth())
     }
   },
   components: {
