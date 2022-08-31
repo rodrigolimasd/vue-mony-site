@@ -49,9 +49,20 @@
                     <!-- PlanItem -->
                     <div class="row" v-for="(e, index) in m.schedules" :key="index">
                       <div class="col-2 col-sm-1">
-                         <datepicker v-model="e.date" :value="e.date" format="" ></datepicker>
+                        <!--  -->
+                         <div>
+                          <datepicker :wrapper-class="'wrapper-class-calendar mx-1'" v-model="e.date" 
+                                  :calendar-button-icon="'fa fa-calendar text-info'"
+                                  :value="e.date" format="" :calendar-button="true"
+                                  v-tooltip title="Click to change date">
+                          </datepicker>
 
-                         <span class="text-nowrap text-bold text-secondary text-flex">{{getDay(e.date)}}</span>
+                         <span class="text-nowrap text-bold text-secondary text-flex" 
+                            >
+                             
+                              {{getDay(e.date)}}
+                          </span>
+                         </div>
                       </div>
                       <div class="col-3 col-sm-2 p-1">
                           <input class="form-control form-control-md text-success text-md text-bold currency-input" 
@@ -119,6 +130,7 @@
 <script>
 import { mapMutations } from 'vuex'
 import Datepicker from 'vuejs3-datepicker'
+import { Tooltip } from "bootstrap";
 
 export default {
   components: {
@@ -210,15 +222,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .currency-input {
   padding-left: 3px
 }
 
-.vue-datepicker {
-   min-width: 20px !important;
-   border: none !important;
-   padding: 2px !important;
+.wrapper-class-calendar {
+  font-size: 16pt;
+} 
+
+.wrapper-class-calendar #calendar-div{
+  display: none;
+  
 }
 
 </style>
