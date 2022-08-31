@@ -141,7 +141,7 @@ export default {
           detail: "current month",
         },
         clients: {
-          title: "Initial",
+          title: "Initial Balance",
           value: "$" + this.initialBalanceUtilCurrentMonth(),
          // percentage: "+35%",
           iconClass: "fas fa-landmark",
