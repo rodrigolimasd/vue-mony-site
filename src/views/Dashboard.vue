@@ -125,7 +125,7 @@ export default {
       stats: {
         money: {
           title: "Expenses",
-          value: "$53,000",
+          value: "$"+ this.expenseCurrentMonth(),
           percentage: "+55%",
           iconClass: "ni ni-money-coins",
           detail: "since yesterday",
@@ -163,6 +163,18 @@ export default {
   computed: {
     schedules() {
       return (this.$store.state.plan.schedules).slice(1).slice(-5)
+    }
+  },
+  methods: {
+    expenseCurrentMonth(){
+      let expensesByMonth = this.$store.state.plan.schedules
+          .filter(a=> a.date.getMonth() === (new Date()).getMonth())
+          .map(a=> a.expense);
+      let total = 0
+      if(expensesByMonth.length > 0 ) {
+        total = expensesByMonth.reduce((a, b) => Number(a) + Number(b))
+      }
+      return total
     }
   },
   components: {
