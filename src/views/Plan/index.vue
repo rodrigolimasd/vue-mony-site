@@ -49,12 +49,12 @@
                     <!-- PlanItem -->
                     <div class="row" v-for="(e, index) in m.schedules" :key="index">
                       <div class="col-2 col-sm-1">
-                        <!--  -->
+                        <!--v-tooltip title="Click to change date"  -->
                          <div>
                           <datepicker :wrapper-class="'wrapper-class-calendar mx-1'" v-model="e.date" 
                                   :calendar-button-icon="'fa fa-calendar text-info'"
                                   :value="e.date" format="" :calendar-button="true"
-                                  v-tooltip title="Click to change date">
+                                  >
                           </datepicker>
 
                          <span class="text-nowrap text-bold text-secondary text-flex" 
@@ -130,7 +130,6 @@
 <script>
 import { mapMutations } from 'vuex'
 import Datepicker from 'vuejs3-datepicker'
-import { Tooltip } from "bootstrap";
 
 export default {
   components: {
