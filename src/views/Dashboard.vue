@@ -125,7 +125,7 @@ export default {
       stats: {
         money: {
           title: "Expenses",
-          value: "$"+ this.expenseCurrentMonth(),
+          value: "-$"+ this.expenseCurrentMonth(),
           //percentage: "+55%",
           iconClass: "ni ni-cart",
           detail: "current month",
@@ -133,7 +133,7 @@ export default {
         },
         users: {
           title: "Accumulated Balance",
-          value: "$"+ this.accumulatedBalanceUtilCurrentMonth(),
+          value: "=$"+ this.accumulatedBalanceUtilCurrentMonth(),
           //percentage: "+55%",
           iconClass: "fas fa-landmark",
           //iconBackground: "bg-gradient-danger",
@@ -142,7 +142,7 @@ export default {
         },
         clients: {
           title: "Initial Balance",
-          value: "$" + this.initialBalanceUtilCurrentMonth(),
+          value: "$" + this.initialBalanceUtilCurrentMonth()+"+",
          // percentage: "+35%",
           iconClass: "fas fa-landmark",
           // percentageColor: "text-danger",
@@ -151,8 +151,8 @@ export default {
         },
         sales: {
           title: "Incomes",
-          value: "$103,430",
-          percentage: "+5%",
+          value: "+$" + this.incomeCurrentMonth(),
+          //percentage: "+5%",
           iconClass: "ni ni-money-coins",
           iconBackground: "bg-gradient-success",
           detail: "than last month",
@@ -172,6 +172,15 @@ export default {
       let total = 0
       if(expensesByMonth.length > 0 ) {
         total = expensesByMonth.reduce((a, b) => Number(a) + Number(b))
+      }
+      return total
+    },
+    incomeCurrentMonth(){
+      let incomesByMonth = this.getSchedulesByCurrentMonth()
+      .map(a=> a.income);
+      let total = 0
+      if(incomesByMonth.length > 0 ) {
+        total = incomesByMonth.reduce((a, b) => Number(a) + Number(b))
       }
       return total
     },
