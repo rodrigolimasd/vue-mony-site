@@ -51,14 +51,12 @@
                       <div class="col-2 col-sm-1">
                          <div>
                           <datepicker :wrapper-class="'wrapper-class-calendar mx-1'" v-model="e.date" 
-                                  :calendar-button-icon="'fa fa-calendar text-info'"
+                                  :calendar-button-icon="'fa fa-calendar icon-calendar'"
                                   :value="e.date" format="" :calendar-button="true"
-                                  data-bs-toggle="tooltip" title="Click to change date">
+                                  data-bs-toggle="tooltip" title="Click To Change Date">
                           </datepicker>
 
-                         <span class="text-nowrap text-bold text-secondary text-flex" 
-                            >
-                             
+                         <span class="text-nowrap text-bold text-secondary text-flex">
                               {{getDay(e.date)}}
                           </span>
                          </div>
@@ -238,7 +236,14 @@ export default {
 
 .wrapper-class-calendar #calendar-div{
   display: none;
-  
+}
+
+.icon-calendar {
+    color: #11cdef !important;
+}
+
+.icon-calendar:hover {
+    color: #0a7bb4 !important;
 }
 
 </style>
