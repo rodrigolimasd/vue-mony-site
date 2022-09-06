@@ -36,11 +36,18 @@
                           <ul class="dropdown-menu" :aria-labelledby="y.year+getMonthName(m.month)+'_drpOpt'">
                             <li>
                               <button class="dropdown-item" type="button" @click="addAfterMonth({year: y.year, month: m.month})">
-                                <i class="fa fa-arrow-down"></i> <span> Copy Month Below (Beta) </span>
+                                <i class="fa fa-arrow-down"></i> <span> Copy To Next Month (Beta) </span>
                                 </button>
                             </li>
-                            <li><button class="dropdown-item" type="button" @click="deleteMonth({year: y.year, month: m.month})">
-                              <i class="fa fa-trash"></i> <span> Remove</span> </button></li>
+                            <li>
+                              <button class="dropdown-item" type="button" 
+                                  @click="deleteMonth({year: y.year, month: m.month})">
+                                <i class="fa fa-trash"></i> 
+                                  <span> 
+                                    Remove This Month ({{getMonthName(m.month) }} - {{y.year}}) 
+                                  </span> 
+                                </button>
+                            </li>
                           </ul>
                         </div>
                       </span>
@@ -93,16 +100,16 @@
                               <ul class="dropdown-menu" :aria-labelledby="index+'_drpOpt'">
                                 <li>
                                   <button class="dropdown-item" type="button" @click="addBeforeSchedule(e)">
-                                      <i class="fa fa-arrow-up"></i> <span> New Line Above </span>
+                                      <i class="fa fa-arrow-up"></i> <span> Copy To Previous Day </span>
                                   </button>
                                 </li>
                                 <li>
                                   <button class="dropdown-item" type="button" @click="addAfterSchdule(e)">
-                                    <i class="fa fa-arrow-down"></i> <span> New Line Below </span>
+                                    <i class="fa fa-arrow-down"></i> <span> Copy To Next Day </span>
                                     </button>
                                 </li>
                                 <li><button class="dropdown-item" type="button" @click="removeSchedule(e)">
-                                  <i class="fa fa-trash"></i> <span> Remove</span> </button></li>
+                                  <i class="fa fa-trash"></i> <span> Remove Day </span> </button></li>
                               </ul>
                           </div>
                       </div>
