@@ -10,7 +10,6 @@ import "bootstrap/dist/js/bootstrap.min.js";
 
 import filters from './helpers/filters'
 import decimal from './directives/decimal'
-//import { tooltip } from './directives/tooltip'
 
 const appInstance = createApp(App);
 appInstance.config.globalProperties.$filters = filters
@@ -18,5 +17,4 @@ appInstance.use(router);
 appInstance.use(ArgonDashboard);
 appInstance.use(store);
 appInstance.directive('decimal', decimal)
-//appInstance.directive('tooltip', too)
 appInstance.mount("#app");
