@@ -36,7 +36,7 @@
                           <ul class="dropdown-menu" :aria-labelledby="y.year+getMonthName(m.month)+'_drpOpt'">
                             <li>
                               <button class="dropdown-item" type="button" @click="addAfterMonth({year: y.year, month: m.month})">
-                                <i class="fa fa-arrow-down"></i> <span> Copy Month Below </span>
+                                <i class="fa fa-arrow-down"></i> <span> Copy Month Below (Beta) </span>
                                 </button>
                             </li>
                             <li><button class="dropdown-item" type="button" @click="deleteMonth({year: y.year, month: m.month})">
