@@ -94,14 +94,24 @@ export default {
         deleteMonth(state, item) {
           //TODO
           const {year, month} = item
+
+          //check if exist index 0 on exclusion
+          let isZeroIndex = state.schedules
+                                 .filter(i=> i.date.getFullYear() === Number(year) 
+                                             && i.date.getMonth() === Number(month))
+                                 .map(a=> state.schedules.indexOf(a)).find(a=> a === 0)
+
           state.schedules = state.schedules.filter(i=> !(i.date.getFullYear() === Number(year) 
                 && i.date.getMonth() === Number(month)))
+          
+          if(isZeroIndex === 0) {
+            state.schedules.forEach(i => {
+              calcBalance(state, i)
+            })
+          }
         },
         updateSchedule(state, payload) {
-
-
           let index = state.schedules.indexOf(payload)
-
           //update belows
           state.schedules.slice(index, state.schedules.length).forEach(i => {
             calcBalance(state, i)
