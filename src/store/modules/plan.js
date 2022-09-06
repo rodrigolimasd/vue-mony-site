@@ -88,7 +88,29 @@ export default {
         },
         addAfterMonth(state, item) {
           //TODO
-          console.log(item)
+          const {year, month} = item
+          let monthToCopy = state.schedules.filter(i=> i.date.getFullYear() === Number(year) 
+                                             && i.date.getMonth() === Number(month))
+          let lastIndex = state.schedules.indexOf(monthToCopy[monthToCopy.length-1]) + 1
+
+          monthToCopy.forEach(a=> {
+
+            let newDate = new Date(a.date)
+            newDate.setMonth(newDate.getMonth() + 1)
+
+            let newSchedule = {
+              date: newDate,
+              income: a.income,
+              expense: a.expense,
+              balanceValue: a.balanceValue,
+              note: a.note
+            }
+
+            state.schedules.splice(lastIndex, 0, newSchedule)
+
+            calcBalance(state, newSchedule)
+            lastIndex++
+          })
 
         },
         deleteMonth(state, item) {
