@@ -69,19 +69,19 @@
                          </div>
                       </div>
                       <div class="col-3 col-sm-2 p-1">
-                          <input class="form-control form-control-md text-success text-md text-bold currency-input" 
+                          <input class="form-control form-control-md text-success text-md text-bold text-end currency-input" 
                             v-model="e.income" placeholder="Income" v-decimal @change="updateSchedule(e)" 
                             :id="index+'inc'"
                             :name="index+'inc'" />
                       </div>
                       <div class="col-3 col-sm-2 p-1">
-                          <input class="form-control form-control-md text-danger text-md text-bold currency-input"
+                          <input class="form-control form-control-md text-danger text-md text-end text-bold currency-input"
                               v-model="e.expense" placeholder="Expense" v-decimal @change="updateSchedule(e)"
                               :id="index+'exp'"
                               :name="index+'exp'" />
                       </div>
                       <div class="col-4 col-sm-2 p-1">
-                            <input type="text" class="form-control form-control-md text-md currency-input text-bold"
+                            <input type="text" class="form-control form-control-md text-md currency-input text-end text-bold"
                                 :value="e.balanceValue" disabled placeholder="Balance Value"
                                 :id="index+'bal'"
                                 :name="index+'bal'"> 
