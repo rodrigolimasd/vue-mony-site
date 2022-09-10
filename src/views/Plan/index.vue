@@ -69,14 +69,19 @@
                          </div>
                       </div>
                       <div class="col-3 col-sm-2 p-1">
-                          <input class="form-control form-control-md text-success text-md text-bold text-end currency-input" 
-                            v-model="e.income" placeholder="Income" v-decimal @change="updateSchedule(e)" 
+                          <input type="text" 
+                            class="form-control form-control-md text-success text-md text-bold text-end currency-input input-plan" 
+                            v-model="e.income" placeholder="Income" 
+                            @keydown.enter="focusNext"
+                            v-decimal @change="updateSchedule(e)" 
                             :id="index+'inc'"
                             :name="index+'inc'" />
                       </div>
                       <div class="col-3 col-sm-2 p-1">
-                          <input class="form-control form-control-md text-danger text-md text-end text-bold currency-input"
-                              v-model="e.expense" placeholder="Expense" v-decimal @change="updateSchedule(e)"
+                          <input type="text" class="form-control form-control-md text-danger text-md text-end text-bold currency-input input-plan"
+                              v-model="e.expense" placeholder="Expense" 
+                              @keydown.enter="focusNext"
+                              v-decimal @change="updateSchedule(e)"
                               :id="index+'exp'"
                               :name="index+'exp'" />
                       </div>
@@ -87,8 +92,9 @@
                                 :name="index+'bal'"> 
                       </div>
                       <div class="col-10 col-sm-4 p-1">
-                              <input type="text" class="form-control text-primary text-md form-control-md text-end text-bold"
+                              <input type="text" class="form-control text-primary text-md form-control-md text-end text-bold input-plan"
                               placeholder="Note" v-model.lazy="e.note"
+                              @keydown.enter="focusNext"
                               :id="index+'not'"
                               :name="index+'not'">
                       </div>
@@ -226,6 +232,14 @@ export default {
                last.date.getFullYear() === Number(year) && last.date.getMonth() === Number(month)
       } else {
         return false
+      }
+    },
+    focusNext(e) {
+      const inputs = Array.from(document.querySelectorAll('.input-plan'));
+      const index = inputs.indexOf(e.target);
+
+      if (index < inputs.length && ((index + 1) < inputs.length)) {
+        inputs[index + 1].focus();
       }
     }
   }
