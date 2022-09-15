@@ -235,11 +235,12 @@ export default {
       }
     },
     focusNext(e) {
-      const inputs = Array.from(document.querySelectorAll('.input-plan'));
-      const index = inputs.indexOf(e.target);
+      const inputs = Array.from(document.querySelectorAll('.input-plan'))
+      const index = inputs.indexOf(e.target)
 
       if (index < inputs.length && ((index + 1) < inputs.length)) {
-        inputs[index + 1].focus();
+        inputs[index + 1].focus()
+        inputs[index + 1].select()
       }
     }
   }
