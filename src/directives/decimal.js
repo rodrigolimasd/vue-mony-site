@@ -3,16 +3,6 @@ const config = {
 }
 
 const keyPermited = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "0",
     ".",
     "Delete",
     "Backspace",
@@ -44,7 +34,8 @@ const number = {
 
         el.onkeydown = (e) => {
             //let isN = 
-            if(!keyPermited.includes(e.key)){
+            //if(!keyPermited.includes(e.key)){
+            if(!/^\d+/g.test(e.key) && !keyPermited.includes(e.key)){
                 e.preventDefault()
             }
           }
