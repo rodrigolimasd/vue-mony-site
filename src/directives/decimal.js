@@ -1,7 +1,3 @@
-const config = {
-    decimal : '.'
-}
-
 const keyPermited = [
     ".",
     "Delete",
@@ -33,8 +29,6 @@ const number = {
         el = el instanceof HTMLInputElement ? el : el.querySelector('input')
 
         el.onkeydown = (e) => {
-            //let isN = 
-            //if(!keyPermited.includes(e.key)){
             if(!/^\d+/g.test(e.key) && !keyPermited.includes(e.key)){
                 e.preventDefault()
             }
