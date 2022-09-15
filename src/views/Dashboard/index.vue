@@ -113,7 +113,7 @@
     </div>
   </template>
   <script>
-  import Card from "@/examples/Cards/Card.vue";
+  import Card from "@/components/cards/Card.vue";
   import GradientLineChart from "@/components/charts/GradientLineChart.vue";
   import Carousel from "@/components/Carousel.vue";
   import CategoriesCard from "@/components/CategoriesCard.vue";

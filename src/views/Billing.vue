@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import MasterCard from "@/examples/Cards/MasterCard.vue";
-import DefaultInfoCard from "@/examples/Cards/DefaultInfoCard.vue";
+import MasterCard from "@/components/cards/MasterCard.vue";
+import DefaultInfoCard from "@/components/cards/DefaultInfoCard.vue";
 import PaymentCard from "./components/PaymentCard.vue";
 import InvoiceCard from "./components/InvoiceCard.vue";
 import BillingCard from "./components/BillingCard.vue";
