@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router"
-import Dashboard from "../views/Dashboard.vue"
+import Dashboard from "../views/Dashboard"
 import Plan from "../views/Plan"
 import Tables from "../views/Tables.vue"
 import Billing from "../views/Billing.vue"
