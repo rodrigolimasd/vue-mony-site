@@ -107,12 +107,12 @@
                               <ul class="dropdown-menu" :aria-labelledby="index+'_drpOpt'">
                                 <li>
                                   <button class="dropdown-item" type="button" @click="addBeforeSchedule(e)">
-                                      <i class="fa fa-arrow-up"></i> <span> Copy To Previous Day </span>
+                                      <i class="fa fa-arrow-up"></i> <span> Add To Previous Day </span>
                                   </button>
                                 </li>
                                 <li>
                                   <button class="dropdown-item" type="button" @click="addAfterSchdule(e)">
-                                    <i class="fa fa-arrow-down"></i> <span> Copy To Next Day </span>
+                                    <i class="fa fa-arrow-down"></i> <span> Add To Next Day </span>
                                     </button>
                                 </li>
                                 <li><button class="dropdown-item" type="button" @click="removeSchedule(e)">
