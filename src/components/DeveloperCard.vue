@@ -4,17 +4,17 @@
       <div class="row">
         <div class="col-lg-6 mb-lg-0 mb-4">
           <div class="d-flex flex-column h-100">
-            <p class="mb-1 pt-2 text-bold">بناها المطورون</p>
+            <p class="mb-1 pt-2 text-bold">Built by developers</p>
             <h5 class="font-weight-bolder">Mony</h5>
             <p class="mb-5">
-              من الألوان والبطاقات والطباعة إلى العناصر المعقدة ، ستجد الوثائق
-              الكاملة.
+              From colours, cards and typography to intricate items, you'll find documentation
+               full.
             </p>
             <a
               class="text-dark font-weight-bold ps-1 mb-0 icon-move-left mt-auto"
               href="javascript:;"
             >
-              اقرأ المستندات
+              Read the documents
               <i class="fas fa-arrow-left text-sm ms-1" aria-hidden="true"></i>
             </a>
           </div>

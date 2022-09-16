@@ -3,6 +3,7 @@ import Dashboard from "../views/Dashboard"
 import Plan from "../views/Plan"
 import Tables from "../views/Tables.vue"
 import Billing from "../views/Billing.vue"
+import Wallet from "../views/Wallet"
 import VirtualReality from "../views/VirtualReality.vue"
 import Profile from "../views/Profile.vue"
 import Signup from "../views/Signup.vue"
@@ -33,6 +34,11 @@ const routes = [
     path: "/billing",
     name: "Billing",
     component: Billing,
+  },
+  {
+    path: "/wallet",
+    name: "Wallet",
+    component: Wallet,
   },
   {
     path: "/virtual-reality",
