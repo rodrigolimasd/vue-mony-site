@@ -24,7 +24,7 @@
   </main>
 </template>
 <script>
-import Sidenav from "./components/layout/Sidenav";
+import Sidenav from "@/components/layout/Sidenav";
 import Configurator from "@/components/layout/Configurator.vue";
 import Navbar from "@/components/layout/Navbars/Navbar.vue";
 import AppFooter from "@/components/layout/Footer.vue";

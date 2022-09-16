@@ -98,11 +98,11 @@
 import Sidenav from "@/components/layout/Sidenav";
 import AppFooter from "@/components/layout/Footer.vue";
 import Navbar from "@/components/layout/Navbars/Navbar.vue";
-import CardCalendar from "./components/CardCalendar.vue";
-import CardEmail from "./components/CardEmail.vue";
-import CardToDo from "./components/CardToDo.vue";
-import CardPlayer from "./components/CardPlayer.vue";
-import CardMessage from "./components/CardMessage.vue";
+import CardCalendar from "@/components/CardCalendar.vue";
+import CardEmail from "@/components/CardEmail.vue";
+import CardToDo from "@/components/CardToDo.vue";
+import CardPlayer from "@/components/CardPlayer.vue";
+import CardMessage from "@/components/CardMessage.vue";
 import setTooltip from "@/assets/js/tooltip.js";
 
 const body = document.getElementsByTagName("body")[0];

@@ -27,7 +27,7 @@
                 <div class="d-flex px-2 py-1">
                   <div>
                     <img
-                      src="../../assets/img/team-2.jpg"
+                      src="../assets/img/team-2.jpg"
                       class="avatar avatar-sm me-3"
                       alt="user1"
                     />
@@ -62,7 +62,7 @@
                 <div class="d-flex px-2 py-1">
                   <div>
                     <img
-                      src="../../assets/img/team-3.jpg"
+                      src="../assets/img/team-3.jpg"
                       class="avatar avatar-sm me-3"
                       alt="user2"
                     />
@@ -97,7 +97,7 @@
                 <div class="d-flex px-2 py-1">
                   <div>
                     <img
-                      src="../../assets/img/team-4.jpg"
+                      src="../assets/img/team-4.jpg"
                       class="avatar avatar-sm me-3"
                       alt="user3"
                     />
@@ -132,7 +132,7 @@
                 <div class="d-flex px-2 py-1">
                   <div>
                     <img
-                      src="../../assets/img/team-3.jpg"
+                      src="../assets/img/team-3.jpg"
                       class="avatar avatar-sm me-3"
                       alt="user4"
                     />
@@ -167,7 +167,7 @@
                 <div class="d-flex px-2 py-1">
                   <div>
                     <img
-                      src="../../assets/img/team-2.jpg"
+                      src="../assets/img/team-2.jpg"
                       class="avatar avatar-sm me-3"
                       alt="user5"
                     />
@@ -202,7 +202,7 @@
                 <div class="d-flex px-2 py-1">
                   <div>
                     <img
-                      src="../../assets/img/team-4.jpg"
+                      src="../assets/img/team-4.jpg"
                       class="avatar avatar-sm me-3"
                       alt="user6"
                     />

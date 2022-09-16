@@ -20,7 +20,7 @@
 <td>
 <div class="d-flex px-2">
 <div>
-<img src="../../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
+<img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
 </div>
 <div class="my-auto">
 <h6 class="mb-0 text-sm">Spotify</h6>
@@ -53,7 +53,7 @@
 <td>
 <div class="d-flex px-2">
 <div>
-<img src="../../assets/img/small-logos/logo-invision.svg" class="avatar avatar-sm rounded-circle me-2" alt="invision">
+<img src="../assets/img/small-logos/logo-invision.svg" class="avatar avatar-sm rounded-circle me-2" alt="invision">
 </div>
 <div class="my-auto">
 <h6 class="mb-0 text-sm">Invision</h6>
@@ -86,7 +86,7 @@
 <td>
 <div class="d-flex px-2">
 <div>
-<img src="../../assets/img/small-logos/logo-jira.svg" class="avatar avatar-sm rounded-circle me-2" alt="jira">
+<img src="../assets/img/small-logos/logo-jira.svg" class="avatar avatar-sm rounded-circle me-2" alt="jira">
 </div>
 <div class="my-auto">
 <h6 class="mb-0 text-sm">Jira</h6>
@@ -119,7 +119,7 @@
 <td>
 <div class="d-flex px-2">
 <div>
-<img src="../../assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm rounded-circle me-2" alt="slack">
+<img src="../assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm rounded-circle me-2" alt="slack">
 </div>
 <div class="my-auto">
 <h6 class="mb-0 text-sm">Slack</h6>
@@ -185,7 +185,7 @@
 <td>
 <div class="d-flex px-2">
 <div>
-<img src="../../assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm rounded-circle me-2" alt="xd">
+<img src="../assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm rounded-circle me-2" alt="xd">
 </div>
 <div class="my-auto">
 <h6 class="mb-0 text-sm">Adobe XD</h6>
