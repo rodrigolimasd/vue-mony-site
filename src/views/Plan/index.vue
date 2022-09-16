@@ -87,6 +87,7 @@
                       </div>
                       <div class="col-4 col-sm-2 p-1">
                             <input type="text" class="form-control form-control-md text-md currency-input text-end text-bold"
+                                :class="e.balanceValue < 0 ? 'text-danger' : 'text-success'"
                                 :value="e.balanceValue" disabled placeholder="Balance Value"
                                 :id="index+'bal'"
                                 :name="index+'bal'"> 
