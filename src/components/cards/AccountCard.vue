@@ -17,16 +17,23 @@
         </button>
 
       </div>
-      <div class="p-3 mx-4 text-center card-header">
-        <div class="bg-white icon icon-shape icon-md bg-gradient-success shadow text-center border-radius-lg">
-          <i class="opacity-10" :class="value.classIcon" aria-hidden="true"></i>
+      <div v-if="!value.editable" class="p-3 mx-4 text-center card-header">
+        <div  class="bg-white icon icon-shape icon-md bg-gradient-success shadow text-center border-radius-lg">
+          <i class="opacity-10 text-white fas" :class="value.classIcon" aria-hidden="true"></i>
         </div>
+      </div>
+      <div v-else class="p-3 mx-0 text-center card-header" >
+        <select class="form-select" v-model="value.classIcon">
+          <option value="fa-landmark"><i class='fa fa-landmark'></i> Bank</option>
+          <option value="fa-wallet">Wallet</option>
+          <option value="fa-credit-card">Credit Card</option>
+        </select>
       </div>
       <div v-if="!value.editable" class="p-3 pt-0 text-center card-body">
         <h6 class="mb-0 text-center">{{ value.title  }}</h6>
         <span class="text-xs">{{ value.desc }}</span>
         <hr class="my-3 horizontal dark" />
-        <h5 class="mb-0">{{ value.amount }}</h5>
+        <h5 class="mb-0">${{ value.amount }}</h5>
       </div>
       <div v-else class="p-3 pt-0 text-center card-body">
         <input type="text" class="form-control form-control-sm text-bold text-center text-lg" 

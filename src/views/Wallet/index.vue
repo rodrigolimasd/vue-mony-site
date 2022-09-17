@@ -30,6 +30,12 @@
                             <div class="card-footer pt-4">
                                 <div class="row">
                                     <div class="col">
+                                        <h6 class="mb-0 d-inline-flex">Total:</h6> 
+                                        <h5 class="mx-2 mb-2 d-inline-flex text-success">$9346</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
                                         <argon-button
                                             color="success"
                                             variant="outline"
@@ -63,7 +69,7 @@
                     </div>
                     <div class="col-xl-6">
                         <div class="row">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -88,14 +94,14 @@ export default {
         return {
             accounts: [
                 {
-                    classIcon: "text-white fas fa-landmark",
+                    classIcon: "fa-landmark",
                     title: "Mercado Pago",
                     desc: "Checking Account",
                     amount: "8000",
                     editable: false
                 },
                 {
-                    classIcon: "text-white fab fa-paypal",
+                    classIcon: "fa-wallet",
                     title: "Paypal",
                     desc: "Freelance Payment",
                     amount: "1346",
@@ -107,7 +113,7 @@ export default {
     methods: {
         addAccount() {
             this.accounts.splice(0, 0, {
-                classIcon: "text-white fas fa-landmark",
+                classIcon: "fa-landmark",
                 title: "Teste",
                 desc: "Checking Account",
                 amount: "100",
