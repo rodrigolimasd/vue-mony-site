@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import plan from './modules/plan'
+import wallet from './modules/wallet'
 
 const moduleA = {
   state: () => ({
@@ -74,6 +75,7 @@ export default createStore({
   //getters: {},
   modules: {
     moduleA,
-    plan
+    plan,
+    wallet
   }
 });

@@ -17,6 +17,13 @@
                                             <i class="fas fa-plus me-2"></i>
                                             Add New Account
                                         </argon-button>
+
+                                        <argon-button class="mx-2"
+                                            @click="saveStorage"
+                                            color="success" variant="gradient">
+                                            <i class="fas fa-check me-2"></i>
+                                            Save
+                                        </argon-button>
                                     </div>
                                 </div>
                             </div>
@@ -82,6 +89,7 @@
 <script>
 import AccountCard from "@/components/cards/AccountCard.vue"
 import ArgonButton from "@/components/ArgonButton.vue"
+import { mapMutations } from 'vuex'
 
 
 export default {
@@ -90,36 +98,16 @@ export default {
         AccountCard,
         ArgonButton
     },
-    data() {
-        return {
-            accounts: [
-                {
-                    classIcon: "fa-landmark",
-                    title: "Mercado Pago",
-                    desc: "Checking Account",
-                    amount: "8000",
-                    editable: false
-                },
-                {
-                    classIcon: "fa-wallet",
-                    title: "Paypal",
-                    desc: "Freelance Payment",
-                    amount: "1346",
-                    editable: false
-                }
-            ]
+    computed: {
+        accounts() {
+            return this.$store.state.wallet.accounts
         }
     },
     methods: {
-        addAccount() {
-            this.accounts.splice(0, 0, {
-                classIcon: "fa-landmark",
-                title: "Teste",
-                desc: "Checking Account",
-                amount: "100",
-                editable: true
-            })
-        }
+        ...mapMutations([
+            "addAccount",
+            "saveStorage"
+        ]),
     }
 }
 
