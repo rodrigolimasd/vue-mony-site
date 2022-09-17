@@ -4,6 +4,7 @@ import Plan from "../views/Plan"
 import Tables from "../views/Tables.vue"
 import Billing from "../views/Billing.vue"
 import Wallet from "../views/Wallet"
+import FormTest from "../views/FormTest"
 import VirtualReality from "../views/VirtualReality.vue"
 import Profile from "../views/Profile.vue"
 import Signup from "../views/Signup.vue"
@@ -59,6 +60,11 @@ const routes = [
     path: "/signup",
     name: "Signup",
     component: Signup,
+  },
+  {
+    path: "/test",
+    name: "Test",
+    component: FormTest
   }
 ]
 

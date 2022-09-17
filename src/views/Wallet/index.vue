@@ -11,7 +11,9 @@
                                         <h6 class="mb-0">Accounts</h6>
                                     </div>
                                     <div class="col-6 text-end">
-                                        <argon-button color="dark" variant="gradient">
+                                        <argon-button 
+                                            @click="addAccount"
+                                            color="dark" variant="gradient">
                                             <i class="fas fa-plus me-2"></i>
                                             Add New Account
                                         </argon-button>
@@ -20,22 +22,9 @@
                             </div>
                             <div class="card-body p3 pb-0 mb-0">
                                 <div class="row">
-                                <div class="col-md-3">
-                                    <default-info-card
-                                    :classIcon="salary.classIcon"
-                                    :title="salary.title"
-                                    :desc="salary.desc"
-                                    :price="salary.price"
-                                    />
-                                </div>
-                                <div class="col-md-3">
-                                    <default-info-card
-                                    :classIcon="paypal.classIcon"
-                                    :title="paypal.title"
-                                    :desc="paypal.desc"
-                                    :price="paypal.price"
-                                    />
-                                </div>
+                                    <div v-for="(a, i) in accounts" :key="'cc'+i" class="col-md-3">
+                                        <account-card v-model="accounts[i]" />
+                                    </div> 
                                 </div>
                             </div>
                             <div class="card-footer pt-4">
@@ -85,32 +74,47 @@
 </template>
 
 <script>
-import DefaultInfoCard from "@/components/cards/DefaultInfoCard.vue";
-import ArgonButton from "@/components/ArgonButton.vue";
+import AccountCard from "@/components/cards/AccountCard.vue"
+import ArgonButton from "@/components/ArgonButton.vue"
 
 
 export default {
     name: "Wallet",
     components: {
-        DefaultInfoCard,
+        AccountCard,
         ArgonButton
     },
     data() {
-    return {
-      salary: {
-        classIcon: "text-white fas fa-landmark",
-        title: "Mercado Pago",
-        desc: "Checking Account",
-        price: "$8000.00",
-      },
-      paypal: {
-        classIcon: "text-white fab fa-paypal",
-        title: "Paypal",
-        desc: "Freelance Payment",
-        price: "$1346.00",
-      },
-    };
-  },
+        return {
+            accounts: [
+                {
+                    classIcon: "text-white fas fa-landmark",
+                    title: "Mercado Pago",
+                    desc: "Checking Account",
+                    amount: "8000",
+                    editable: false
+                },
+                {
+                    classIcon: "text-white fab fa-paypal",
+                    title: "Paypal",
+                    desc: "Freelance Payment",
+                    amount: "1346",
+                    editable: false
+                }
+            ]
+        }
+    },
+    methods: {
+        addAccount() {
+            this.accounts.splice(0, 0, {
+                classIcon: "text-white fas fa-landmark",
+                title: "Teste",
+                desc: "Checking Account",
+                amount: "100",
+                editable: true
+            })
+        }
+    }
 }
 
 

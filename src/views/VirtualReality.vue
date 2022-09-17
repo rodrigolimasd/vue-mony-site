@@ -101,7 +101,7 @@ import Navbar from "@/components/layout/Navbars/Navbar.vue";
 import CardCalendar from "@/components/CardCalendar.vue";
 import CardEmail from "@/components/CardEmail.vue";
 import CardToDo from "@/components/CardToDo.vue";
-import CardPlayer from "@/components/CardPlayer.vue";
+import CardPlayer from "@/components/cards/CardPlayer.vue";
 import CardMessage from "@/components/CardMessage.vue";
 import setTooltip from "@/assets/js/tooltip.js";
 
