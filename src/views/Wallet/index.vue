@@ -36,9 +36,7 @@
                             </div>
                             <div class="card-footer pt-4">
                                 <div class="row">
-                                    <div class="col">
-                                        <!-- <h6 class="mb-0 d-inline-flex">Total:</h6> 
-                                        <h5 class="mx-2 mb-2 d-inline-flex text-success">{{totalBalance}}</h5> -->
+                                    <div class="col-6">
                                         <card-total-balance :total="totalBalance" />
                                     </div>
                                 </div>

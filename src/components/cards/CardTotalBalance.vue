@@ -1,26 +1,22 @@
 <template>
-    <div class="card">
-
-        <div class="card-header text-center">
-           <div class="row">
-                <div class="col6 d-flex align-items-center">
-                    <h6 class="mb-0" :class="[total > 0 ? 'text-success' : 'text-warning']">Total Balance</h6>
-                </div>
-           </div>
-        </div>
-        <div class="card-body p-3">
-            <div class="row">
-                <div class="col-md-6 mb-md-0 mb-4">
-                    <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
-                        <h6 class="mb-0">${{ total }}</h6>
-                    </div>
-                </div>
+    <div class="mb-4 card">
+      <div class="p-3 card-body">
+        <div class="d-flex flex-row-reverse justify-content-between">
+          <div>
+            <div class="text-center icon icon-shape bg-gradient-success border-radius-2xl">
+              <i class="text-lg opacity-10 ni ni-money-coins" aria-hidden="true"></i>
             </div>
-
+          </div>
+          <div :class="contentClass">
+            <div class="numbers">
+              <p class="mb-0 text-sm text-uppercase font-weight-bold">Total Balance</p>
+              <h5 class="font-weight-bolder" :class="[total > 0 ? 'text-success' : 'text-warning']">${{ total }}</h5>
+            </div>
+          </div>
         </div>
-
+      </div>
     </div>
-</template>
+  </template>
 
 <script>
     export default {
