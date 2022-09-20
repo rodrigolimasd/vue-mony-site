@@ -35,7 +35,11 @@ export default {
         saveStorage(state) {
             saveStorageJson(state)
             alert('Saved successfully!!!')
-        }
+        },
+        removeAccount(state, payload){
+            const indexSchdule = state.accounts.indexOf(payload)
+            state.accounts.splice(indexSchdule, 1)
+        },
     }
 
 }

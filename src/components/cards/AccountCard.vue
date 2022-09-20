@@ -21,7 +21,7 @@
                 </button>
               </li>
               <li>
-                <button class="dropdown-item" type="button">
+                <button class="dropdown-item" type="button" @click="$emit('account-delete', value)">
                   <i class="fa fa-trash"></i> <span> Remove </span>
                   </button>
               </li>

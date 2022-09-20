@@ -30,7 +30,7 @@
                             <div class="card-body p3 pb-0 mb-0">
                                 <div class="row">
                                     <div v-for="(a, i) in accounts" :key="'cc'+i" class="col-md-3">
-                                        <account-card v-model="accounts[i]" />
+                                        <account-card v-model="accounts[i]" @account-delete="removeAccount" />
                                     </div> 
                                 </div>
                             </div>
@@ -110,8 +110,9 @@ export default {
     methods: {
         ...mapMutations([
             "addAccount",
-            "saveStorage"
-        ]),
+            "saveStorage",
+            "removeAccount"
+        ])
     }
 }
 
