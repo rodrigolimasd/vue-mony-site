@@ -13,7 +13,14 @@ const recoveryStorageJson = () => {
 export default {
     //namespaced: false,
     state: {
-        accounts: recoveryStorageJson(),
+        accounts: recoveryStorageJson()
+    },
+    getters: {
+        totalBalance(state, getters, rootState) {
+            return state.accounts.map(p => 
+                isNaN(Number(p.amount)) ? 0 : Number(p.amount))
+                .reduce((total, actual) => total + actual, 0)
+        }
     },
     mutations: {
         addAccount(state, payload) {

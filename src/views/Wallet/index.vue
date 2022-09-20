@@ -38,7 +38,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <h6 class="mb-0 d-inline-flex">Total:</h6> 
-                                        <h5 class="mx-2 mb-2 d-inline-flex text-success">$9346</h5>
+                                        <h5 class="mx-2 mb-2 d-inline-flex text-success">{{totalBalance}}</h5>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -89,7 +89,7 @@
 <script>
 import AccountCard from "@/components/cards/AccountCard.vue"
 import ArgonButton from "@/components/ArgonButton.vue"
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 
 
 export default {
@@ -101,7 +101,10 @@ export default {
     computed: {
         accounts() {
             return this.$store.state.wallet.accounts
-        }
+        },
+        ...mapGetters({
+            totalBalance: 'totalBalance'
+        })
     },
     methods: {
         ...mapMutations([
