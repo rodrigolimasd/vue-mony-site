@@ -118,9 +118,6 @@ export default {
         'addAfterMonth',
         'deleteMonth'
       ]),
-    getDay: (date) => {
-        return date.getDate()
-    },
     getMonthName: (month) => {
         const monthNames = ["January", "February", "March", "April", "May", "June",
           "July", "August", "September", "October", "November", "December"
@@ -171,15 +168,6 @@ export default {
                last.date.getFullYear() === Number(year) && last.date.getMonth() === Number(month)
       } else {
         return false
-      }
-    },
-    focusNext(e) {
-      const inputs = Array.from(document.querySelectorAll('.input-plan'))
-      const index = inputs.indexOf(e.target)
-
-      if (index < inputs.length && ((index + 1) < inputs.length)) {
-        inputs[index + 1].focus()
-        inputs[index + 1].select()
       }
     }
   }
