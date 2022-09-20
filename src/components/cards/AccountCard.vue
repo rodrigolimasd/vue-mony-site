@@ -2,19 +2,31 @@
     <div class="card">
       <div class="mt-2 mb-0 mx-2 d-flex flex-row-reverse">
         <button v-if="value.editable" @click="changeEditable(value)"
-            class="p-1 mb-0 btn btn-outline-info btn-xs"
+            class="btn btn-xs m-0 px-2 py-1 bg-gradient-success"
             type="button"
             data-bs-toggle="tooltip"
-            title="save">
-            <i class="p-1 fas fa-check"></i>
+            title="Save changes">
+            <i class="p-0 fas fa-check"></i>
         </button>
-        <button v-if="!value.editable" @click="changeEditable(value)"
-            class="p-1 mb-0 btn btn-outline-secondary btn-xs"
-            type="button"
-            data-bs-toggle="tooltip"
-            title="save">
-            <i class="p-1 fas fa-edit"></i>
-        </button>
+
+        <div v-if="!value.editable" class="dropdown float-end">
+          <button class="btn btn-xs dropdown-toggle m-0 px-2 py-1 bg-gradient-default" type="button" 
+                  data-bs-toggle="dropdown" aria-expanded="false">
+           </button>
+
+            <ul class="dropdown-menu">
+              <li>
+                <button class="dropdown-item" type="button" @click="changeEditable(value)">
+                    <i class="fa fa-edit"></i> <span> Edit </span>
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" type="button">
+                  <i class="fa fa-trash"></i> <span> Remove </span>
+                  </button>
+              </li>
+            </ul>
+        </div>
 
       </div>
       <div v-if="!value.editable" class="p-3 mx-4 text-center card-header">
