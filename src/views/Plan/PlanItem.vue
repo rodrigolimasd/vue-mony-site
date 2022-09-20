@@ -58,11 +58,10 @@
 
 <script>
 import Datepicker from 'vuejs3-datepicker'
-// import { Tooltip } from 'bootstrap/dist/js/bootstrap.esm.min.js'
 
 export default {
     props: ['modelValue'],
-    emits: ['update:modelValue'],
+    emits: ['update:modelValue', 'addBeforeSchedule', 'addAfterSchdule', 'removeSchedule','updateSchedule'],
     components: {
         Datepicker
     },
