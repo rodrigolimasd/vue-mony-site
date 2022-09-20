@@ -34,10 +34,10 @@
     </div>
     <div class="col-2 col-sm-1 p-1">
         <div class="dropdown float-end">
-            <button class="btn btn-outline-info btn-xs dropdown-toggle mb-0" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
-            </button>
-            <ul class="dropdown-menu">
+            <button class="btn btn-xs dropdown-toggle m-0 px-2 py-1 bg-gradient-info" type="button" 
+                  data-bs-toggle="dropdown" aria-expanded="false" :id="index+'_drpOpt'">
+           </button>
+            <ul class="dropdown-menu" :aria-labelledby="index+'_drpOpt'">
                 <li>
                     <button class="dropdown-item" type="button" @click="$emit('add-before-schedule', value)">
                         <i class="fa fa-arrow-up"></i> <span> Add To Previous Day </span>
@@ -60,8 +60,9 @@
 import Datepicker from 'vuejs3-datepicker'
 
 export default {
-    props: ['modelValue'],
-    emits: ['update:modelValue', 'addBeforeSchedule', 'addAfterSchdule', 'removeSchedule','updateSchedule'],
+    inheritAttrs:false,
+    props: ['modelValue','index'],
+    emits: ['update:modelValue', 'add-before-schedule', 'add-after-schdule', 'remove-schedule','update-schedule'],
     components: {
         Datepicker
     },
@@ -87,15 +88,6 @@ export default {
         },
         getDay: (date) => {
             return date.getDate()
-        },
-        addBeforeSchedule: (item) => {
-
-        },
-        addAfterSchdule: (item) => {
-
-        },
-        removeSchedule: (item) => {
-
         }
     }
 }

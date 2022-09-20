@@ -55,7 +55,7 @@
 
                     
                     <div class="row" v-for="(e, index) in m.schedules" :key="index">
-                      <plan-item v-model="m.schedules[index]"
+                      <plan-item v-model="m.schedules[index]" :index="index"
                        @update-schedule="updateSchedule"
                        @add-before-schedule="addBeforeSchedule"
                        @add-after-schdule="addAfterSchdule"
