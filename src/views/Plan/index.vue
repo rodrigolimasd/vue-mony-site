@@ -28,7 +28,7 @@
                         <strong>{{ y.year }}</strong> - {{ getMonthName(m.month) }}
 
                        <div class="dropdown d-inline" v-if="isFirstOrLast({year: y.year, month: m.month})">
-                          <button class="btn btn-outline-info btn-xs dropdown-toggle mb-0 ms-2" 
+                          <button class="btn btn-xs dropdown-toggle mb-0 ms-2 px-2 py-1 bg-gradient-secondary" 
                                   style="padding: 0.275rem 1rem"
                                   type="button" 
                                   :id="y.year+getMonthName(m.month)+'_drpOpt'" data-bs-toggle="dropdown" aria-expanded="false">
