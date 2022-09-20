@@ -42,10 +42,10 @@
         </select>
       </div>
       <div v-if="!value.editable" class="p-3 pt-0 text-center card-body">
-        <h6 class="mb-0 text-center">{{ value.title  }}</h6>
+        <h6 class="mb-0 text-center text-bold text-lg">{{ value.title  }}</h6>
         <span class="text-xs">{{ value.desc }}</span>
         <hr class="my-3 horizontal dark" />
-        <h5 class="mb-0">${{ value.amount }}</h5>
+        <h5 class="mb-0 text-success">${{ value.amount }}</h5>
       </div>
       <div v-else class="p-3 pt-0 text-center card-body">
         <input type="text" class="form-control form-control-sm text-bold text-center text-lg" 
