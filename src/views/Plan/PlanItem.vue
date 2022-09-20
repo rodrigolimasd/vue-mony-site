@@ -34,7 +34,7 @@
     </div>
     <div class="col-2 col-sm-1 py-2 px-3">
         <div class="dropdown float-end">
-            <button class="btn btn-xs dropdown-toggle m-0 px-2 py-1 bg-gradient-secondary" type="button" 
+            <button class="btn btn-xs dropdown-toggle m-0 px-2 py-1 bg-gradient-success" type="button" 
                   data-bs-toggle="dropdown" aria-expanded="false" :id="index+'_drpOpt'">
            </button>
             <ul class="dropdown-menu" :aria-labelledby="index+'_drpOpt'">
