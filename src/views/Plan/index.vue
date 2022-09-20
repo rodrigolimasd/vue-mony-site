@@ -53,76 +53,14 @@
                       </span>
                     </div>
 
-                    <!-- PlanItem -->
+                    
                     <div class="row" v-for="(e, index) in m.schedules" :key="index">
-                      <div class="col-2 col-sm-1">
-                         <div>
-                          <datepicker :wrapper-class="'wrapper-class-calendar mx-1'" v-model="e.date" 
-                                  :calendar-button-icon="'fa fa-calendar icon-calendar'"
-                                  :value="e.date" format="" :calendar-button="true"
-                                  data-bs-toggle="tooltip" title="Click To Change Date">
-                          </datepicker>
-
-                         <span class="text-nowrap text-bold text-secondary text-flex">
-                              {{getDay(e.date)}}
-                          </span>
-                         </div>
-                      </div>
-                      <div class="col-3 col-sm-2 p-1">
-                          <input type="text" 
-                            class="form-control form-control-md text-success text-md text-bold text-end currency-input input-plan" 
-                            v-model="e.income" placeholder="Income" 
-                            @keydown.enter="focusNext"
-                            v-decimal @change="updateSchedule(e)" 
-                            :id="index+'inc'"
-                            :name="index+'inc'" />
-                      </div>
-                      <div class="col-3 col-sm-2 p-1">
-                          <input type="text" class="form-control form-control-md text-danger text-md text-end text-bold currency-input input-plan"
-                              v-model="e.expense" placeholder="Expense" 
-                              @keydown.enter="focusNext"
-                              v-decimal @change="updateSchedule(e)"
-                              :id="index+'exp'"
-                              :name="index+'exp'" />
-                      </div>
-                      <div class="col-4 col-sm-2 p-1">
-                            <input type="text" class="form-control form-control-md text-md currency-input text-end text-bold"
-                                :class="e.balanceValue < 0 ? 'text-danger' : 'text-success'"
-                                :value="e.balanceValue" disabled placeholder="Balance Value"
-                                :id="index+'bal'"
-                                :name="index+'bal'"> 
-                      </div>
-                      <div class="col-10 col-sm-4 p-1">
-                              <input type="text" class="form-control text-primary text-md form-control-md text-end text-bold input-plan"
-                              placeholder="Note" v-model.lazy="e.note"
-                              @keydown.enter="focusNext"
-                              :id="index+'not'"
-                              :name="index+'not'">
-                      </div>
-                      <div class="col-2 col-sm-1 p-1">
-                          <div class="dropdown float-end">
-                              <button class="btn btn-outline-info btn-xs dropdown-toggle mb-0" type="button" 
-                                      :id="index+'_drpOpt'" data-bs-toggle="dropdown" aria-expanded="false">
-                              </button>
-                              <ul class="dropdown-menu" :aria-labelledby="index+'_drpOpt'">
-                                <li>
-                                  <button class="dropdown-item" type="button" @click="addBeforeSchedule(e)">
-                                      <i class="fa fa-arrow-up"></i> <span> Add To Previous Day </span>
-                                  </button>
-                                </li>
-                                <li>
-                                  <button class="dropdown-item" type="button" @click="addAfterSchdule(e)">
-                                    <i class="fa fa-arrow-down"></i> <span> Add To Next Day </span>
-                                    </button>
-                                </li>
-                                <li><button class="dropdown-item" type="button" @click="removeSchedule(e)">
-                                  <i class="fa fa-trash"></i> <span> Remove Day </span> </button></li>
-                              </ul>
-                          </div>
-                      </div>
-                      <hr>
+                      <plan-item v-model="m.schedules[index]"
+                       @update-schedule="updateSchedule"
+                       @add-before-schedule="addBeforeSchedule"
+                       @add-after-schdule="addAfterSchdule"
+                       @remove-schedule="removeSchedule" />
                     </div>
-                    <!-- PlanItem END -->
 
                 </slot>
               </slot>
@@ -140,14 +78,14 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import Datepicker from 'vuejs3-datepicker'
 
 import { Tooltip } from 'bootstrap/dist/js/bootstrap.esm.min.js'
+import PlanItem from './PlanItem.vue'
 
 export default {
   components: {
-    Datepicker
-  },
+    PlanItem
+},
   data() {
     return {
       currencyOptions: {
