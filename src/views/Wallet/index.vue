@@ -37,8 +37,9 @@
                             <div class="card-footer pt-4">
                                 <div class="row">
                                     <div class="col">
-                                        <h6 class="mb-0 d-inline-flex">Total:</h6> 
-                                        <h5 class="mx-2 mb-2 d-inline-flex text-success">{{totalBalance}}</h5>
+                                        <!-- <h6 class="mb-0 d-inline-flex">Total:</h6> 
+                                        <h5 class="mx-2 mb-2 d-inline-flex text-success">{{totalBalance}}</h5> -->
+                                        <card-total-balance :total="totalBalance" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -89,6 +90,7 @@
 <script>
 import AccountCard from "@/components/cards/AccountCard.vue"
 import ArgonButton from "@/components/ArgonButton.vue"
+import CardTotalBalance from "../../components/cards/CardTotalBalance.vue"
 import { mapMutations, mapGetters } from 'vuex'
 
 
@@ -96,7 +98,8 @@ export default {
     name: "Wallet",
     components: {
         AccountCard,
-        ArgonButton
+        ArgonButton,
+        CardTotalBalance
     },
     computed: {
         accounts() {
