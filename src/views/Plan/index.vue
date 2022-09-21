@@ -24,35 +24,10 @@
                 <slot v-for="m in y.months" :key="y.year+'-'+m.month">
 
                     <div class="row">
-                      <span class="card-title text-uppercase p-0 text-secondary">
-                        <strong>{{ y.year }}</strong> - {{ getMonthName(m.month) }}
-
-                       <div class="dropdown d-inline" v-if="isFirstOrLast({year: y.year, month: m.month})">
-                          <button class="btn btn-xs dropdown-toggle mb-0 ms-2 px-2 py-1 bg-gradient-success" 
-                                  style="padding: 0.275rem 1rem"
-                                  type="button" 
-                                  :id="y.year+getMonthName(m.month)+'_drpOpt'" data-bs-toggle="dropdown" aria-expanded="false">
-                          </button>
-                          <ul class="dropdown-menu" :aria-labelledby="y.year+getMonthName(m.month)+'_drpOpt'">
-                            <li>
-                              <button class="dropdown-item" type="button" @click="addAfterMonth({year: y.year, month: m.month})">
-                                <i class="fa fa-arrow-down"></i> <span> Copy To Next Month (Beta) </span>
-                                </button>
-                            </li>
-                            <li>
-                              <button class="dropdown-item" type="button" 
-                                  @click="deleteMonth({year: y.year, month: m.month})">
-                                <i class="fa fa-trash"></i> 
-                                  <span> 
-                                    Remove This Month ({{getMonthName(m.month) }} - {{y.year}}) 
-                                  </span> 
-                                </button>
-                            </li>
-                          </ul>
-                        </div>
-                      </span>
+                      <plan-month :yearGroup="y" :monthGroup="m"
+                        @add-after-month="addAfterMonth"
+                        @delete-month="deleteMonth" />
                     </div>
-
                     
                     <div class="row" v-for="(e, index) in m.schedules" :key="index">
                       <plan-item v-model="m.schedules[index]" :index="index"
@@ -81,10 +56,12 @@ import { mapMutations } from 'vuex'
 
 import { Tooltip } from 'bootstrap/dist/js/bootstrap.esm.min.js'
 import PlanItem from './PlanItem.vue'
+import PlanMonth from './PlanMonth.vue'
 
 export default {
   components: {
-    PlanItem
+    PlanItem,
+    PlanMonth
 },
   data() {
     return {
