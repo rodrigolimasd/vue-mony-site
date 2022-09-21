@@ -53,8 +53,6 @@
 
 <script>
 import { mapMutations } from 'vuex'
-
-import { Tooltip } from 'bootstrap/dist/js/bootstrap.esm.min.js'
 import PlanItem from './PlanItem.vue'
 import PlanMonth from './PlanMonth.vue'
 
@@ -62,14 +60,6 @@ export default {
   components: {
     PlanItem,
     PlanMonth
-},
-  data() {
-    return {
-      currencyOptions: {
-          currency: 'USD', 
-          autoDecimalDigits: true
-      }
-    }
   },
   computed: {
     schedules() {
