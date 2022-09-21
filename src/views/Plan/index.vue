@@ -79,11 +79,6 @@ export default {
       return this.groupSchedules(this.$store.state.plan.schedules)
     }
   },
-   mounted() {
-     //inti tooltip
-     Array.from(document.querySelectorAll('button[data-bs-toggle="tooltip"]'))
-          .forEach(tooltipNode => new Tooltip(tooltipNode))
-  },
   methods: {
     ...mapMutations([
         'addSchedule',
@@ -95,12 +90,6 @@ export default {
         'addAfterMonth',
         'deleteMonth'
       ]),
-    getMonthName: (month) => {
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-          "July", "August", "September", "October", "November", "December"
-        ]
-        return monthNames[month]
-    },
     groupSchedules(schedules) {
         let groupsByYear = schedules.reduce((g, sc) => {
         const _year = sc.date.getFullYear()
@@ -135,18 +124,6 @@ export default {
         }
       })
     },
-    isFirstOrLast(item) {
-      const {year, month} = item
-      const size = this.$store.state.plan.schedules.length
-      if(size > 0 ) {
-        let first = this.$store.state.plan.schedules[0]
-        let last = this.$store.state.plan.schedules[size-1]
-        return first.date.getFullYear() === Number(year) && first.date.getMonth() === Number(month) ||
-               last.date.getFullYear() === Number(year) && last.date.getMonth() === Number(month)
-      } else {
-        return false
-      }
-    }
   }
 }
 </script>
