@@ -52,6 +52,7 @@
 </template>
 
 <script>
+import { Tooltip } from 'bootstrap/dist/js/bootstrap.esm.min.js'
 import { mapMutations } from 'vuex'
 import PlanItem from './PlanItem.vue'
 import PlanMonth from './PlanMonth.vue'
