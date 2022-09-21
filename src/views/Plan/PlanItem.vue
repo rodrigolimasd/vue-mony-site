@@ -92,3 +92,9 @@ export default {
     }
 }
 </script>
+
+<style>
+.currency-input {
+  padding-left: 3px
+}
+</style>

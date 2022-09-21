@@ -57,3 +57,21 @@
         }
     }
 </script>
+
+<style>
+.wrapper-class-calendar {
+  font-size: 16pt;
+} 
+
+.wrapper-class-calendar #calendar-div{
+  display: none;
+}
+
+.icon-calendar {
+    color: #11cdef !important;
+}
+
+.icon-calendar:hover {
+    color: #0a7bb4 !important;
+}
+</style>
