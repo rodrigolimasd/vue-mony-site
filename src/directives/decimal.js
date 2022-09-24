@@ -23,13 +23,28 @@ const keyPermited = [
     "ArrowDown",
   ]
 
+function isNumbers(key){
+    return /^\d+/g.test(key);
+}
+
+function isValidKey(key){
+    return /^\d+/g.test(key) || keyPermited.includes(key)
+}
+
+function validDecimal(value){
+    return /^$|^\d+(\.\d{0,1})?$/.test(value)
+}
+
 const number = {
 
     mounted: (el) => {
         el = el instanceof HTMLInputElement ? el : el.querySelector('input')
 
         el.onkeydown = (e) => {
-            if(!/^\d+/g.test(e.key) && !keyPermited.includes(e.key)){
+            if(!isValidKey(e.key)){
+                e.preventDefault()
+            }
+            if(isNumbers(e.key) && !validDecimal(e.target.value)){
                 e.preventDefault()
             }
           }
