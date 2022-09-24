@@ -42,9 +42,11 @@ const number = {
 
         el.onkeydown = (e) => {
             if(!isValidKey(e.key)){
+                console.log('key', e.target.value)
                 e.preventDefault()
             }
-            if(isNumbers(e.key) && !validDecimal(e.target.value)){
+            if((isNumbers(e.key) || e.key === '.') && !validDecimal(e.target.value)){
+                console.log('valid', e.target.value)
                 e.preventDefault()
             }
           }
