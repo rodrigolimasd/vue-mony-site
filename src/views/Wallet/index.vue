@@ -39,6 +39,9 @@
                                     <div class="col-6">
                                         <card-total-balance :total="totalBalance" />
                                     </div>
+                                    <div class="col-6">
+                                        <!-- <card-total-balance :total="lastBalance.balanceValue" /> -->
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
@@ -104,7 +107,8 @@ export default {
             return this.$store.state.wallet.accounts
         },
         ...mapGetters({
-            totalBalance: 'totalBalance'
+            totalBalance: 'totalBalance',
+            lastBalance: 'lastBalance'
         })
     },
     methods: {

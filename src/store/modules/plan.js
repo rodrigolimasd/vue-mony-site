@@ -31,10 +31,31 @@ const recoveryStorageJson = () => {
   return []
 }
 
+function getNearestSchedules(schedules, currentDate) {
+  let minDiff = -1
+  let minDate = null;
+  let _currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate())
+  schedules.forEach(item => {
+  	let _date = new Date(item.date.getFullYear(), item.date.getMonth(), item.date.getDate())
+    let diff = Math.ceil(Math.abs(_currentDate - _date) / (1000 * 60 * 60 * 24))
+    if ((minDiff == -1) || (diff < minDiff)) {
+      minDiff = diff;
+      minDate = item;
+    }
+  })
+  return minDate;
+}
+
 export default {
     //namespaced: false,
     state: {
         schedules: recoveryStorageJson(),
+    },
+    getters: {
+     lastBalance(state, getters, rootState){
+        let today = new Date()
+        return getNearestSchedules(state.schedules, today)
+      }
     },
     mutations: {
         addSchedule(state, payload) {
