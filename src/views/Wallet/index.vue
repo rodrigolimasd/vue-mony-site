@@ -40,7 +40,7 @@
                                         <card-total-balance :total="totalBalance" />
                                     </div>
                                     <div class="col-6">
-                                        <!-- <card-total-balance :total="lastBalance.balanceValue" /> -->
+                                        <card-last-balance :total="lastBalance.balanceValue" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -92,6 +92,7 @@
 import AccountCard from "@/components/cards/AccountCard.vue"
 import ArgonButton from "@/components/ArgonButton.vue"
 import CardTotalBalance from "../../components/cards/CardTotalBalance.vue"
+import CardLastBalance from "../../components/cards/CardLastBalance.vue"
 import { mapMutations, mapGetters } from 'vuex'
 
 
@@ -100,7 +101,8 @@ export default {
     components: {
         AccountCard,
         ArgonButton,
-        CardTotalBalance
+        CardTotalBalance,
+        CardLastBalance
     },
     computed: {
         accounts() {
