@@ -17,21 +17,8 @@
       </li>
       <li class="nav-item">
         <sidenav-item
-          url="/tables"
-          :class="getRoute() === 'tables' ? 'active' : ''"
-          :navText="'Transactions'"
-        >
-          <template v-slot:icon>
-            <i
-              class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"
-            ></i>
-          </template>
-        </sidenav-item>
-      </li>
-      <li class="nav-item">
-        <sidenav-item
-          url="/billing"
-          :class="getRoute() === 'billing' ? 'active' : ''"
+          url="/wallet"
+          :class="getRoute() === 'wallet' ? 'active' : ''"
           :navText="'Wallet'"
         >
           <template v-slot:icon>
