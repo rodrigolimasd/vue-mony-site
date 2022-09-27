@@ -45,32 +45,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <argon-button
-                                            color="success"
-                                            variant="outline"
-                                            size="sm"
-                                            class="btn-icon-only btn-rounded mb-0 me-3 d-flex align-items-center justify-content-center"
-                                            >
-                                            <i class="fas fa-arrow-up" aria-hidden="true"></i>
-                                        </argon-button>
-                                        <small class="text-black opacity-8">{{totalVSLast()}}</small>
-                                        <div class="progress progress-xs my-2">
-                                            <div class="progress-bar bg-success" style="width: 60%"></div>
-                                        </div>
+                                        <card-diff-balance :amount="totalVSLast()" />
                                     </div>
                                     <div class="col">
-                                        <argon-button
-                                            color="danger"
-                                            variant="outline"
-                                            size="sm"
-                                            class="btn-icon-only btn-rounded mb-0 me-3 d-flex align-items-center justify-content-center"
-                                            >
-                                            <i class="fas fa-arrow-down" aria-hidden="true"></i>
-                                        </argon-button>
-                                        <small class="text-black opacity-8">{{lastVsTotal()}}</small>
-                                        <div class="progress progress-xs my-2">
-                                            <div class="progress-bar bg-warning" style="width: 40%"></div>
-                                        </div>
+                                        <card-diff-balance :amount="lastVsTotal()" />
                                     </div>
                                 </div>
                             </div>
@@ -93,6 +71,7 @@ import AccountCard from "@/components/cards/AccountCard.vue"
 import ArgonButton from "@/components/ArgonButton.vue"
 import CardTotalBalance from "../../components/cards/CardTotalBalance.vue"
 import CardLastBalance from "../../components/cards/CardLastBalance.vue"
+import CardDiffBalance from "../../components/cards/CardDiffBalance.vue"
 import { mapMutations, mapGetters } from 'vuex'
 
 
@@ -102,7 +81,8 @@ export default {
         AccountCard,
         ArgonButton,
         CardTotalBalance,
-        CardLastBalance
+        CardLastBalance,
+        CardDiffBalance
     },
     computed: {
         accounts() {
