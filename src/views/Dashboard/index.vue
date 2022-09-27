@@ -3,48 +3,14 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
-            <div class="col-lg-3 col-md-6 col-12">
+            <div class="col-lg-3 col-md-6 col-12" v-for="s in summaries" :key="s.title">
               <card
-                :title="stats.money.title"
-                :value="stats.money.value"
-                :percentage="stats.money.percentage"
-                :iconClass="stats.money.iconClass"
-                :iconBackground="stats.money.iconBackground"
-                :detail="stats.money.detail"
-                directionReverse
-              ></card>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <card
-                :title="stats.users.title"
-                :value="stats.users.value"
-                :percentage="stats.users.percentage"
-                :iconClass="stats.users.iconClass"
-                :iconBackground="stats.users.iconBackground"
-                :detail="stats.users.detail"
-                directionReverse
-              ></card>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <card
-                :title="stats.clients.title"
-                :value="stats.clients.value"
-                :percentage="stats.clients.percentage"
-                :iconClass="stats.clients.iconClass"
-                :iconBackground="stats.clients.iconBackground"
-                :percentageColor="stats.clients.percentageColor"
-                :detail="stats.clients.detail"
-                directionReverse
-              ></card>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <card
-                :title="stats.sales.title"
-                :value="stats.sales.value"
-                :percentage="stats.sales.percentage"
-                :iconClass="stats.sales.iconClass"
-                :iconBackground="stats.sales.iconBackground"
-                :detail="stats.sales.detail"
+                :title="s.title"
+                :value="s.value"
+                :percentage="s.percentage"
+                :iconClass="s.iconClass"
+                :iconBackground="s.iconBackground"
+                :detail="s.detail"
                 directionReverse
               ></card>
             </div>
@@ -122,8 +88,8 @@
     name: "dashboard-default",
     data() {
       return {
-        stats: {
-          money: {
+        summaries: [
+          {
             title: "Expenses",
             value: "-$"+ this.expenseCurrentMonth(),
             //percentage: "+55%",
@@ -131,7 +97,7 @@
             detail: "current month",
             iconBackground: "bg-gradient-danger",
           },
-          users: {
+          {
             title: "Accumulated Balance",
             value: "=$"+ this.accumulatedBalanceUtilCurrentMonth(),
             //percentage: "+55%",
@@ -140,7 +106,7 @@
             iconBackground: "bg-gradient-primary",
             detail: "current month",
           },
-          clients: {
+          {
             title: "Initial Balance",
             value: "$" + this.initialBalanceUtilCurrentMonth()+"+",
            // percentage: "+35%",
@@ -149,15 +115,15 @@
             iconBackground: "bg-gradient-warning",
             detail: "current month",
           },
-          sales: {
+          {
             title: "Incomes",
             value: "+$" + this.incomeCurrentMonth(),
             //percentage: "+5%",
             iconClass: "ni ni-money-coins",
             iconBackground: "bg-gradient-success",
             detail: "than last month",
-          },
-        },
+          }
+        ]
       };
     },
     computed: {
