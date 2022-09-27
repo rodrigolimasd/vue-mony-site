@@ -40,7 +40,7 @@
                                         <card-total-balance :total="totalBalance" />
                                     </div>
                                     <div class="col-6">
-                                        <card-last-balance :total="lastBalance.balanceValue" />
+                                        <card-last-balance :total="lastBalance" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -53,7 +53,7 @@
                                             >
                                             <i class="fas fa-arrow-up" aria-hidden="true"></i>
                                         </argon-button>
-                                        <small class="text-black opacity-8">+$5456.00</small>
+                                        <small class="text-black opacity-8">{{totalVSLast()}}</small>
                                         <div class="progress progress-xs my-2">
                                             <div class="progress-bar bg-success" style="width: 60%"></div>
                                         </div>
@@ -67,7 +67,7 @@
                                             >
                                             <i class="fas fa-arrow-down" aria-hidden="true"></i>
                                         </argon-button>
-                                        <small class="text-black opacity-8">-$4326.32</small>
+                                        <small class="text-black opacity-8">{{lastVsTotal()}}</small>
                                         <div class="progress progress-xs my-2">
                                             <div class="progress-bar bg-warning" style="width: 40%"></div>
                                         </div>
@@ -118,7 +118,15 @@ export default {
             "addAccount",
             "saveStorage",
             "removeAccount"
-        ])
+        ]),
+        totalVSLast(){
+            let cal = Number(this.totalBalance) - Number(this.lastBalance)
+            return cal.toFixed(2)
+        },
+        lastVsTotal(){
+            let cal = Number(this.lastBalance) - Number(this.totalBalance)
+            return cal.toFixed(2)
+        }
     }
 }
 

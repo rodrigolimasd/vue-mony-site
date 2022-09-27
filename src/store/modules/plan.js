@@ -54,7 +54,8 @@ export default {
     getters: {
      lastBalance(state, getters, rootState){
         let today = new Date()
-        return getNearestSchedules(state.schedules, today)
+        let last = getNearestSchedules(state.schedules, today)
+        return last ? last.balanceValue : 0
       }
     },
     mutations: {
