@@ -30,33 +30,39 @@
                   </div>
                 </div>
                 <div class="table-responsive">
-                  <table class="table align-items-center">
+                  <table class="table align-items-center table-striped">
+                    <thead>
+                      <th>Date</th>
+                      <th>Expense</th>
+                      <th>Income</th>
+                      <th>Balance</th>
+                      <th>Note</th>
+                    </thead>
                     <tbody>
-                      <tr v-for="t in schedules" :key="t.description">
-                        <td class="w-30">
-                          <div class="px-2 py-1 d-flex align-items-center">
-                            <div class="ms-4">
-                              <p class="mb-0 text-xs font-weight-bold text-warning">Note:</p>
-                              <h6 class="mb-0 text-sm text-warning">{{ t.note }}</h6>
-                            </div>
-                          </div>
-                        </td>
+                      <tr v-for="t in lastTransactionActualMonth" :key="t.description">
                         <td>
                           <div class="text-center">
-                            <p class="mb-0 text-xs font-weight-bold text-primary">Date:</p>
                             <h6 class="mb-0 text-sm text-primary">{{ t.date.toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) }}</h6>
-                          </div>
+                           </div>
                         </td>
                         <td>
                           <div class="text-center">
-                            <p class="mb-0 text-xs font-weight-bold text-danger">Expense:</p>
-                            <h6 class="mb-0 text-sm text-danger">{{ t.expense }}</h6>
+                            <h6 class="mb-0 text-sm text-danger">- ${{ t.expense }}</h6>
                           </div>
                         </td>
                         <td class="text-sm align-middle">
                           <div class="text-center col">
-                            <p class="mb-0 text-xs font-weight-bold text-success">Income:</p>
-                            <h6 class="mb-0 text-sm text-success">{{ t.income }}</h6>
+                            <h6 class="mb-0 text-sm text-success">+ ${{ t.income }}</h6>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="text-center col">
+                            <h6 class="mb-0 text-sm text-primary">= ${{ t.balanceValue }}</h6>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="text-center">
+                            <h6 class="mb-0 text-sm text-warning">{{ t.note }}</h6>
                           </div>
                         </td>
                       </tr>
@@ -83,6 +89,7 @@
   import GradientLineChart from "@/components/charts/GradientLineChart.vue";
   import Carousel from "@/components/Carousel.vue";
   import CategoriesCard from "@/components/CategoriesCard.vue";
+  import { mapGetters } from 'vuex'
   
   export default {
     name: "dashboard-default",
@@ -127,9 +134,9 @@
       };
     },
     computed: {
-      schedules() {
-        return (this.$store.state.plan.schedules).slice(1).slice(-5)
-      }
+      ...mapGetters({
+         lastTransactionActualMonth: 'lastTransactionActualMonth',
+      })
     },
     methods: {
       expenseCurrentMonth(){

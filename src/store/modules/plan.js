@@ -46,6 +46,14 @@ function getNearestSchedules(schedules, currentDate) {
   return minDate;
 }
 
+function compareMonthAndYear(p, today){
+  return p.date.getMonth() == today.getMonth() && p.date.getFullYear() == today.getFullYear()
+}
+
+function getLast(schedules, today){
+  return getNearestSchedules(schedules
+    .filter(p=> compareMonthAndYear(p, today)), today)
+}
 export default {
     //namespaced: false,
     state: {
@@ -54,9 +62,13 @@ export default {
     getters: {
      lastBalance(state, getters, rootState){
         let today = new Date()
-        let last = getNearestSchedules(state.schedules
-                  .filter(p=> p.date.getMonth() == today.getMonth() && p.date.getFullYear() == today.getFullYear()), today)
+        let last = getLast(state.schedules, today)
         return last ? last.balanceValue : 0
+      },
+      lastTransactionActualMonth(state, getters, rootState){
+        let today = new Date()
+        let index = state.schedules.indexOf(getLast(state.schedules, today))
+        return state.schedules.slice(index, index + 7)
       }
     },
     mutations: {
