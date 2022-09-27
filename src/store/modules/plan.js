@@ -54,7 +54,8 @@ export default {
     getters: {
      lastBalance(state, getters, rootState){
         let today = new Date()
-        let last = getNearestSchedules(state.schedules.filter(p=> p.date.getMonth() == today.getMonth()), today)
+        let last = getNearestSchedules(state.schedules
+                  .filter(p=> p.date.getMonth() == today.getMonth() && p.date.getFullYear() == today.getFullYear()), today)
         return last ? last.balanceValue : 0
       }
     },
