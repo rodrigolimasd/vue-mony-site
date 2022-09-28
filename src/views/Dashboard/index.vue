@@ -7,6 +7,7 @@
               <card
                 :title="s.title"
                 :value="s.value"
+                :valueColor="s.valueColor"
                 :percentage="s.percentage"
                 :iconClass="s.iconClass"
                 :iconBackground="s.iconBackground"
@@ -98,16 +99,18 @@
         summaries: [
           {
             title: "Expenses",
-            value: "-$"+ this.expenseCurrentMonth(),
+            value: "$"+ this.expenseCurrentMonth(),
             //percentage: "+55%",
+            valueColor:"text-danger",
             iconClass: "ni ni-cart",
             detail: "current month",
             iconBackground: "bg-gradient-danger",
           },
           {
             title: "Accumulated Balance",
-            value: "=$"+ this.accumulatedBalanceUtilCurrentMonth(),
+            value: "$"+ this.accumulatedBalanceUtilCurrentMonth(),
             //percentage: "+55%",
+            valueColor:"text-primary",
             iconClass: "fas fa-landmark",
             //iconBackground: "bg-gradient-danger",
             iconBackground: "bg-gradient-primary",
@@ -115,8 +118,9 @@
           },
           {
             title: "Initial Balance",
-            value: "$" + this.initialBalanceUtilCurrentMonth()+"+",
+            value: "$" + this.initialBalanceUtilCurrentMonth(),
            // percentage: "+35%",
+            valueColor:"text-warning",
             iconClass: "fas fa-landmark",
             // percentageColor: "text-danger",
             iconBackground: "bg-gradient-warning",
@@ -124,8 +128,9 @@
           },
           {
             title: "Incomes",
-            value: "+$" + this.incomeCurrentMonth(),
+            value: "$" + this.incomeCurrentMonth(),
             //percentage: "+5%",
+            valueColor:"text-success",
             iconClass: "ni ni-money-coins",
             iconBackground: "bg-gradient-success",
             detail: "than last month",
@@ -146,7 +151,7 @@
         if(expensesByMonth.length > 0 ) {
           total = expensesByMonth.reduce((a, b) => Number(a) + Number(b))
         }
-        return total
+        return total.toFixed(2)
       },
       incomeCurrentMonth(){
         let incomesByMonth = this.getSchedulesByCurrentMonth()
@@ -155,25 +160,28 @@
         if(incomesByMonth.length > 0 ) {
           total = incomesByMonth.reduce((a, b) => Number(a) + Number(b))
         }
-        return total
+        return total.toFixed(2)
       },
       accumulatedBalanceUtilCurrentMonth(){
         let balancesByMonth = this.getSchedulesByCurrentMonth()
               .map(a=> a.balanceValue);
-          return balancesByMonth.length > 0 ? 
+          let value = balancesByMonth.length > 0 ? 
               balancesByMonth[balancesByMonth.length - 1] : 0
-  
+          let _value  = Number(value)
+          return isNaN(_value) ? 0.00 : _value.toFixed(2)
       },
       initialBalanceUtilCurrentMonth(){
         let balancesByMonth = this.getSchedulesByCurrentMonth()
               .map(a=> a.balanceValue);
-          return balancesByMonth.length > 0 ? 
+          let value = balancesByMonth.length > 0 ? 
               balancesByMonth[0] : 0
-  
+          let _value = Number(value)
+          return isNaN(_value) ? 0.00 : _value.toFixed(2)
       },
       getSchedulesByCurrentMonth(){
+        let today = new Date()
         return this.$store.state.plan.schedules
-            .filter(a=> a.date.getMonth() === (new Date()).getMonth())
+            .filter(a=> a.date.getMonth() === today.getMonth() && a.date.getFullYear() === today.getFullYear())
       }
     },
     components: {
