@@ -103,7 +103,7 @@
             //percentage: "+55%",
             valueColor:"text-danger",
             iconClass: "ni ni-cart",
-            detail: "current month",
+            detail: this.getMonthCard(),
             iconBackground: "bg-gradient-danger",
           },
           {
@@ -114,7 +114,7 @@
             iconClass: "fas fa-landmark",
             //iconBackground: "bg-gradient-danger",
             iconBackground: "bg-gradient-primary",
-            detail: "current month",
+            detail: this.getMonthCard(),
           },
           {
             title: "Initial Balance",
@@ -124,7 +124,7 @@
             iconClass: "fas fa-landmark",
             // percentageColor: "text-danger",
             iconBackground: "bg-gradient-warning",
-            detail: "current month",
+            detail: this.getMonthCard(),
           },
           {
             title: "Incomes",
@@ -133,7 +133,7 @@
             valueColor:"text-success",
             iconClass: "ni ni-money-coins",
             iconBackground: "bg-gradient-success",
-            detail: "than last month",
+            detail: this.getMonthCard(),
           }
         ]
       };
@@ -144,6 +144,10 @@
       })
     },
     methods: {
+      getMonthCard(){
+        let today = new Date()
+        return `${today.getMonth()+1}/${today.getFullYear()}`
+      },  
       expenseCurrentMonth(){
         let expensesByMonth = this.getSchedulesByCurrentMonth()
         .map(a=> a.expense);
