@@ -9,8 +9,8 @@
           </div>
           <div :class="contentClass">
             <div class="numbers">
-              <p class="mb-0 text-sm text-uppercase font-weight-bold">Last Balance</p>
-              <h5 class="font-weight-bolder" :class="[total > 0 ? 'text-success' : 'text-warning']">${{ total }}</h5>
+              <p class="mb-0 text-sm text-uppercase font-weight-bold">Last Balance - Expected</p>
+              <h5 class="font-weight-bolder text-end" :class="[total > 0 ? 'text-success' : 'text-warning']">${{ total }}</h5>
             </div>
           </div>
         </div>

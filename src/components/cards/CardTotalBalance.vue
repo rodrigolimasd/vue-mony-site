@@ -9,7 +9,7 @@
           </div>
           <div :class="contentClass">
             <div class="numbers">
-              <p class="mb-0 text-sm text-uppercase font-weight-bold">Total Balance</p>
+              <p class="mb-0 text-sm text-uppercase font-weight-bold">Total Balance - Current</p>
               <h5 class="font-weight-bolder" :class="[total > 0 ? 'text-success' : 'text-warning']">${{ total }}</h5>
             </div>
           </div>

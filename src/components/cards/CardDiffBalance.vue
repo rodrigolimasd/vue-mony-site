@@ -7,10 +7,12 @@
             >
             <i class="fas" :class="[amountNumber > 0 ? 'fa-arrow-up' : 'fa-arrow-down']" aria-hidden="true"></i>
         </argon-button>
-        <small class="text-black opacity-8">{{ amountNumber }}</small>
+        <small class="text-black opacity-8"> {{ amountNumber }}</small>
         <div class="progress progress-xs my-2">
-            <div class="progress-bar" :class="[amountNumber > 0 ? 'bg-success' : 'bg-warning']" style="width: 60%"></div>
+            <div class="progress-bar" :class="[amountNumber > 0 ? 'bg-success' : 'bg-warning']" 
+                :style="{width: percent +'%'}"></div>
         </div>
+        <small>{{percent}}%</small>
 </template>
 
 <script>
@@ -20,6 +22,9 @@ export default {
     props: {
         amount: {
             required: true,
+        },
+        percent: {
+            require: true
         }
     },
     components: {

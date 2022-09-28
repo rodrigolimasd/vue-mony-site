@@ -45,10 +45,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <card-diff-balance :amount="totalVSLast()" />
+                                        <card-diff-balance :amount="totalVSLast()" :percent="percertCurrentDiff" />
                                     </div>
                                     <div class="col">
-                                        <card-diff-balance :amount="lastVsTotal()" />
+                                        <card-diff-balance :amount="lastVsTotal()" :percent="percertExpectedDiff" />
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +91,15 @@ export default {
         ...mapGetters({
             totalBalance: 'totalBalance',
             lastBalance: 'lastBalance'
-        })
+        }),
+        percertCurrentDiff() {
+            let x = ((100 * this.totalBalance) / this.lastBalance)
+            return Number(x).toFixed(2)
+        },
+        percertExpectedDiff(){
+            let x = ((100 * this.lastBalance) / this.totalBalance)
+            return Number(x).toFixed(2)
+        }
     },
     methods: {
         ...mapMutations([
@@ -106,7 +114,8 @@ export default {
         lastVsTotal(){
             let cal = Number(this.lastBalance) - Number(this.totalBalance)
             return cal.toFixed(2)
-        }
+        },
+        
     }
 }
 
