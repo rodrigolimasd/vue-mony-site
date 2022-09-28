@@ -24,6 +24,7 @@
                 <slot v-for="m in y.months" :key="y.year+'-'+m.month">
 
                     <div class="row">
+                      <hr>
                       <plan-month :yearGroup="y" :monthGroup="m"
                         @add-after-month="addAfterMonth"
                         @delete-month="deleteMonth" />
