@@ -29,7 +29,8 @@
                         @delete-month="deleteMonth" />
                     </div>
                     
-                    <div class="row" v-for="(e, index) in m.schedules" :key="index">
+                    <div v-for="(e, index) in m.schedules" :key="index"
+                            class="row" :class="[index % 2 == 0 ? 'bg-light': '']">
                       <plan-item v-model="m.schedules[index]" :index="index"
                        @update-schedule="updateSchedule"
                        @add-before-schedule="addBeforeSchedule"

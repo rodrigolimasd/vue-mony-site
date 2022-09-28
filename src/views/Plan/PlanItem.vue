@@ -53,7 +53,6 @@
             </ul>
         </div>
     </div>
-    <hr>
 </template>
 
 <script>
