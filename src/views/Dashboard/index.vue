@@ -42,22 +42,22 @@
                       <tr v-for="t in lastTransactionActualMonth" :key="t.description">
                         <td>
                           <div class="text-center">
-                            <h6 class="mb-0 text-sm text-primary">{{ t.date.toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) }}</h6>
+                            <h6 class="mb-0 text-sm text-primary">{{ t.date.getDate() }}/{{ t.date.getMonth() + 1 }}/{{ t.date.getFullYear() }}</h6>
                            </div>
                         </td>
                         <td>
                           <div class="text-center">
-                            <h6 class="mb-0 text-sm text-danger">- ${{ t.expense }}</h6>
+                            <h6 class="mb-0 text-sm text-danger"> ${{ t.expense }}</h6>
                           </div>
                         </td>
                         <td class="text-sm align-middle">
                           <div class="text-center col">
-                            <h6 class="mb-0 text-sm text-success">+ ${{ t.income }}</h6>
+                            <h6 class="mb-0 text-sm text-success"> ${{ t.income }}</h6>
                           </div>
                         </td>
                         <td>
                           <div class="text-center col">
-                            <h6 class="mb-0 text-sm text-primary">= ${{ t.balanceValue }}</h6>
+                            <h6 class="mb-0 text-sm text-primary"> ${{ t.balanceValue }}</h6>
                           </div>
                         </td>
                         <td>
