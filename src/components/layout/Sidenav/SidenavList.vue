@@ -22,7 +22,7 @@
           :navText="'Wallet'"
         >
           <template v-slot:icon>
-            <i class="ni ni-credit-card text-primary text-sm opacity-10"></i>
+            <i class="fas fa-wallet text-secondary text-sm opacity-10"></i>
           </template>
         </sidenav-item>
       </li>
@@ -34,6 +34,17 @@
         >
           <template v-slot:icon>
             <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+          </template>
+        </sidenav-item>
+      </li>
+      <li class="nav-item">
+        <sidenav-item
+          url="/invoices"
+          :class="getRoute() === 'invoices' ? 'active' : ''"
+          :navText="'Invoices'"
+        >
+          <template v-slot:icon>
+            <i class="ni ni-credit-card text-info text-sm opacity-10"></i>
           </template>
         </sidenav-item>
       </li>

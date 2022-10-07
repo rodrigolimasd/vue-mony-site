@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router"
 import Dashboard from "../views/Dashboard"
 import Plan from "../views/Plan"
-import Tables from "../views/Tables.vue"
-import Billing from "../views/Billing.vue"
 import Wallet from "../views/Wallet"
+import Invoices from "../views/Invoices"
+import Billing from "../views/Billing.vue"
+import Tables from "../views/Tables.vue"
 import FormTest from "../views/FormTest"
 import VirtualReality from "../views/VirtualReality.vue"
 import Profile from "../views/Profile.vue"
@@ -27,6 +28,16 @@ const routes = [
     component: Plan
   },
   {
+    path: "/wallet",
+    name: "Wallet",
+    component: Wallet,
+  },
+  {
+    path: "/invoices",
+    name: "Invoices",
+    component: Invoices,
+  },
+  {
     path: "/tables",
     name: "Tables",
     component: Tables,
@@ -35,11 +46,6 @@ const routes = [
     path: "/billing",
     name: "Billing",
     component: Billing,
-  },
-  {
-    path: "/wallet",
-    name: "Wallet",
-    component: Wallet,
   },
   {
     path: "/virtual-reality",
