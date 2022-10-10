@@ -123,7 +123,9 @@
     },
     methods: {
       addCard() {
-        this.items.push({cardFlag: "mastercard", finalNumberCard : "7890"})
+        //this.items.push({cardFlag: "mastercard", finalNumberCard : "7890"})
+       // this.$router.push({ name: "newOrEditCardRoute" })
+       this.$router.push("/creditcard/new")
       }
     }
   };
