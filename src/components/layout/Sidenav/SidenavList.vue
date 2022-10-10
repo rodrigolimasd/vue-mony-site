@@ -39,9 +39,9 @@
       </li>
       <li class="nav-item">
         <sidenav-item
-          url="/invoices"
-          :class="getRoute() === 'invoices' ? 'active' : ''"
-          :navText="'Invoices'"
+          url="/creditcard"
+          :class="getRoute() === 'creditcard' ? 'active' : ''"
+          :navText="'Credit Card'"
         >
           <template v-slot:icon>
             <i class="ni ni-credit-card text-info text-sm opacity-10"></i>

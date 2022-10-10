@@ -3,7 +3,8 @@ import Dashboard from "../views/Dashboard"
 import Plan from "../views/Plan"
 import Wallet from "../views/Wallet"
 import Invoices from "../views/Invoices"
-import CredtCardNewOrEdit from "../views/Invoices/CreditCards/NewOrEdit.vue"
+import CreditCard from "../views/CreditCard"
+import CreditCardNew from "../views/CreditCard/New"
 import Billing from "../views/Billing.vue"
 import Tables from "../views/Tables.vue"
 import FormTest from "../views/FormTest"
@@ -39,9 +40,14 @@ const routes = [
     component: Invoices
   },
   {
-    path: "/creditcard/new",
+    path: "/creditcard",
     name: "Credit Card",
-    component: CredtCardNewOrEdit
+    component: CreditCard
+  },
+  {
+    path: "/creditcard/new",
+    name: "New Credit Card",
+    component: CreditCardNew
   },
   {
     path: "/tables",
