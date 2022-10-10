@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="col-md-12 mb-4">
-                    <payment-card />
+                    <credit-cards />
                 </div>
             </div>
         </div>
@@ -12,10 +12,10 @@
 
 <script>
 
-import PaymentCard from "@/components/PaymentCard.vue";
+import CreditCards from "./CreditCards";
 export default {
     components: {
-        PaymentCard
+        CreditCards
     },
     data() {
         return {
@@ -24,6 +24,7 @@ export default {
                     name: "C6 Invoice",
                     type: "creditcard",
                     cardFlag: "mastercard",
+                    finalNumberCard: "1234",
                     expirationDay: 15,
                     closingDay: 6,
                     limit: 35000.00,
