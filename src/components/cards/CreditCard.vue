@@ -1,29 +1,27 @@
 <template>
-  <div class="card bg-gradient-dark">
-    <div class="card-body">
-      <div class="mb-2">
-        <sup class="text-white">$</sup>
-        <span class="h2 text-white">3,300</span>
-        <div class="text-white opacity-8 mt-2 text-sm">Your current balance</div>
-        <div>
-          <span class="text-success font-weight-600">+ 15%</span>
-          <span class="text-white opacity-8">($250)</span>
-        </div>
-      </div>
-      <button class="btn btn-sm btn-white mb-0 w-100">Add credit</button>
-    </div>
-    <div class="card-footer pt-0">
-      <div class="row">
-        <div class="col">
-          <small class="text-white opacity-8">Orders: 60%</small>
-          <div class="progress progress-xs my-2">
-            <div class="progress-bar bg-success" style="width: 60%"></div>
+  <div class="card shadow-xl">
+    <div
+      class="overflow-hidden position-relative border-radius-xl"
+    >
+      <span class="mask bg-gradient-dark"></span>
+      <div class="card-body position-relative z-index-1 p-3">
+        <i class="fas fa-wifi text-white p-2" aria-hidden="true"></i>
+        <h5
+          class="text-white mt-4 mb-5 pb-2"
+        >****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;7852</h5>
+        <div class="d-flex">
+          <div class="d-flex">
+            <div class="me-4">
+              <p class="text-white text-sm opacity-8 mb-0">{{ cardHolderText }}</p>
+              <h6 class="text-white mb-0">{{ name }}</h6>
+            </div>
+            <div>
+              <!-- <p class="text-white text-sm opacity-8 mb-0">{{ cardExpirationText }}</p>
+              <h6 class="text-white mb-0">11/22</h6> -->
+            </div>
           </div>
-        </div>
-        <div class="col">
-          <small class="text-white opacity-8">Sales: 40%</small>
-          <div class="progress progress-xs my-2">
-            <div class="progress-bar bg-warning" style="width: 40%"></div>
+          <div class="w-20 d-flex align-items-end justify-content-end ms-auto">
+            <argon-avatar class="w-60 mt-2" :img="img1" alt="logo" />
           </div>
         </div>
       </div>
@@ -32,7 +30,34 @@
 </template>
 
 <script>
+import ArgonAvatar from "@/components/ArgonAvatar.vue";
+import img from "../../assets/img/card-visa.jpg";
+import img1 from "../../assets/img/logos/mastercard.png";
+
 export default {
   name: "credit-card",
+  components: {
+    ArgonAvatar,
+  },
+  props: {
+    cardHolderText: {
+      type: String,
+      default: "Card Name",
+    },
+    name: {
+      type: String,
+      default: "C6",
+    },
+    cardExpirationText: {
+      type: String,
+      default: "Expires",
+    },
+  },
+  data() {
+    return {
+      img,
+      img1,
+    };
+  },
 };
 </script>

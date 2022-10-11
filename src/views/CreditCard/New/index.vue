@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <master-card />
+            <credit-card />
         </div>
         </div>
     </div>
@@ -45,13 +45,13 @@
 
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
-import MasterCard from "@/components/cards/MasterCard.vue";
+import CreditCard from "@/components/cards/CreditCard.vue";
 
 export default {
     components: { 
         ArgonInput,
         ArgonButton,
-        MasterCard 
+        CreditCard 
     },
 
 }
