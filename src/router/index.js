@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router"
 import Dashboard from "../views/Dashboard"
 import Plan from "../views/Plan"
 import Wallet from "../views/Wallet"
-import Invoices from "../views/Invoices"
 import CreditCard from "../views/CreditCard"
 import CreditCardNew from "../views/CreditCard/New"
 import Billing from "../views/Billing.vue"
@@ -33,11 +32,6 @@ const routes = [
     path: "/wallet",
     name: "Wallet",
     component: Wallet,
-  },
-  {
-    path: "/invoices",
-    name: "Invoices",
-    component: Invoices
   },
   {
     path: "/creditcard",
