@@ -1,6 +1,7 @@
 <template>
-    <div class="container-fluid">
-        <div class="col-md-8">
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-md-8">
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex align-items-center">
@@ -32,6 +33,10 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-4">
+            <master-card />
+        </div>
+        </div>
     </div>
     
 </template>
@@ -40,11 +45,13 @@
 
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
+import MasterCard from "@/components/cards/MasterCard.vue";
 
 export default {
     components: { 
         ArgonInput,
-        ArgonButton 
+        ArgonButton,
+        MasterCard 
     },
 
 }
