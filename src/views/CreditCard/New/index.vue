@@ -6,7 +6,12 @@
                 <div class="card-header pb-0">
                     <div class="d-flex align-items-center">
                         <p class="mb-0">New Credit Card</p>
-                        <argon-button color="success" size="sm" class="ms-auto">Save</argon-button>
+                        <argon-button color="success"
+                                @click="save"
+                                variant="gradient" class="ms-auto">
+                            <i class="fas fa-check me-2"></i>
+                            Save
+                        </argon-button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -14,27 +19,61 @@
                     <div class="row">
                         <div class="col-md-8">
                             <label for="name" class="form-control-label">Name</label>
-                            <argon-input name="name" type="text" placeholder="Card Nickname" />
+                            <input name="name" type="text" placeholder="Card Nickname" 
+                                        class="form-control form-control-default"
+                                        v-model="creditCard.name" />
                         </div>
                         <div class="col-md-4">
                             <label for="finalNumber" class="form-control-label">Final Number</label>
-                            <argon-input name="finalNumber" type="text" placeholder="Final Number" />
+                            <input name="finalNumber" type="number" placeholder="Final Number" 
+                                        class="form-control form-control-default"
+                                        v-model.lazy="creditCard.finalNumberCard" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
                             <label for="flagCard" class="form-control-label">Flag Card</label>
-                            <select name="flagCard" class="form-select">
+                            <select name="flagCard" class="form-select" v-model="creditCard.cardFlag">
                                 <option value="mastercard"> Mastercard</option>
                                 <option value="visa">Visa</option>
                             </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="expirationDay" class="form-control-label">Expiration Day</label>
+                            <input name="expirationDay" type="number" placeholder="Expiration Day" 
+                                        class="form-control form-control-default"
+                                        v-model="creditCard.expirationDay" />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="closingDay" class="form-control-label">Closing Day</label>
+                            <input name="closingDay" type="number" placeholder="Closing Day" 
+                                        class="form-control form-control-default"
+                                        v-model="creditCard.closingDay" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="limit" class="form-control-label">Limit</label>
+                            <input name="limit" type="text" placeholder="Limit" 
+                                        class="form-control form-control-default"
+                                        v-decimal
+                                        v-model="creditCard.limit" />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="pointsPerValue" class="form-control-label">Points Per Value</label>
+                            <input name="pointsPerValue" type="text" placeholder="Limit" 
+                                        class="form-control form-control-default"
+                                        v-decimal
+                                        v-model="creditCard.pointsPerValue" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <credit-card />
+            <credit-card :nameCard="creditCard.name"
+                    :finalNumberCard="creditCard.finalNumberCard"
+                    :cardFlag="creditCard.cardFlag" />
         </div>
         </div>
     </div>
@@ -43,16 +82,30 @@
 
 <script>
 
-import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
 import CreditCard from "@/components/cards/CreditCard.vue";
+import { mapMutations } from 'vuex'
 
 export default {
     components: { 
-        ArgonInput,
         ArgonButton,
         CreditCard 
     },
+    data() {
+        return {
+            creditCard: {
+            }
+        }
+    },
+    methods: {
+        ...mapMutations([
+            'addCreditCard'
+        ]),
+        save() {
+            this.addCreditCard(this.creditCard)
+            this.$router.push("/creditcard")
+        }
+    }
 
 }
 </script>

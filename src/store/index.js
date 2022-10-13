@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import plan from './modules/plan'
 import wallet from './modules/wallet'
+import creditcard from "./modules/creditcard";
 
 const moduleA = {
   state: () => ({
@@ -76,6 +77,7 @@ export default createStore({
   modules: {
     moduleA,
     plan,
-    wallet
+    wallet,
+    creditcard
   }
 });
