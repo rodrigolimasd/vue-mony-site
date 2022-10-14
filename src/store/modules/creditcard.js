@@ -17,6 +17,11 @@ export default {
     mutations: {
         addCreditCard(state, payload) {
             state.creditCards.push(payload)
+            let index = state.creditCards.indexOf(payload)
+            payload.id = index+1;
+            saveStorageJson(state)
+        },
+        updateCreditCard(state, payload) {
             saveStorageJson(state)
         }
     }

@@ -91,6 +91,7 @@ export default {
         ArgonButton,
         CreditCard 
     },
+    props:['id'],
     data() {
         return {
             creditCard: {
@@ -99,11 +100,22 @@ export default {
     },
     methods: {
         ...mapMutations([
-            'addCreditCard'
+            'addCreditCard',
+            'updateCreditCard'
         ]),
         save() {
-            this.addCreditCard(this.creditCard)
+            if(this.id) {
+                this.updateCreditCard()
+            } else {
+                this.addCreditCard(this.creditCard)
+            }
             this.$router.push("/creditcard")
+        }
+    },
+    mounted() {
+        if(this.id) {
+          this.creditCard = this.$store.state.creditcard.creditCards
+                .find(a=> a.id === Number(this.id))
         }
     }
 

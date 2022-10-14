@@ -2,12 +2,15 @@
     <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
            <img class="w-10 me-3 mb-0" :src="getLogoCard(item.cardFlag)" alt="logo" />
            <h6 class="mb-0">****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;{{item.finalNumberCard}}</h6>
-           <i
+           <router-link
+               tag="a"
+               :to="'/creditcard/'+item.id"
                class="fas fa-pencil-alt ms-auto text-dark cursor-pointer"
                data-bs-toggle="tooltip"
                data-bs-placement="top"
                title="Edit">
-           </i>
+           </router-link>
+           <!-- <router-link tag="li" to="/user/1" class="item-lista">User 1</router-link> -->
            <span class="sr-only">Edit</span>
      </div>
 </template>
