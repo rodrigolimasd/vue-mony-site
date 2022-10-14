@@ -61,7 +61,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="pointsPerValue" class="form-control-label">Points Per Value</label>
-                            <input name="pointsPerValue" type="text" placeholder="Limit" 
+                            <input name="pointsPerValue" type="text" placeholder="Points Per Value" 
                                         class="form-control form-control-default"
                                         v-decimal
                                         v-model="creditCard.pointsPerValue" />

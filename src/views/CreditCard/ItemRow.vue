@@ -25,7 +25,7 @@
                     class="fas fa-trash mx-1 text-dark cursor-pointer"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    title="Invoice">
+                    title="Remove">
                 </a>    
                 </div>
      </div>
