@@ -10,8 +10,14 @@
               <div class="col-md-6">
                 <h6 class="mb-0">Schedule</h6>
               </div>
-              <div class="col-md-6">
-                <button class="btn btn-outline-success float-end" @click="saveStorage">Save</button>
+              <div class="col-md-6 text-end">
+               
+                <argon-button class="mx-2"
+                      @click="saveStorage"
+                      color="success" variant="gradient">
+                      <i class="fas fa-check me-2"></i>
+                      Save
+                  </argon-button>
               </div>
             </div>
           </div>
@@ -57,9 +63,11 @@
 import { mapMutations } from 'vuex'
 import PlanItem from './PlanItem.vue'
 import PlanMonth from './PlanMonth.vue'
+import ArgonButton from "@/components/ArgonButton.vue"
 
 export default {
   components: {
+    ArgonButton,
     PlanItem,
     PlanMonth
   },
