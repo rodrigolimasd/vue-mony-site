@@ -6,12 +6,20 @@
                 <div class="card-header pb-0">
                     <div class="d-flex align-items-center">
                         <p class="mb-0">New Credit Card</p>
+                       <div class="ms-auto">
+                        <argon-button color="default"
+                                @click="back"
+                                variant="gradient" class="ms-1">
+                            <i class="fas fa-arrow-left me-2"></i>
+                            Back
+                        </argon-button>
                         <argon-button color="success"
                                 @click="save"
-                                variant="gradient" class="ms-auto">
+                                variant="gradient" class="ms-1 float-end">
                             <i class="fas fa-check me-2"></i>
                             Save
                         </argon-button>
+                       </div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -109,6 +117,9 @@ export default {
             } else {
                 this.addCreditCard(this.creditCard)
             }
+            this.$router.push("/creditcard")
+        },
+        back() {
             this.$router.push("/creditcard")
         }
     },
