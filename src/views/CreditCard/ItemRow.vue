@@ -17,6 +17,7 @@
                     class="fas fa-file mx-1 text-dark cursor-pointer"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
+                    @click="$emit('credit-card-invoice', value)"
                     title="Invoice">
                 </a>
                 <a
@@ -52,9 +53,6 @@ export default {
            } else {
                return mastercard
            }
-       },
-       remove() {
-        
        }
    }
 }

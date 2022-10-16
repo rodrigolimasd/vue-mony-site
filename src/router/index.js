@@ -4,6 +4,8 @@ import Plan from "../views/Plan"
 import Wallet from "../views/Wallet"
 import CreditCard from "../views/CreditCard"
 import CreditCardNewOrEdit from "../views/CreditCard/NewOrEdit"
+import Invoice from "../views/CreditCard/Invoice"
+
 import Billing from "../views/Billing.vue"
 import Tables from "../views/Tables.vue"
 import FormTest from "../views/FormTest"
@@ -49,6 +51,13 @@ const routes = [
     component: CreditCardNewOrEdit,
     props: true
   },
+  {
+    path: "/creditcard/invoice/:id",
+    name: "Invoice",
+    component: Invoice,
+    props: true
+  },
+
   {
     path: "/tables",
     name: "Tables",
