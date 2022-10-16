@@ -23,7 +23,12 @@ export default {
         },
         updateCreditCard(state, payload) {
             saveStorageJson(state)
-        }
+        },
+        removeCreditCard(state, payload){
+            const indexSchdule = state.creditCards.indexOf(payload)
+            state.creditCards.splice(indexSchdule, 1)
+            saveStorageJson(state)
+        },
     }
 }
 

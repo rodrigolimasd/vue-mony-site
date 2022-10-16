@@ -25,6 +25,7 @@
                     class="fas fa-trash mx-1 text-dark cursor-pointer"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
+                    @click="$emit('credit-card-delete', value)"
                     title="Remove">
                 </a>    
                 </div>
@@ -51,6 +52,9 @@ export default {
            } else {
                return mastercard
            }
+       },
+       remove() {
+        
        }
    }
 }
