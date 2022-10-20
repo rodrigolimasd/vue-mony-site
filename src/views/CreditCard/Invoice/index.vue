@@ -7,10 +7,16 @@
                         <div class="card pb-4">
                             <div class="card-header pb-0 p-3">
                                 <div class="row">
-                                    <div class="col-6 d-flex align-items-center">
+                                    <div class="col-4 d-flex align-items-center">
                                         <h4 class="mb-0">Invoices</h4>
                                     </div>
-                                    <div class="col-6 text-end">
+                                    <div class="col-8 text-end">
+                                        <argon-button color="default"
+                                                @click="back"
+                                                variant="gradient" class="me-2">
+                                            <i class="fas fa-arrow-left me-2"></i>
+                                            Back
+                                        </argon-button>
                                         <argon-button 
                                             @click="addAccount"
                                             color="dark" variant="gradient">
@@ -20,7 +26,7 @@
                                         <argon-button class="mx-2"
                                             @click="saveStorage"
                                             color="success" variant="gradient">
-                                            <i class="fas fa-check me-2"></i>
+                                            <i class="fas fa-check"></i>
                                             Save
                                         </argon-button>
                                     </div>
@@ -62,6 +68,11 @@ export default {
     props:['id'],
     components: {
         ArgonButton
-    } 
+    },
+    methods: {
+        back() {
+            this.$router.push("/creditcard")
+        }
+    }
 }
 </script>
