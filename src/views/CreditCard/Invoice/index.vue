@@ -1,5 +1,5 @@
 <template>
-     <div class="container-fluid">
+     <div class="container-fluid mt-4">
         <div class="row">
             <div class="col-lg-8">
                 <div class="row mt-4">
@@ -24,7 +24,6 @@
                                             Add New Invoice
                                         </argon-button>
                                         <argon-button class="mx-2"
-                                            @click="saveStorage"
                                             color="success" variant="gradient">
                                             <i class="fas fa-check"></i>
                                             Save
@@ -57,21 +56,42 @@
                 </div>
 
             </div>
+            <div class="col-md-4">
+                <credit-card :nameCard="creditCard.name"
+                        :finalNumberCard="creditCard.finalNumberCard"
+                        :cardFlag="creditCard.cardFlag" />
+            </div>
         </div>
+
     </div>
 </template>
 
 <script>
 
 import ArgonButton from "@/components/ArgonButton.vue"
+import CreditCard from "@/components/cards/CreditCard.vue";
+
 export default {
     props:['id'],
     components: {
-        ArgonButton
+        ArgonButton,
+        CreditCard
+    },
+    data() {
+        return {
+            creditCard: {
+            }
+        }
     },
     methods: {
         back() {
             this.$router.push("/creditcard")
+        }
+    },
+    mounted() {
+        if(this.id) {
+          this.creditCard = this.$store.state.creditcard.creditCards
+                .find(a=> a.id === Number(this.id))
         }
     }
 }
