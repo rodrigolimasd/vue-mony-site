@@ -5,8 +5,8 @@
 
                 <div class="row">
                 <hr>
-                <span class="card-title text-uppercase p-0 text-secondary">
-                    <strong>{{ y.year }}</strong> - {{ getMonthName(m.month) }}
+                <span class="card-title text-uppercase p-0 text-primary">
+                    <strong>{{ y.year }} - {{ getMonthName(m.month) }} </strong>
                 </span>
                 </div>
                 
@@ -16,7 +16,7 @@
                 </div> 
 
                 <div class="row">
-                    <span class="card-title text-uppercase p-0 text-secondary text-end">
+                    <span class="card-title text-uppercase p-0 text-warning text-end">
                         <strong>Total $12345.00</strong>
                     </span>
                     <hr>
