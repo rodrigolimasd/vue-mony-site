@@ -8,10 +8,15 @@
                             <div class="card-header pb-0 p-3">
                                 <div class="row">
                                     <div class="col-6 d-flex align-items-center">
-                                        <h4 class="mb-0">Invoice</h4>
+                                        <h4 class="mb-0">Invoices</h4>
                                     </div>
                                     <div class="col-6 text-end">
-
+                                        <argon-button 
+                                            @click="addAccount"
+                                            color="dark" variant="gradient">
+                                            <i class="fas fa-plus me-2"></i>
+                                            Add New Invoice
+                                        </argon-button>
                                         <argon-button class="mx-2"
                                             @click="saveStorage"
                                             color="success" variant="gradient">
@@ -22,8 +27,7 @@
                                 </div>
                             </div>
                             <div class="card-body p3 pb-0 mb-0">
-                                <div class="row">
-                                </div>
+                             
                             </div>
                             <div class="card-footer pt-4">
                             </div>
