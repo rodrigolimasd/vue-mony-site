@@ -4,20 +4,18 @@
                  <!-- <h6 class="mb-0">****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;{{item.finalNumberCard}}</h6> -->
                  <h6 class="mb-0 d-inline">{{item.name}}</h6>
                 <div class="ms-auto">
-                    <router-link
-                    tag="a"
-                    :to="'/creditcard/'+item.id"
+                <a
                     class="fas fa-pencil-alt mx-1 text-dark cursor-pointer"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
+                    @click="$emit('edit', value)"
                     title="Edit">
-                </router-link>
+                </a>
                 <a
-                    tag="a"
                     class="fas fa-file mx-1 text-dark cursor-pointer"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    @click="$emit('credit-card-invoice', value)"
+                    @click="$emit('invoice', value)"
                     title="Invoice">
                 </a>
                 <a
@@ -26,7 +24,7 @@
                     class="fas fa-trash mx-1 text-dark cursor-pointer"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    @click="$emit('credit-card-delete', value)"
+                    @click="$emit('delete', value)"
                     title="Remove">
                 </a>    
                 </div>

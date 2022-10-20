@@ -21,8 +21,9 @@
                             <div class="row">
                                 <div class="col-md-6 mb-2" v-for="i in items" :key="i.finalNumbercard">
                                     <ItemRow :item="i" 
-                                        @credit-card-delete="remove(i)" 
-                                        @credit-card-invoice="invoice(i)"/>
+                                        @edit="edit(i)"
+                                        @delete="remove(i)" 
+                                        @invoice="invoice(i)"/>
                                 </div>
                             </div>
                         </div>
@@ -55,11 +56,14 @@ export default {
         add() {
             this.$router.push("/creditcard/new")
         },
+        edit(card) {
+            this.$router.push(`/creditcard/${card.id}`)
+        },
         remove(card) {
            this.removeCreditCard(card)
         },
         invoice(card) {
-            this.$router.push("/creditcard/invoice/"+card.id)
+            this.$router.push(`/creditcard/${card.id}/invoice`)
         }
     }
 }

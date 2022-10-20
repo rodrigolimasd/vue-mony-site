@@ -52,7 +52,7 @@ const routes = [
     props: true
   },
   {
-    path: "/creditcard/invoice/:id",
+    path: "/creditcard/:id/invoice",
     name: "Invoice",
     component: Invoice,
     props: true
