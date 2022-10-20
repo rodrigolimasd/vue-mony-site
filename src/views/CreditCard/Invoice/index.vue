@@ -27,7 +27,17 @@
                                 </div>
                             </div>
                             <div class="card-body p3 pb-0 mb-0">
-                             
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">November/2022</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">December/2022</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">January/2023</a>
+                                    </li>
+                                </ul>
                             </div>
                             <div class="card-footer pt-4">
                             </div>
