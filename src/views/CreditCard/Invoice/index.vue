@@ -32,17 +32,25 @@
                                 </div>
                             </div>
                             <div class="card-body p3 pb-0 mb-0">
-                                <ul class="nav nav-tabs">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">November/2022</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">December/2022</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">January/2023</a>
-                                    </li>
-                                </ul>
+                                <slot v-for="y in invoicesByYear" :key="y.year">
+                                    <slot v-for="m in y.months" :key="y.year+'-'+m.month">
+
+                                        <div class="row">
+                                        <hr>
+                                        <invoice-month :yearGroup="y" :monthGroup="m" />
+                                        </div>
+                                        
+                                        <!-- <div v-for="(e, index) in m.schedules" :key="index"
+                                                class="row" :class="[index % 2 == 0 ? 'bg-light': '']">
+                                        <plan-item v-model="m.schedules[index]" :index="index"
+                                        @update-schedule="updateSchedule"
+                                        @add-before-schedule="addBeforeSchedule"
+                                        @add-after-schdule="addAfterSchdule"
+                                        @remove-schedule="removeSchedule" />
+                                        </div> -->
+
+                                    </slot>
+                                </slot>
                             </div>
                             <div class="card-footer pt-4">
                             </div>
@@ -69,18 +77,33 @@
 <script>
 
 import ArgonButton from "@/components/ArgonButton.vue"
-import CreditCard from "@/components/cards/CreditCard.vue";
+import CreditCard from "@/components/cards/CreditCard.vue"
+import InvoiceMonth from './InvoiceMonth.vue'
 
 export default {
     props:['id'],
     components: {
         ArgonButton,
-        CreditCard
+        CreditCard,
+        InvoiceMonth
     },
     data() {
         return {
             creditCard: {
-            }
+            },
+            invoicesByYear: [
+                {
+                    year: "2022",
+                    months: [
+                        {
+                            month: 9,
+                            invoices: [
+
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     },
     methods: {
