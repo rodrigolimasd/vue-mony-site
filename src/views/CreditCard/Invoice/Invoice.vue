@@ -10,10 +10,17 @@
                 </span>
                 </div>
                 
-                <!-- <div v-for="(e, index) in m.invoices" :key="index"
+                <div v-for="(e, index) in m.purchases" :key="index"
                         class="row" :class="[index % 2 == 0 ? 'bg-light': '']">
-                <plan-item v-model="m.invoices[index]" :index="index" />
-                </div>  -->
+                    <purchase-item :purchase="m.purchases[index]" />
+                </div> 
+
+                <div class="row">
+                    <span class="card-title text-uppercase p-0 text-secondary text-end">
+                        <strong>Total $12345.00</strong>
+                    </span>
+                    <hr>
+                </div>
 
             </slot>
         </slot>
@@ -21,8 +28,13 @@
 </template>
 
 <script>
+import PurchaseItem from './PurchaseItem.vue'
+
 export default {
     props:['invoicesByYear'],
+    components: {
+        PurchaseItem
+    },
     methods: {
         getMonthName: (month) => {
             const monthNames = ["January", "February", "March", "April", "May", "June",
