@@ -13,19 +13,19 @@
                 <thead>
                     <tr>
                         <th
-                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">
                             Product</th>
                         <th
-                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">
                             Category</th>
                         <th
-                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">
                             Value</th>
                         <th
-                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">
                             Establishment</th>
                         <th
-                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">
                             Installment/Qtd</th>
                     </tr>
                 </thead>
@@ -53,7 +53,7 @@
                             </p>
                         </td>
                         <td>
-                            <p class="text-center mb-0 text-sm font-weight-bold">$300</p>
+                            <p class="text-center mb-0 text-sm font-weight-bold">$299.00</p>
                         </td>
                         <td class="text-sm align-middle">
                             <p class="text-center mb-0 text-sm font-weight-bold">Nike</p>
@@ -96,7 +96,7 @@
                             <p class="text-center mb-0 text-sm font-weight-bold">Eletronic</p>
                         </td>
                         <td>
-                            <p class="text-center mb-0 text-sm font-weight-bold">$7300</p>
+                            <p class="text-center mb-0 text-sm font-weight-bold">$730.00</p>
                         </td>
                         <td class="text-sm align-middle">
                             <p class="text-center mb-0 text-sm font-weight-bold">Amazon</p>
