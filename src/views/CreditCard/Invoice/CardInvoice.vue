@@ -30,92 +30,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <div class="px-1 py-1 d-flex">
-                                <div class="me-2">
-                                    <datepicker :wrapper-class="'wrapper-class-calendar mx-1'"
-                                        :calendar-button-icon="'fa fa-calendar icon-calendar'" :value="data" format=""
-                                        :calendar-button="true" data-bs-toggle="tooltip" title="Click To Change Date">
-                                    </datepicker>
-                                </div>
-                                <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">Nike v22 Running</h6>
-                                    <p class="mb-0 text-sm font-weight-bold text-secondary">
-                                        <span>12/10/2022</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <p class="text-center mb-0 text-sm font-weight-bold">
-                                Clothing
-                            </p>
-                        </td>
-                        <td>
-                            <p class="text-center mb-0 text-sm font-weight-bold">$299.00</p>
-                        </td>
-                        <td class="text-sm align-middle">
-                            <p class="text-center mb-0 text-sm font-weight-bold">Nike</p>
-                        </td>
-                        <td class="align-middle text-center w-10">
-                            <div class="text-center px-3 py-1 d-flex justify-content-center align-items-center">
-                                <p class="mb-0 text-sm font-weight-bold">1</p>
-                                <p class="mb-0 text-sm font-weight-bold">/</p>
-                                <p class="mb-0 text-sm font-weight-bold">1</p>
-                                <button
-                                    class="btn mb-0 btn-sm btn-outline-secondary btn-icon-only btn-rounded mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center ms-3"
-                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                            </div>
-                            <div class="progress progress-xs my-1">
-                                <div class="progress-bar bg-success" :style="{width: '100%'}"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="px-1 py-1 d-flex">
-                                <div class="me-2">
-                                    <datepicker :wrapper-class="'wrapper-class-calendar mx-1'"
-                                        :calendar-button-icon="'fa fa-calendar icon-calendar'" :value="data" format=""
-                                        :calendar-button="true" data-bs-toggle="tooltip" title="Click To Change Date">
-                                    </datepicker>
-                                </div>
-                                <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">Iphone 13 Pro Max 128GB</h6>
-                                    <p class="mb-0 text-sm font-weight-bold text-secondary">
-                                        <span>13/10/2022</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </td>
-                        
-                        <td>
-                            <p class="text-center mb-0 text-sm font-weight-bold">Eletronic</p>
-                        </td>
-                        <td>
-                            <p class="text-center mb-0 text-sm font-weight-bold">$730.00</p>
-                        </td>
-                        <td class="text-sm align-middle">
-                            <p class="text-center mb-0 text-sm font-weight-bold">Amazon</p>
-                        </td>
-                        <td class="align-middle text-center w-10">
-                            <div class="text-center px-3 py-1 d-flex justify-content-center align-items-center">
-                                <p class="mb-0 text-sm font-weight-bold">1</p>
-                                <p class="mb-0 text-sm font-weight-bold">/</p>
-                                <p class="mb-0 text-sm font-weight-bold">1</p>
-                                <button
-                                    class="btn mb-0 btn-sm btn-outline-secondary btn-icon-only btn-rounded mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center ms-3"
-                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                            </div>
-                            <div class="progress progress-xs my-1">
-                                <div class="progress-bar bg-success" :style="{width: '10%'}"></div>
-                            </div>
-                        </td>
+                    <tr v-for="i in purchases" :key="i.description">
+                        <card-purchase :purchase="i"></card-purchase>
                     </tr>
                 </tbody>
                 <tfoot style="border-color: #e9ecef;">
@@ -136,15 +52,76 @@
 </template>
 
 <script>
-import Datepicker from 'vuejs3-datepicker'
+import CardPurchase from './CardPurchase.vue'
 
 export default {
     components: {
-        Datepicker
+        CardPurchase
     },
     data() {
         return {
-            data: new Date()
+            purchases: [
+                        {
+                            value: 535.99,
+                            totalValue: 535.99,
+                            establishment: "new store eletronics",
+                            description: "headphone",
+                            category: "eletronic",
+                            numberOfInstallments: 1,
+                            installment: 1,
+                            date: new Date(2022, 8, 10)
+                        },
+                        {
+                            value: 117.99,
+                            totalValue: 235.99,
+                            establishment: "fine fashion",
+                            description: "shirts",
+                            category: "clothes",
+                            numberOfInstallments: 2,
+                            installment: 1,
+                            date: new Date(2022, 8, 12)
+                        },
+                        {
+                            value: 83.32,
+                            totalvalue: 83.32,
+                            establishment: "food delivery",
+                            description: "lunch",
+                            category: "food",
+                            numberOfInstallments: 1,
+                            installment: 1,
+                            date: new Date(2022, 8, 15)
+                        },
+                        {
+                            value: 95.25,
+                            totalValue: 95.25,
+                            establishment: "food delivery",
+                            description: "dinner",
+                            category: "food",
+                            numberOfInstallments: 1,
+                            installment: 1,
+                            date: new Date(2022, 8, 18)
+                        },
+                        {
+                            value: 103.35,
+                            totalValue: 103.35,
+                            establishment: "food delivery",
+                            description: "dinner",
+                            category: "food",
+                            numberOfInstallments: 1,
+                            installment: 1,
+                            date: new Date(2022, 8, 20)
+                        },
+                        {
+                            value: 325.08,
+                            totalValue: 1300.35,
+                            establishment: "lollapaloza event",
+                            description: "entertainment",
+                            category: "entertainment",
+                            numberOfInstallments: 4,
+                            installment: 1,
+                            date: new Date(2022, 8, 22)
+                        }
+                    ]
         }
     }
 }
