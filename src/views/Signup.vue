@@ -133,7 +133,7 @@
 import Navbar from "@/components/layout/Navbars/NavbarSignup.vue";
 import AppFooter from "@/components/layout/FooterSignup.vue";
 import ArgonInput from "@/components/ArgonInput.vue";
-import ArgonCheckbox from "@/components/ArgonCheckbox.vue";
+import ArgonCheckbox from "@/components/layout/form/ArgonCheckbox.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
 const body = document.getElementsByTagName("body")[0];
 

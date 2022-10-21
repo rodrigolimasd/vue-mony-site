@@ -79,7 +79,7 @@
 <script>
 import Navbar from "@/components/layout/Navbars/NavbarSignup.vue";
 import ArgonInput from "@/components/ArgonInput.vue";
-import ArgonSwitch from "@/components/ArgonSwitch.vue";
+import ArgonSwitch from "@/components/layout/form/ArgonSwitch.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
 const body = document.getElementsByTagName("body")[0];
 
