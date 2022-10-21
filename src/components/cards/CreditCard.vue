@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import ArgonAvatar from "@/components/ArgonAvatar.vue";
+import ArgonAvatar from "@/components/layout/form/ArgonAvatar.vue";
 import mastercad from "@/assets/img/logos/mastercard.png";
 import visa from "@/assets/img/logos/visa.png";
 

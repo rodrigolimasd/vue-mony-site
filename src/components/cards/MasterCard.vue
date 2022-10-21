@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import ArgonAvatar from "@/components/ArgonAvatar.vue";
+import ArgonAvatar from "@/components/layout/form/ArgonAvatar.vue";
 import img from "../../assets/img/card-visa.jpg";
 import img1 from "../../assets/img/logos/mastercard.png";
 
