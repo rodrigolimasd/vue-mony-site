@@ -4,7 +4,38 @@
             <div class="col-lg-8">
                 <div class="row mt-4">
                     <div class="col-12">
-                        <card-invoice></card-invoice>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header pb-4 p-3">
+                                <div class="row">
+                                    <div class="col-4 d-flex align-items-center">
+                                        <h4 class="mb-0">Invoices</h4>
+                                    </div>
+                                    <div class="col-8 text-end">
+                                        <argon-button color="default"
+                                                @click="back"
+                                                variant="gradient" class="me-2">
+                                            <i class="fas fa-arrow-left me-2"></i>
+                                            Back
+                                        </argon-button>
+                                        <argon-button
+                                            color="dark" variant="gradient">
+                                            <i class="fas fa-plus me-2"></i>
+                                            Add New Invoice
+                                        </argon-button>
+                                        <argon-button class="mx-2"
+                                            color="success" variant="gradient">
+                                            <i class="fas fa-check"></i>
+                                            Save
+                                        </argon-button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-0 pt-3 pb-2 card-body">
+                                <card-invoice></card-invoice>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="col-xl-6">
                         <div class="row">
@@ -28,10 +59,12 @@
 
 import CreditCard from "@/components/cards/CreditCard.vue"
 import CardInvoice from './CardInvoice.vue'
+import ArgonButton from "@/components/ArgonButton.vue"
 
 export default {
     props:['id'],
     components: {
+        ArgonButton,
         CreditCard,
         CardInvoice
     },
