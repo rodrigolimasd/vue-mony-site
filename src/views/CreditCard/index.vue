@@ -2,8 +2,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8">
-                <div class="col-md-12 mb-4">
-                    <div class="card mt-4">
+              <div class="row">
+                <div class="col-12">
+                    <div class="card">
                         <div class="card-header pb-0 p-3">
                             <div class="row">
                             <div class="col-6 d-flex align-items-center">
@@ -27,8 +28,19 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
+                </div>
+                <div class="col-12 mt-2">
+                    <consumption-room-chart />
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+                <orders-card />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
             </div>
         </div>
     </div>
@@ -36,13 +48,17 @@
 
 <script>
 import ArgonButton from "@/components/ArgonButton.vue";
+import OrdersCard from "@/components/cards/OrdersCard.vue";
+import ConsumptionRoomChart from '@/components/charts/ConsumptionRoomChart.vue';
 import ItemRow from "./ItemRow.vue"
 import { mapMutations } from 'vuex'
 
 export default {
     components: {
       ArgonButton,
-      ItemRow
+      ItemRow,
+      OrdersCard,
+      ConsumptionRoomChart
     },
     computed: {
         items() {
