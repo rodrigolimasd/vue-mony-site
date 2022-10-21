@@ -17,6 +17,9 @@
                             Product</th>
                         <th
                             class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                            Category</th>
+                        <th
+                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Value</th>
                         <th
                             class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -29,8 +32,8 @@
                 <tbody>
                     <tr>
                         <td>
-                            <div class="px-3 py-1 d-flex">
-                                <div class="me-3">
+                            <div class="px-1 py-1 d-flex">
+                                <div class="me-2">
                                     <datepicker :wrapper-class="'wrapper-class-calendar mx-1'"
                                         :calendar-button-icon="'fa fa-calendar icon-calendar'" :value="data" format=""
                                         :calendar-button="true" data-bs-toggle="tooltip" title="Click To Change Date">
@@ -43,6 +46,11 @@
                                     </p>
                                 </div>
                             </div>
+                        </td>
+                        <td>
+                            <p class="text-center mb-0 text-sm font-weight-bold">
+                                Clothing
+                            </p>
                         </td>
                         <td>
                             <p class="text-center mb-0 text-sm font-weight-bold">$300</p>
@@ -68,8 +76,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="px-3 py-1 d-flex">
-                                <div class="me-3">
+                            <div class="px-1 py-1 d-flex">
+                                <div class="me-2">
                                     <datepicker :wrapper-class="'wrapper-class-calendar mx-1'"
                                         :calendar-button-icon="'fa fa-calendar icon-calendar'" :value="data" format=""
                                         :calendar-button="true" data-bs-toggle="tooltip" title="Click To Change Date">
@@ -82,6 +90,10 @@
                                     </p>
                                 </div>
                             </div>
+                        </td>
+                        
+                        <td>
+                            <p class="text-center mb-0 text-sm font-weight-bold">Eletronic</p>
                         </td>
                         <td>
                             <p class="text-center mb-0 text-sm font-weight-bold">$7300</p>
@@ -106,12 +118,12 @@
                         </td>
                     </tr>
                 </tbody>
-                <tfoot style="border-color: #e9ecef">
+                <tfoot style="border-color: #e9ecef;">
                     <tr>
-                        <td colspan="4" class="text-end">
+                        <td colspan="5" class="text-end" style="border-bottom: none">
                             <div class="numbers mx-3">
                                 <p class="mb-0 text-sm text-uppercase font-weight-bold">Total</p>
-                                <h5 class="font-weight-bolder text-end text-success">$1234.00</h5>
+                                <h5 class="font-weight-bolder text-end text-success my-0">$1234.00</h5>
                             </div>
                         </td>
                     </tr>
