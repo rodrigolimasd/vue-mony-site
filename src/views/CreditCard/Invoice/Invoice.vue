@@ -5,21 +5,22 @@
 
                 <div class="row">
                 <hr>
-                <span class="card-title text-uppercase p-0 text-primary">
+                <span class="card-title text-uppercase p-0 text-white text-center bg-gradient-success opacity-6 rounded-top">
                     <strong>{{ y.year }} - {{ getMonthName(m.month) }} </strong>
                 </span>
                 </div>
                 
                 <div v-for="(e, index) in m.purchases" :key="index"
-                        class="row" :class="[index % 2 == 0 ? 'bg-light': '']">
+                        class="row" :class="[index % 2 == 0 ? 'bg-light opacity-8': 'opacity-8']">
                     <purchase-item :purchase="m.purchases[index]" />
                 </div> 
 
                 <div class="row">
-                    <span class="card-title text-uppercase p-0 text-warning text-end">
-                        <strong>Total $12345.00</strong>
-                    </span>
-                    <hr>
+                        <span class="card-title text-uppercase p-0 text-secondary text-end px-2 rounded-bottom">
+                            <hr>
+                            <strong>Total $12345.00</strong>
+                            <hr>
+                        </span>
                 </div>
 
             </slot>

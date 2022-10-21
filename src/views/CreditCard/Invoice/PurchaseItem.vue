@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-1 col-sm-3">
+    <div class="col-1 col-sm-1 px-0 pt-1">
         <div>
             <datepicker :wrapper-class="'wrapper-class-calendar mx-1'"
                 :calendar-button-icon="'fa fa-calendar icon-calendar'" :value="purchase.date" format=""
@@ -11,27 +11,27 @@
             </span> 
         </div>
     </div>
-    <div class="col-md-2 col-sm-2 p-1">
+    <div class="col-2 col-sm-2 p-1">
         <input type="text"
             class="form-control form-control-md text-md text-bold"
             :value="purchase.value" placeholder="Value" v-decimal />
     </div>
-    <div class="col-md-3 col-sm-2 p-1">
+    <div class="col-3 col-sm-3 p-1">
         <input type="text"
             class="form-control form-control-md text-md text-bold"
             :value="purchase.establishment" placeholder="Establishment" />
     </div>
-    <div class="col-md-2 col-sm-2 p-1">
+    <div class="col-3 p-1">
         <input type="text"
             class="form-control form-control-md text-md text-bold"
             :value="purchase.description" placeholder="Description" />
     </div>
-    <div class="col-md-1 col-sm-2 p-1">
+    <div class="col-1 p-1">
         <input type="number"
             class="form-control form-control-md text-md text-bold"
             :value="purchase.installment" placeholder="Installment" />
     </div>
-    <div class="col-md-1 col-sm-2 p-1">
+    <div class="col-1 p-1">
         <input type="number"
             class="form-control form-control-md text-md text-bold"
             :value="purchase.numberOfInstallments" placeholder="Number Of Installments" />
