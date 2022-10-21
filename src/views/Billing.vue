@@ -49,10 +49,10 @@
 <script>
 import MasterCard from "@/components/cards/MasterCard.vue";
 import DefaultInfoCard from "@/components/cards/DefaultInfoCard.vue";
-import PaymentCard from "@/components/PaymentCard.vue";
-import InvoiceCard from "@/components/InvoiceCard.vue";
-import BillingCard from "@/components/BillingCard.vue";
-import TransactionCard from "@/components/TransactionCard.vue";
+import PaymentCard from "@/components/cards/PaymentCard.vue";
+import InvoiceCard from "@/components/cards/InvoiceCard.vue";
+import BillingCard from "@/components/cards/BillingCard.vue";
+import TransactionCard from "@/components/cards/TransactionCard.vue";
 
 export default {
   name: "Billing",
