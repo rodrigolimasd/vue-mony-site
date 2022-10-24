@@ -297,7 +297,7 @@ import setNavPills from "@/assets/js/nav-pills.js";
 import setTooltip from "@/assets/js/tooltip.js";
 import ProfileCard from "@/components/cards/ProfileCard.vue";
 import ArgonInput from "@/components/layout/form/ArgonInput.vue";
-import ArgonButton from "@/components/ArgonButton.vue";
+import ArgonButton from "@/components/layout/form/ArgonButton.vue";
 
 const body = document.getElementsByTagName("body")[0];
 

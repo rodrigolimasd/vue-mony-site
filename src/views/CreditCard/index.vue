@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import ArgonButton from "@/components/ArgonButton.vue";
+import ArgonButton from "@/components/layout/form/ArgonButton.vue";
 import OrdersCard from "@/components/cards/OrdersCard.vue";
 import ConsumptionRoomChart from '@/components/charts/ConsumptionRoomChart.vue';
 import ItemRow from "./ItemRow.vue"

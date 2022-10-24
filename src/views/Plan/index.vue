@@ -63,7 +63,7 @@
 import { mapMutations } from 'vuex'
 import PlanItem from './PlanItem.vue'
 import PlanMonth from './PlanMonth.vue'
-import ArgonButton from "@/components/ArgonButton.vue"
+import ArgonButton from "@/components/layout/form/ArgonButton.vue"
 
 export default {
   components: {

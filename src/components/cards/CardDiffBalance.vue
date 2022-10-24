@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import ArgonButton from "@/components/ArgonButton.vue"
+import ArgonButton from "@/components/layout/form/ArgonButton.vue"
 
 export default {
     props: {

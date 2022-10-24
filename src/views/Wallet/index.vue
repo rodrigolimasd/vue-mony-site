@@ -68,7 +68,7 @@
 
 <script>
 import AccountCard from "@/components/cards/AccountCard.vue"
-import ArgonButton from "@/components/ArgonButton.vue"
+import ArgonButton from "@/components/layout/form/ArgonButton.vue"
 import CardTotalBalance from "../../components/cards/CardTotalBalance.vue"
 import CardLastBalance from "../../components/cards/CardLastBalance.vue"
 import CardDiffBalance from "../../components/cards/CardDiffBalance.vue"

@@ -80,7 +80,7 @@
 import Navbar from "@/components/layout/Navbars/NavbarSignup.vue";
 import ArgonInput from "@/components/layout/form/ArgonInput.vue";
 import ArgonSwitch from "@/components/layout/form/ArgonSwitch.vue";
-import ArgonButton from "@/components/ArgonButton.vue";
+import ArgonButton from "@/components/layout/form/ArgonButton.vue";
 const body = document.getElementsByTagName("body")[0];
 
 export default {

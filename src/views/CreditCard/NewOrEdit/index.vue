@@ -90,7 +90,7 @@
 
 <script>
 
-import ArgonButton from "@/components/ArgonButton.vue";
+import ArgonButton from "@/components/layout/form/ArgonButton.vue";
 import CreditCard from "@/components/cards/CreditCard.vue";
 import { mapMutations } from 'vuex'
 
