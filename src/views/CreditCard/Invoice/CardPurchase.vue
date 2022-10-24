@@ -26,13 +26,18 @@
     </div>
     <div class="col-3 align-middle text-center text-nowrap overflow-hidden">
         <div class="d-flex align-items-center justify-content-center">
-        <span class="me-2 text-xs font-weight-bold">{{purchase.installment}}/{{purchase.numberOfInstallments}}</span>
+            <span class="me-2 text-xs font-weight-bold">{{purchase.installment}}/{{purchase.numberOfInstallments}}</span>
             <div>
                 <div class="progress" style="width: 60px !important">
                     <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="60" aria-valuemin="0"
                     aria-valuemax="100" style="width: 50%;"></div>
                 </div>
             </div>
+            <button
+                class="btn mb-0 btn-sm btn-outline-secondary btn-icon-only btn-rounded mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center ms-3"
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                <i class="fas fa-edit"></i>
+            </button>
         </div>
     </div>
 </template>
