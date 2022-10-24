@@ -33,11 +33,23 @@
                     aria-valuemax="100" style="width: 50%;"></div>
                 </div>
             </div>
-            <button
-                class="btn mb-0 btn-sm btn-outline-secondary btn-icon-only btn-rounded mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center ms-3"
-                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
-                <i class="fas fa-edit"></i>
-            </button>
+
+            <button class="btn btn-xs dropdown-toggle m-0 ms-2 px-2 py-1 bg-gradient-success opacity-7" type="button" 
+                  data-bs-toggle="dropdown" aria-expanded="false">
+           </button>
+
+            <ul class="dropdown-menu">
+              <li>
+                <button class="dropdown-item" type="button">
+                    <i class="fa fa-edit"></i> <span> Edit </span>
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" type="button">
+                  <i class="fa fa-trash"></i> <span> Remove </span>
+                  </button>
+              </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -52,7 +64,8 @@ export default {
     },
     methods: {
         formateDate(date) {
-            return date.getDate()+"/"+date.getMonth()+1+"/"+date.getFullYear()
+            let month = date.getMonth()+1;
+            return date.getDate()+"/"+month+"/"+date.getFullYear()
         }
     }
 

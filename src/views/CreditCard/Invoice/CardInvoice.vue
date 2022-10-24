@@ -38,7 +38,7 @@
         <div class="col-12 text-end">
             <div class="numbers mx-3">
                 <p class="mb-0 text-sm text-uppercase font-weight-bold">Total</p>
-                <h5 class="font-weight-bolder text-end text-success my-0">$1234.00</h5>
+                <h5 class="font-weight-bolder text-end text-success my-0 opacity-8">$1234.00</h5>
             </div>
         </div>
     </div>
