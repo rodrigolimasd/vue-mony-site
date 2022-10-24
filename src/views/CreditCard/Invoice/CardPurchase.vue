@@ -26,19 +26,15 @@
     <td class="text-sm align-middle">
         <p class="text-center mb-0 text-sm font-weight-bold">{{purchase.establishment}}</p>
     </td>
-    <td class="align-middle text-center w-10">
-        <div class="text-center px-3 py-1 d-flex justify-content-center align-items-center">
-            <p class="mb-0 text-sm font-weight-bold">{{purchase.installment}}</p>
-            <p class="mb-0 text-sm font-weight-bold">/</p>
-            <p class="mb-0 text-sm font-weight-bold">{{purchase.numberOfInstallments}}</p>
-            <button
-                class="btn mb-0 btn-sm btn-outline-secondary btn-icon-only btn-rounded mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center ms-3"
-                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
-                <i class="fas fa-edit"></i>
-            </button>
-        </div>
-        <div class="progress progress-xs my-1">
-            <div class="progress-bar bg-success" :style="{width: '50%'}"></div>
+    <td class="align-middle text-center">
+        <div class="d-flex align-items-center justify-content-center">
+            <span class="me-2 text-xs font-weight-bold">{{purchase.installment}}/{{purchase.numberOfInstallments}}</span>
+            <div>
+                <div class="progress" style="width: 60px !important">
+                    <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                    aria-valuemax="100" style="width: 50%;"></div>
+                </div>
+            </div>
         </div>
     </td>
 
