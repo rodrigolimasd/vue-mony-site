@@ -8,48 +8,31 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
-            <table class="table mb-0 align-items-center">
-                <thead>
-                    <tr>
-                        <th
-                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">
-                            Product</th>
-                        <th
-                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">
-                            Category</th>
-                        <th
-                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">
-                            Value</th>
-                        <th
-                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">
-                            Establishment</th>
-                        <th
-                            class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">
-                            Installment/Qtd</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="i in purchases" :key="i.description">
-                        <card-purchase :purchase="i"></card-purchase>
-                    </tr>
-                </tbody>
-                <tfoot style="border-color: #e9ecef;">
-                    <tr>
-                        <td colspan="5" class="text-end" style="border-bottom: none">
-                            <div class="numbers mx-3">
-                                <p class="mb-0 text-sm text-uppercase font-weight-bold">Total</p>
-                                <h5 class="font-weight-bolder text-end text-success my-0">$1234.00</h5>
-                            </div>
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-
+        <div class="col-1">
+            <h6 class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">Date</h6>
+        </div>
+        <div class="col-2">
+            <h6 class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">Product</h6>
+        </div>
+        <div class="col-2">
+            <h6 class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">Category</h6>
+        </div>
+        <div class="col-2">
+            <h6 class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">Value</h6>
+        </div>
+        <div class="col-2">
+            <h6 class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">Establishment</h6>
+        </div>
+        <div class="col-3">
+            <h6 class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">Installment/Qtd</h6>
         </div>
     </div>
+    <hr>
 
-
+    <div class="row" v-for="i in purchases" :key="i.description">
+        <card-purchase  :purchase="i"></card-purchase>
+    </div>
+                    
 </template>
 
 <script>
