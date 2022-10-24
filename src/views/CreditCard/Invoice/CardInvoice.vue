@@ -45,6 +45,7 @@
                     </tr>
                 </tfoot>
             </table>
+
         </div>
     </div>
 
@@ -65,7 +66,7 @@ export default {
                             value: 535.99,
                             totalValue: 535.99,
                             establishment: "new store eletronics",
-                            description: "headphone",
+                            product: "AirPods Pro",
                             category: "eletronic",
                             numberOfInstallments: 1,
                             installment: 1,
@@ -75,7 +76,7 @@ export default {
                             value: 117.99,
                             totalValue: 235.99,
                             establishment: "fine fashion",
-                            description: "shirts",
+                            product: "2 T-Shirts",
                             category: "clothes",
                             numberOfInstallments: 2,
                             installment: 1,
@@ -85,7 +86,7 @@ export default {
                             value: 83.32,
                             totalvalue: 83.32,
                             establishment: "food delivery",
-                            description: "lunch",
+                            product: "Lunch Ifood",
                             category: "food",
                             numberOfInstallments: 1,
                             installment: 1,
@@ -95,7 +96,7 @@ export default {
                             value: 95.25,
                             totalValue: 95.25,
                             establishment: "food delivery",
-                            description: "dinner",
+                            product: "Dinner Ifood",
                             category: "food",
                             numberOfInstallments: 1,
                             installment: 1,
@@ -104,8 +105,8 @@ export default {
                         {
                             value: 103.35,
                             totalValue: 103.35,
-                            establishment: "food delivery",
-                            description: "dinner",
+                            establishment: "Outback",
+                            product: "Dinner Outback",
                             category: "food",
                             numberOfInstallments: 1,
                             installment: 1,
@@ -114,8 +115,8 @@ export default {
                         {
                             value: 325.08,
                             totalValue: 1300.35,
-                            establishment: "lollapaloza event",
-                            description: "entertainment",
+                            establishment: "Gp Week",
+                            product: "Tickets TwOnePilots",
                             category: "entertainment",
                             numberOfInstallments: 4,
                             installment: 1,
