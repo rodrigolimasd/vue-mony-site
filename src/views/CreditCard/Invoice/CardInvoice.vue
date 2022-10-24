@@ -32,6 +32,17 @@
     <div class="row" v-for="i in purchases" :key="i.description">
         <card-purchase  :purchase="i"></card-purchase>
     </div>
+
+    <hr>
+    <div class="row">
+        <div class="col-12 text-end">
+            <div class="numbers mx-3">
+                <p class="mb-0 text-sm text-uppercase font-weight-bold">Total</p>
+                <h5 class="font-weight-bolder text-end text-success my-0">$1234.00</h5>
+            </div>
+        </div>
+    </div>
+    <hr>
                     
 </template>
 
