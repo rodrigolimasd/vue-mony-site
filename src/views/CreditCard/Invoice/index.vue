@@ -146,6 +146,16 @@ export default {
                     month: 10,
                     purchases: [
                                 {
+                                    value: 117.99,
+                                    totalValue: 235.99,
+                                    establishment: "fine fashion",
+                                    product: "2 T-Shirts",
+                                    category: "clothes",
+                                    numberOfInstallments: 2,
+                                    installment: 2,
+                                    date: new Date(2022, 8, 12)
+                                },
+                                {
                                     value: 83.32,
                                     totalvalue: 83.32,
                                     establishment: "food delivery",

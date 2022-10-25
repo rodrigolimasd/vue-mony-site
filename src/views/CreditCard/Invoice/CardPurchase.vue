@@ -30,7 +30,7 @@
             <div>
                 <div class="progress" style="width: 60px !important">
                     <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                    aria-valuemax="100" style="width: 50%;"></div>
+                    aria-valuemax="100" :style="`width: ${calcPercent(purchase.installment, purchase.numberOfInstallments)}%;`"></div>
                 </div>
             </div>
 
@@ -66,6 +66,9 @@ export default {
         formateDate(date) {
             let month = date.getMonth()+1;
             return date.getDate()+"/"+month+"/"+date.getFullYear()
+        },
+        calcPercent(installment, numberOfInstallments){
+            return installment / numberOfInstallments * 100
         }
     }
 
