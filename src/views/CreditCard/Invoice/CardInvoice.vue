@@ -29,7 +29,7 @@
     </div>
     <hr>
 
-    <div class="row" v-for="i in invoice.purchases" :key="i.description">
+    <div class="row mb-1" v-for="i in invoice.purchases" :key="i.description">
         <card-purchase  :purchase="i"></card-purchase>
     </div>
 
