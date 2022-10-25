@@ -38,7 +38,7 @@
         <div class="col-12 text-end">
             <div class="numbers mx-3">
                 <p class="mb-0 text-sm text-uppercase font-weight-bold">Total</p>
-                <h5 class="font-weight-bolder text-end text-success my-0 opacity-8">$1234.00</h5>
+                <h5 class="font-weight-bolder text-end text-success my-0 opacity-8">${{total}}</h5>
             </div>
         </div>
     </div>
@@ -54,8 +54,13 @@ export default {
     components: {
         CardPurchase
     },
+    computed: {
+        total() {
+            return this.invoice.purchases.map(a=> a.value).reduce((a,b) => a + b, 0)
+        }
+    },
     methods: {
-        getMonthName: (month) => {
+        getMonthName(month) {
             const monthNames = ["January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
             ]
