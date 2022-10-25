@@ -32,7 +32,9 @@
                                 </div>
                             </div>
                             <div class="px-0 pt-3 pb-2 card-body">
-                                <card-invoice></card-invoice>
+                                <card-invoice v-for="i in invoices" 
+                                            :key="i.year+'-'+i.month"
+                                            :invoice="i"></card-invoice>
                             </div>
                         </div>
 
@@ -72,18 +74,16 @@ export default {
         return {
             creditCard: {
             },
-            invoicesByYear: [
+            invoices: [
                 {
                     year: 2022,
-                    months: [
-                        {
-                            month: 9,
-                            purchases: [
+                    month: 9,
+                    purchases: [
                                 {
                                     value: 535.99,
                                     totalValue: 535.99,
                                     establishment: "new store eletronics",
-                                    description: "headphone",
+                                    product: "AirPods Pro",
                                     category: "eletronic",
                                     numberOfInstallments: 1,
                                     installment: 1,
@@ -93,7 +93,7 @@ export default {
                                     value: 117.99,
                                     totalValue: 235.99,
                                     establishment: "fine fashion",
-                                    description: "shirts",
+                                    product: "2 T-Shirts",
                                     category: "clothes",
                                     numberOfInstallments: 2,
                                     installment: 1,
@@ -103,7 +103,7 @@ export default {
                                     value: 83.32,
                                     totalvalue: 83.32,
                                     establishment: "food delivery",
-                                    description: "lunch",
+                                    product: "Lunch Ifood",
                                     category: "food",
                                     numberOfInstallments: 1,
                                     installment: 1,
@@ -113,7 +113,7 @@ export default {
                                     value: 95.25,
                                     totalValue: 95.25,
                                     establishment: "food delivery",
-                                    description: "dinner",
+                                    product: "Dinner Ifood",
                                     category: "food",
                                     numberOfInstallments: 1,
                                     installment: 1,
@@ -122,8 +122,8 @@ export default {
                                 {
                                     value: 103.35,
                                     totalValue: 103.35,
-                                    establishment: "food delivery",
-                                    description: "dinner",
+                                    establishment: "Outback",
+                                    product: "Dinner Outback",
                                     category: "food",
                                     numberOfInstallments: 1,
                                     installment: 1,
@@ -132,16 +132,60 @@ export default {
                                 {
                                     value: 325.08,
                                     totalValue: 1300.35,
-                                    establishment: "lollapaloza event",
-                                    description: "entertainment",
+                                    establishment: "Gp Week",
+                                    product: "Tickets TwOnePilots",
                                     category: "entertainment",
                                     numberOfInstallments: 4,
                                     installment: 1,
                                     date: new Date(2022, 8, 22)
                                 }
-                            ]
-                        }
-                    ]
+                               ]
+                },
+                {
+                    year: 2022,
+                    month: 10,
+                    purchases: [
+                                {
+                                    value: 83.32,
+                                    totalvalue: 83.32,
+                                    establishment: "food delivery",
+                                    product: "Lunch Ifood",
+                                    category: "food",
+                                    numberOfInstallments: 1,
+                                    installment: 1,
+                                    date: new Date(2022, 8, 15)
+                                },
+                                {
+                                    value: 95.25,
+                                    totalValue: 95.25,
+                                    establishment: "food delivery",
+                                    product: "Dinner Ifood",
+                                    category: "food",
+                                    numberOfInstallments: 1,
+                                    installment: 1,
+                                    date: new Date(2022, 8, 18)
+                                },
+                                {
+                                    value: 103.35,
+                                    totalValue: 103.35,
+                                    establishment: "Outback",
+                                    product: "Dinner Outback",
+                                    category: "food",
+                                    numberOfInstallments: 1,
+                                    installment: 1,
+                                    date: new Date(2022, 8, 20)
+                                },
+                                {
+                                    value: 325.08,
+                                    totalValue: 1300.35,
+                                    establishment: "Gp Week",
+                                    product: "Tickets TwOnePilots",
+                                    category: "entertainment",
+                                    numberOfInstallments: 4,
+                                    installment: 2,
+                                    date: new Date(2022, 8, 22)
+                                }
+                               ]
                 }
             ]
         }

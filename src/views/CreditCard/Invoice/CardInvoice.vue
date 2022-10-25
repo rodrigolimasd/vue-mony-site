@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card-title text-uppercase text-center">
-                <h5 class="mb-0">October - 2022</h5>
+                <h5 class="mb-0">{{invoice.month}} - {{invoice.year}}</h5>
                 <hr class="my-1">
             </div>
         </div>
@@ -29,7 +29,7 @@
     </div>
     <hr>
 
-    <div class="row" v-for="i in purchases" :key="i.description">
+    <div class="row" v-for="i in invoice.purchases" :key="i.description">
         <card-purchase  :purchase="i"></card-purchase>
     </div>
 
@@ -50,6 +50,7 @@
 import CardPurchase from './CardPurchase.vue'
 
 export default {
+    props:['invoice'],
     components: {
         CardPurchase
     },
