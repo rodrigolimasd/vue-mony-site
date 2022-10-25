@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card-title text-uppercase text-center">
-                <h5 class="mb-0">{{invoice.month}} - {{invoice.year}}</h5>
+                <h5 class="mb-0">{{getMonthName(invoice.month)}} - {{invoice.year}}</h5>
                 <hr class="my-1">
             </div>
         </div>
@@ -53,6 +53,14 @@ export default {
     props:['invoice'],
     components: {
         CardPurchase
+    },
+    methods: {
+        getMonthName: (month) => {
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ]
+            return monthNames[month]
+        }
     }
 }
 </script>
