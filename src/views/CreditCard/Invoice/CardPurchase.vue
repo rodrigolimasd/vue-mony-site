@@ -28,8 +28,8 @@
         <div class="d-flex align-items-center justify-content-center">
             <span class="me-2 text-xs font-weight-bold">{{purchase.installment}}/{{purchase.numberOfInstallments}}</span>
             <div>
-                <div class="progress" style="width: 60px !important">
-                    <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                <div class="progress" style="width: 50px !important">
+                    <div class="progress-bar bg-gradient-secondary" role="progressbar" aria-valuenow="60" aria-valuemin="0"
                     aria-valuemax="100" :style="`width: ${calcPercent(purchase.installment, purchase.numberOfInstallments)}%;`"></div>
                 </div>
             </div>
