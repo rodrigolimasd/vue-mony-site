@@ -101,7 +101,7 @@ export default {
                                 },
                                 {
                                     value: 83.32,
-                                    totalvalue: 83.32,
+                                    totalValue: 83.32,
                                     establishment: "food delivery",
                                     product: "Lunch Ifood",
                                     category: "food",

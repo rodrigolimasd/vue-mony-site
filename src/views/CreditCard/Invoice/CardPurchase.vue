@@ -8,7 +8,7 @@
     <div class="col-2 text-nowrap overflow-hidden">
         <div class="d-flex flex-column justify-content-center">
             <h6 class="mb-0 text-sm">{{ purchase.product }}</h6>
-            <p class="mb-0 text-sm font-weight-bold text-secondary">
+            <p class="mb-0 text-xs ms-1 font-weight-bold text-secondary">
                 <span>{{ formateDate(purchase.date)}}</span>
             </p>
         </div>
@@ -19,7 +19,12 @@
         </p>
     </div>
     <div class="col-2 text-nowrap overflow-hidden">
-        <p class="text-center mb-0 text-sm font-weight-bold">${{purchase.value}}</p>
+        <div class="d-flex flex-column justify-content-center">
+            <h6 class="mb-0 text-sm">${{purchase.value}}</h6>
+            <p class="mb-0 mx-2 text-xs font-weight-bold text-secondary" v-if="purchase.numberOfInstallments > 1">
+                <span>Total ${{purchase.totalValue}}</span>
+            </p>
+        </div>
     </div>
     <div class="col-2 align-middle text-nowrap overflow-hidden">
         <p class="text-center mb-0 text-sm font-weight-bold">{{purchase.establishment}}</p>
@@ -27,9 +32,9 @@
     <div class="col-3 align-middle text-center text-nowrap overflow-hidden">
         <div class="d-flex align-items-center justify-content-center">
             <span class="me-2 text-xs font-weight-bold">{{purchase.installment}}/{{purchase.numberOfInstallments}}</span>
-            <div>
-                <div class="progress" style="width: 50px !important">
-                    <div class="progress-bar bg-gradient-secondary" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+            <div style="width: 50px !important">
+                <div class="progress" v-if="purchase.numberOfInstallments > 1">
+                    <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="60" aria-valuemin="0"
                     aria-valuemax="100" :style="`width: ${calcPercent(purchase.installment, purchase.numberOfInstallments)}%;`"></div>
                 </div>
             </div>
