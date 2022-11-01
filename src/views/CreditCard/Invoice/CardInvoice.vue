@@ -11,8 +11,8 @@
         <!-- <div class="col-1 text-nowrap overflow-hidden">
             <h6 class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">Date</h6>
         </div> -->
-        <div class="col-2 text-nowrap overflow-hidden">
-            <h6 class="text-center ps-2 text-uppercase text-secondary text-xs font-weight-bolder opacity-8">Product</h6>
+        <div class="col-2 mx-4 text-nowrap overflow-hidden">
+            <h6 class="text-center ps-2 text-uppercase text-secondary text-xs font-weight-bolder opacity-8">Product/Date</h6>
         </div>
         <div class="col-2 text-nowrap overflow-hidden">
             <h6 class="text-center ps-2 text-uppercase text-secondary text-xs font-weight-bolder opacity-8">Category</h6>
