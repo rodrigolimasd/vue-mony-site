@@ -1,14 +1,14 @@
 <template>
-    <div class="col-1">
+    <!-- <div class="col-1">
         <datepicker :wrapper-class="'wrapper-class-calendar mx-1'"
             :calendar-button-icon="'fa fa-calendar icon-calendar mx-3'" :value="purchase.date" format=""
             :calendar-button="true" data-bs-toggle="tooltip" title="Click To Change Date">
         </datepicker>
-    </div>
-    <div class="col-2 text-nowrap overflow-hidden">
+    </div> -->
+    <div class="col-2 text-nowrap overflow-hidden mx-4">
         <div class="d-flex flex-column justify-content-center">
             <h6 class="mb-0 text-sm">{{ purchase.product }}</h6>
-            <p class="mb-0 text-xs ms-1 font-weight-bold text-secondary">
+            <p class="mb-0 text-xs font-weight-bold text-secondary">
                 <span>{{ formateDate(purchase.date)}}</span>
             </p>
         </div>
@@ -21,7 +21,7 @@
     <div class="col-2 text-nowrap overflow-hidden">
         <div class="d-flex flex-column justify-content-center">
             <h6 class="mb-0 text-sm">${{purchase.value}}</h6>
-            <p class="mb-0 mx-2 text-xs font-weight-bold text-secondary" v-if="purchase.numberOfInstallments > 1">
+            <p class="mb-0 mx-1 text-xs font-weight-bold text-secondary" v-if="purchase.numberOfInstallments > 1">
                 <span>Total ${{purchase.totalValue}}</span>
             </p>
         </div>
@@ -64,9 +64,9 @@ import Datepicker from 'vuejs3-datepicker'
 
 export default {
     props:['purchase'],
-    components: {
-        Datepicker
-    },
+    // components: {
+    //     Datepicker
+    // },
     methods: {
         formateDate(date) {
             let month = date.getMonth()+1;

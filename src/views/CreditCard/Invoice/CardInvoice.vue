@@ -8,9 +8,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-1 text-nowrap overflow-hidden">
+        <!-- <div class="col-1 text-nowrap overflow-hidden">
             <h6 class="text-center ps-2 text-uppercase text-secondary text-xxs font-weight-bolder opacity-8">Date</h6>
-        </div>
+        </div> -->
         <div class="col-2 text-nowrap overflow-hidden">
             <h6 class="text-center ps-2 text-uppercase text-secondary text-xs font-weight-bolder opacity-8">Product</h6>
         </div>
