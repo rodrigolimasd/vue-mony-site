@@ -2,17 +2,15 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-10">
-        
-        <!-- PlanCard -->
-        <div class="card h-100 mb-4">
-          <div class="card-header pb-0 px-3">
+
+        <div class="card mb-4">
+          <div class="card-header pb-4 p3">
             <div class="row">
-              <div class="col-md-6">
-                <h6 class="mb-0">Schedule</h6>
+              <div class="col-4 d-flex align-items-center">
+                <h4 class="mb-0">Schedules</h4>
               </div>
-              <div class="col-md-6 text-end">
-               
-                <argon-button class="mx-2"
+              <div class="col-8 text-end">
+                  <argon-button class="mx-2"
                       @click="saveStorage"
                       color="success" variant="gradient">
                       <i class="fas fa-check me-2"></i>
@@ -21,12 +19,11 @@
               </div>
             </div>
           </div>
-          <div v-if="schedules.length === 0" class="card-body pt1 p1">
-              <button class="btn btn-primary" @click="addSchedule">Add Schedule</button>
-          </div>
-          <div v-else class="card-body pt-1 p1">
-            
-              <slot v-for="y in schedulesByYear" :key="y.year">
+          <div class="pt-3 pb-2 card-body">
+
+              <button v-if="schedules.length === 0" class="btn btn-primary" @click="addSchedule">Add Schedule</button>
+
+              <slot v-else v-for="y in schedulesByYear" :key="y.year">
                 <slot v-for="m in y.months" :key="y.year+'-'+m.month">
 
                     <div class="row">
@@ -47,12 +44,8 @@
 
                 </slot>
               </slot>
-
-
           </div>
         </div>
-        <!-- PlanCard END -->
-
 
       </div>
     </div>
