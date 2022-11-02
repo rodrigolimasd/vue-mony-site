@@ -4,7 +4,7 @@
       <div class="col-md-10">
 
         <div class="card mb-4">
-          <div class="card-header pb-4 p3">
+          <div class="card-header pb-2 p3">
             <div class="row">
               <div class="col-4 d-flex align-items-center">
                 <h4 class="mb-0">Schedules</h4>
@@ -19,7 +19,7 @@
               </div>
             </div>
           </div>
-          <div class="pt-3 pb-2 card-body">
+          <div class="pt-0 pb-2 card-body">
 
               <button v-if="schedules.length === 0" class="btn btn-primary" @click="addSchedule">Add Schedule</button>
 
@@ -27,11 +27,33 @@
                 <slot v-for="m in y.months" :key="y.year+'-'+m.month">
 
                     <div class="row">
-                      <hr>
                       <plan-month :yearGroup="y" :monthGroup="m"
                         @add-after-month="addAfterMonth"
                         @delete-month="deleteMonth" />
                     </div>
+
+                    <hr class="my-2">
+                    <div class="row">
+                      <div class="col-2 col-sm-1 text-nowrap overflow-hidden">
+                          <h6 class="text-center ps-2 text-uppercase text-secondary text-xs font-weight-bolder opacity-8">Date</h6>
+                      </div>
+                      <div class="col-3 col-sm-2 text-nowrap overflow-hidden">
+                          <h6 class="text-center ps-2 text-uppercase text-secondary text-xs font-weight-bolder opacity-8">Invoice</h6>
+                      </div>
+                      <div class="col-3 col-sm-2 text-nowrap overflow-hidden">
+                          <h6 class="text-center ps-2 text-uppercase text-secondary text-xs font-weight-bolder opacity-8">Expense</h6>
+                      </div>
+                      <div class="col-4 col-sm-2 text-nowrap overflow-hidden">
+                          <h6 class="text-center ps-2 text-uppercase text-secondary text-xs font-weight-bolder opacity-8">Balance</h6>
+                      </div>
+                      <div class="col-10 col-sm-4 text-nowrap overflow-hidden">
+                          <h6 class="text-center ps-2 text-uppercase text-secondary text-xs font-weight-bolder opacity-8">Note</h6>
+                      </div>
+                      <div class="col-2 col-sm-1 text-nowrap overflow-hidden">
+                        <h6 class="text-center ps-2 text-uppercase text-secondary text-xs font-weight-bolder opacity-8">Opt</h6>
+                      </div>
+                    </div>
+                    <hr class="my-2">
                     
                     <div v-for="(e, index) in m.schedules" :key="index"
                             class="row" :class="[index % 2 == 0 ? 'bg-light': '']">

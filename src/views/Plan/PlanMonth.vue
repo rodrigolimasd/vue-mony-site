@@ -1,33 +1,34 @@
 <template>
 
-    <span class="card-title text-uppercase p-0 text-secondary">
-        <strong>{{ yearGroup.year }}</strong> - {{ getMonthName(monthGroup.month) }}
-
-        <div class="dropdown d-inline" v-if="isFirstOrLast({year: yearGroup.year, month: monthGroup.month})">
-            <button class="btn btn-xs dropdown-toggle mb-0 ms-2 px-2 py-1 bg-gradient-success" 
-                    style="padding: 0.275rem 1rem"
-                    type="button" 
-                    :id="yearGroup.year+getMonthName(monthGroup.month)+'_drpOpt'" data-bs-toggle="dropdown" aria-expanded="false">
-            </button>
-            <ul class="dropdown-menu" :aria-labelledby="yearGroup.year+getMonthName(monthGroup.month)+'_drpOpt'">
-            <li>
-                <button class="dropdown-item" type="button" 
-                        @click="$emit('add-after-month', {year: yearGroup.year, month: monthGroup.month})">
-                <i class="fa fa-arrow-down"></i> <span> Copy To Next Month (Beta) </span>
+    <div class="col-12">
+        <div class="card-title text-uppercase text-center mt-2">
+            <h5 class="mb-0 mx-2 d-inline">{{getMonthName(monthGroup.month)}} - {{yearGroup.year}}</h5>
+            <div class="dropdown d-inline" v-if="isFirstOrLast({year: yearGroup.year, month: monthGroup.month})">
+                <button class="btn btn-xs dropdown-toggle mb-0 ms-2 px-2 py-1 bg-gradient-success" 
+                        style="padding: 0.275rem 1rem"
+                        type="button" 
+                        :id="yearGroup.year+getMonthName(monthGroup.month)+'_drpOpt'" data-bs-toggle="dropdown" aria-expanded="false">
                 </button>
-            </li>
-            <li>
-                <button class="dropdown-item" type="button" 
-                        @click="$emit('delete-month', {year: yearGroup.year, month: monthGroup.month})">
-                <i class="fa fa-trash"></i> 
-                    <span> 
-                        Remove This Month ({{getMonthName(monthGroup.month) }} - {{yearGroup.year}}) 
-                    </span> 
-                </button>
-            </li>
-            </ul>
+                <ul class="dropdown-menu" :aria-labelledby="yearGroup.year+getMonthName(monthGroup.month)+'_drpOpt'">
+                <li>
+                    <button class="dropdown-item" type="button" 
+                            @click="$emit('add-after-month', {year: yearGroup.year, month: monthGroup.month})">
+                    <i class="fa fa-arrow-down"></i> <span> Copy To Next Month (Beta) </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="dropdown-item" type="button" 
+                            @click="$emit('delete-month', {year: yearGroup.year, month: monthGroup.month})">
+                    <i class="fa fa-trash"></i> 
+                        <span> 
+                            Remove This Month ({{getMonthName(monthGroup.month) }} - {{yearGroup.year}}) 
+                        </span> 
+                    </button>
+                </li>
+                </ul>
+            </div>
         </div>
-    </span>
+    </div>
     
 </template>
 
