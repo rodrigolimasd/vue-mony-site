@@ -8,7 +8,7 @@
                             <div class="card-header pb-0 p-3">
                                 <div class="row">
                                     <div class="col-6 d-flex align-items-center">
-                                        <h6 class="mb-0">Accounts</h6>
+                                        <h4 class="mb-0">Accounts</h4>
                                     </div>
                                     <div class="col-6 text-end">
                                         <argon-button 
