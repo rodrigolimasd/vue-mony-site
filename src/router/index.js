@@ -6,7 +6,6 @@ import CreditCard from "../views/CreditCard"
 import CreditCardNewOrEdit from "../views/CreditCard/NewOrEdit"
 import Invoice from "../views/CreditCard/Invoice"
 
-import FormTest from "../views/FormTest"
 import Profile from "../views/Profile.vue"
 import Signup from "../views/Signup.vue"
 import Signin from "../views/Signin.vue"
@@ -68,11 +67,6 @@ const routes = [
     path: "/signup",
     name: "Signup",
     component: Signup,
-  },
-  {
-    path: "/test",
-    name: "Test",
-    component: FormTest
   }
 ]
 
