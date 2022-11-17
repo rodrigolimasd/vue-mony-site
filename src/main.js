@@ -6,7 +6,6 @@ import "./assets/css/nucleo-icons.css";
 import "./assets/css/nucleo-svg.css";
 import "./assets/css/general.css";
 import ArgonDashboard from "./argon-dashboard";
-//import "bootstrap/dist/js/bootstrap.min.js";
 
 import filters from './helpers/filters'
 import decimal from './directives/decimal'
