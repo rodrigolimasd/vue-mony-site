@@ -8,7 +8,6 @@ import Invoice from "../views/CreditCard/Invoice"
 
 import Billing from "../views/Billing.vue"
 import FormTest from "../views/FormTest"
-import VirtualReality from "../views/VirtualReality.vue"
 import Profile from "../views/Profile.vue"
 import Signup from "../views/Signup.vue"
 import Signin from "../views/Signin.vue"
@@ -60,11 +59,6 @@ const routes = [
     path: "/billing",
     name: "Billing",
     component: Billing,
-  },
-  {
-    path: "/virtual-reality",
-    name: "Virtual Reality",
-    component: VirtualReality,
   },
   {
     path: "/profile",
