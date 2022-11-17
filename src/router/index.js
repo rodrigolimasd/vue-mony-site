@@ -6,7 +6,6 @@ import CreditCard from "../views/CreditCard"
 import CreditCardNewOrEdit from "../views/CreditCard/NewOrEdit"
 import Invoice from "../views/CreditCard/Invoice"
 
-import Billing from "../views/Billing.vue"
 import FormTest from "../views/FormTest"
 import Profile from "../views/Profile.vue"
 import Signup from "../views/Signup.vue"
@@ -54,11 +53,6 @@ const routes = [
     name: "Invoice",
     component: Invoice,
     props: true
-  },
-  {
-    path: "/billing",
-    name: "Billing",
-    component: Billing,
   },
   {
     path: "/profile",
