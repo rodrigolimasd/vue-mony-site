@@ -7,7 +7,6 @@ import CreditCardNewOrEdit from "../views/CreditCard/NewOrEdit"
 import Invoice from "../views/CreditCard/Invoice"
 
 import Billing from "../views/Billing.vue"
-import Tables from "../views/Tables.vue"
 import FormTest from "../views/FormTest"
 import VirtualReality from "../views/VirtualReality.vue"
 import Profile from "../views/Profile.vue"
@@ -56,12 +55,6 @@ const routes = [
     name: "Invoice",
     component: Invoice,
     props: true
-  },
-
-  {
-    path: "/tables",
-    name: "Tables",
-    component: Tables,
   },
   {
     path: "/billing",
