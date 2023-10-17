@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import Datepicker from 'vuejs3-datepicker'
+//import Datepicker from 'vuejs3-datepicker'
 
 export default {
     props:['purchase'],

@@ -60,19 +60,19 @@ export default {
         schedules: recoveryStorageJson(),
     },
     getters: {
-     lastBalance(state, getters, rootState){
+     lastBalance(state){
         let today = new Date()
         let last = getLast(state.schedules, today)
         return last ? last.balanceValue : 0
       },
-      lastTransactionActualMonth(state, getters, rootState){
+      lastTransactionActualMonth(state){
         let today = new Date()
         let index = state.schedules.indexOf(getLast(state.schedules, today))
         return state.schedules.slice(index, index + 7)
       }
     },
     mutations: {
-        addSchedule(state, payload) {
+        addSchedule(state) {
           state.schedules.push({
             date: new Date(),
             income: 0,

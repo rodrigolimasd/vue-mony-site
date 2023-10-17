@@ -1,10 +1,10 @@
 <template>
     <div class="col-2 col-sm-1">
         <div>
-            <datepicker :wrapper-class="'wrapper-class-calendar mx-1'" v-model="value.date"
+            <!-- <datepicker :wrapper-class="'wrapper-class-calendar mx-1'" v-model="value.date"
                 :calendar-button-icon="'fa fa-calendar icon-calendar'" :value="value.date" format=""
                 :calendar-button="true" data-bs-toggle="tooltip" title="Click To Change Date">
-            </datepicker>
+            </datepicker> -->
 
             <span class="text-nowrap text-bold text-secondary text-flex">
                 {{getDay(value.date)}}
@@ -56,15 +56,15 @@
 </template>
 
 <script>
-import Datepicker from 'vuejs3-datepicker'
+//import Datepicker from 'vuejs3-datepicker'
 
 export default {
     inheritAttrs:false,
     props: ['modelValue','index'],
     emits: ['update:modelValue', 'add-before-schedule', 'add-after-schdule', 'remove-schedule','update-schedule'],
-    components: {
-        Datepicker
-    },
+    // components: {
+    //     Datepicker
+    // },
     computed: {
         value: {
             get() {

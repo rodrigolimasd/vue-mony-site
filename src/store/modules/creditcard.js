@@ -1,3 +1,5 @@
+import { createStore } from 'vuex'
+
 const saveStorageJson = (state) => {
     localStorage.setItem('mony-creditcards', JSON.stringify(state.creditCards))
 }
@@ -10,7 +12,7 @@ const recoveryStorageJson = () => {
     return []
 }
 
-export default {
+export default createStore({
     state: {
         creditCards: recoveryStorageJson()
     },
@@ -21,7 +23,7 @@ export default {
             payload.id = index+1;
             saveStorageJson(state)
         },
-        updateCreditCard(state, payload) {
+        updateCreditCard(state) {
             saveStorageJson(state)
         },
         removeCreditCard(state, payload){
@@ -30,7 +32,7 @@ export default {
             saveStorageJson(state)
         },
     }
-}
+})
 
 /*
         //    {

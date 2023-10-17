@@ -16,14 +16,14 @@ export default {
         accounts: recoveryStorageJson()
     },
     getters: {
-        totalBalance(state, getters, rootState) {
+        totalBalance(state) {
             return state.accounts.map(p => 
                 isNaN(Number(p.amount)) ? 0 : Number(p.amount))
                 .reduce((total, actual) => total + actual, 0)
         }
     },
     mutations: {
-        addAccount(state, payload) {
+        addAccount(state) {
             state.accounts.splice(0, 0, {
                 classIcon: "fa-landmark",
                 title: "",
